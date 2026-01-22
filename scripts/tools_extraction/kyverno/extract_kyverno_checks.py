@@ -215,24 +215,23 @@ def build_optional_clause(parent, allowed_values, kind_prefixes):
     return clauses if len(clauses) > 1 else clauses[0]
 
 
-
 def handle_annotation_with_wildcard(key: str, value: str, prefix: str):
     """
     Genera pares (feature_path, value) para anotaciones con wildcard (como AppArmor).
     Compatible con el flujo original de extract_constraints_from_policy().
     """
-    clean_key = key.strip("=() ").replace("/*", "").replace(".", "_")
+    clean_key = key.strip("=() ").replace("/*", "").replace(".", "_").replace("X(", "").replace(")", "")
     key_feature = f"{prefix}_KeyMap"
     value_feature = f"{prefix}_ValueMap"
-    #print(f"key feature and value feature   {key_feature}   {value_feature}")
+    print(f"key feature and value feature   {key_feature}   {value_feature}")
     # Dividir valores del patrón tipo "runtime/default | localhost/*"
     values = [v.strip().replace("/*", "").replace(".", "_") for v in value.split("|")]
 
     pairs = [] ## dict?
     for v in values:
         # Cada valor posible genera dos pares: uno para la clave, otro para el valor
-        pairs.append((key_feature, f"'{clean_key}'"))
-        pairs.append((value_feature, f"'{v}'"))
+        pairs.append((key_feature, f"{clean_key}"))
+        pairs.append((value_feature, f"{v}"))
         #pairs.append((f"{key_feature} '{clean_key}'" ,f"{value_feature} '{v}'"))
     print(f"[Wildcard] Generados {len(pairs)} pares para {clean_key}: {pairs}")
     return pairs
@@ -253,19 +252,35 @@ def extract_conditions_from_metadata(obj, prefix="metadata", kind_prefixes=None)
                 for subkey, subval in v.items():
                     if '*' in subkey or '.' in subkey: ## Detect of the Key Value of the Pairs
                         # Caso de anotación con wildcard
+                        #if '!' in subval:
+                        #    subval = subval.replace("!", " ")
                         conditions.extend(
                             handle_annotation_with_wildcard(subkey, subval, new_prefix)
                         )
                     else:
                         # Anotación fija (sin wildcard)
                         key_feature = f"{new_prefix}{sanitize(subkey)}"
-                        conditions.append((key_feature, f"'{subval}'"))
+                        conditions.append((key_feature, f"{subval}"))
+            elif key == "labels" and isinstance(v, dict):
+                print(f"detect CASE ANNOTATIONS {v}")
+                for subkey, subval in v.items():
+                    if '*' in subkey or '.' in subkey or '-' in subkey or '*' in subval: ## Detect of the Key Value of the Pairs ## or '-' in subval
+                        # Caso de anotación con wildcard
+
+                        conditions.extend(
+                            handle_annotation_with_wildcard(subkey, subval, new_prefix)
+                        )
+                    else:
+                        print(f"NO CASE ANNOTATIONS {subkey} {subval}")
+                        # Anotación fija (sin wildcard)
+                        key_feature = f"{new_prefix}{sanitize(subkey)}"
+                        conditions.append((key_feature, f"{subval}"))
             else:
                 # Otro tipo de clave bajo metadata (p. ej., name, labels)
                 #key = k.strip("=() ")
                 full_key = f"{prefix}_{sanitize(key)}"
                 #print(f"Full key else:  {full_key}")
-                conditions.append((full_key, f"'{v}'"))
+                conditions.append((full_key, f"{v}"))
         #print(f"Conditions: {conditions}     {optional_clauses}")
     return conditions, optional_clauses
 
@@ -374,7 +389,7 @@ def extract_constraints_from_policy(filepath):
                     elif str(v).lower() == "true":
                         expr = f"{feature} = true"
                     elif re.match(r"^\d+(\.\d+)?$", str(v).strip()):
-                        expr = f"{feature} = {v}"
+                        expr = f"{feature} == {v}"
                     else:
                         if v is None or str(v).lower() == "null":
                             print(f"Expr flatten distarcet null: !{feature}")
@@ -417,7 +432,7 @@ def extract_constraints_from_policy(filepath):
                     elif operator.lower() == "anyin":
                         expr = f"{full_feature} == '{value}'"  # simplificado
                     else:
-                        expr = f"{full_feature} = '{value}'"
+                        expr = f"{full_feature} == {value}"
 
                     grouped_conditions.setdefault(name, []).append(expr)
             continue
@@ -472,19 +487,19 @@ def extract_constraints_from_policy(filepath):
                     base_prefix = get_base_prefix(kind_prefix)
                     full_feature = f"{base_prefix}.{sanitize(kind_prefix + path)}" ## se usa el kind_prefix encontrado. Se agrega aqui tb el prefijo de metadata..
                     #full_feature = f"Pod.{sanitize(kind_prefix + path)}" ## Deff of features from fm Kubernetes
-                    #print(f"EXPECTED:   {expected}  {base_prefix}")
+                    print(f"EXPECTED:   {expected}  {base_prefix}")
                     if expected == "null":
                         expr = f"!{full_feature}"
                     elif expected == "false": ## expected in ("true", "false"):
                         expr = f"{full_feature} = {expected}"
-                    elif expected == True: ## Case of True; readOnlyRootFilesystem 
+                    elif expected == True or expected == "true": ## Case of True; readOnlyRootFilesystem 
                         expr = f"{full_feature}"
                     else:
                         #if isinstance(expected, str) and expected.startswith("'!"):
                         #    print(f"CASO ESPECIAL STR NEGADO    {expected}")
                         # Si es un número (int o float), usar un único '='
                         if re.match(r"^\d+(\.\d+)?$", str(expected).strip()):
-                            expr = f"{full_feature} = {expected}"
+                            expr = f"{full_feature} == {expected}"
                         else:
                             if optional_clauses_from_spec:
                                 continue
@@ -492,6 +507,8 @@ def extract_constraints_from_policy(filepath):
                             if '!' in expected:
                                 aux_expected = expected.replace("!", "")
                                 expr = f"{full_feature} != '{aux_expected}'"
+                            elif isinstance(expected, str) and not '<' in expected and not '>' in expected:
+                                expr = f"{full_feature} == '{expected}'"
                             else:
                                 expr = f"{full_feature} == {expected}"
 
@@ -634,7 +651,8 @@ def extract_conditions_from_spec(obj, prefix="spec", kind_prefixes = None):
                         optional_clauses.extend(clauses)
                     else:
                         optional_clauses.append(clauses)                                     
-            
+            elif new_prefix.endswith('securityContext_supplementalGroups'): ## Specific case for the personality modification of the representation of the Integer Arrays:: Build the two cases
+                new_prefix = f"{new_prefix}_IntegerValue"
             if isinstance(v, dict):
                 #conditions.extend(extract_conditions_from_spec(v, new_prefix))
                 #¡print(f"V IF V   {v}   {new_prefix}")
@@ -699,7 +717,7 @@ def extract_conditions_from_spec(obj, prefix="spec", kind_prefixes = None):
                               
                         if new_prefix.endswith('spec_maxUnavailable'): ## specific case for alternatyve types values; asString, asInteger
                             new_prefix = f"{new_prefix}_asInteger" if isinstance(value_int, int) else f"{new_prefix}_asString"
-                    
+
                     else: ## fallback
                         if '.' in v: ## Remove the points in values of strings
                             v = v.replace('.', '_')
