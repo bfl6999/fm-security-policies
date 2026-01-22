@@ -52,7 +52,7 @@ def generate_uvl_from_policies(directory, output_path):
 
     #lines = ["namespace PoliciesKyverno", "features", "\tPolicies {abstract}", "\t\toptional"]
     lines = ["namespace Policies", "imports", "    k8s.Pod as Pod\n    k8s.ServiceAccount as ServAcc\n    k8s.RoleBinding as RoleBinding\n    k8s.ClusterRoleBinding as ClusRole\n    k8s.Service as Serv\n    k8s.Ingress as Ingress\n    k8s.Job as Job\n    k8s.DaemonSet as DaemonSet\n    k8s.Deployment as Deployment\n    k8s.StatefulSet as StatefulSet\n    k8s.Secret as Secret\n    k8s.PersistentVolumeClaim as PersistVolumeClaim\n"
-    "    k8s.PodDisruptionBudget as PodDisrupBud\n    k8s.CronJob as CronJob\n    k8s.ReplicaSet as ReplicaSet\n    k8s.ReplicationController as RepController\n    k8s.Container as Container\n    k8s.PodList as PodList\n    k8s.PodTemplate as PodTemplate\n    k8s.PodTemplateList as PodTemplateList\n    k8s.PodTemplateSpec as PodTemplateSpec\n    k8s.HorizontalPodAutoscaler as HorizontalPodAutoscaler",
+    "    k8s.PodDisruptionBudget as PodDisrupBud\n    k8s.CronJob as CronJob\n    k8s.ReplicaSet as ReplicaSet\n    k8s.ReplicationController as RepController\n    k8s.Container as Container\n    k8s.PodList as PodList\n    k8s.PodTemplate as PodTemplate\n    k8s.PodTemplateList as PodTemplateList\n    k8s.PodTemplateSpec as PodTemplateSpec\n    k8s.HorizontalPodAutoscaler as HorizontalPodAutoscaler\n    k8s.Namespace as Namespace\n    k8s.PersistentVolume as PersistentVolume\n    k8s.StorageClass as StorageClass",
     "features", "\tPoliciesKubernetes {abstract}", "\t\toptional"] ## RepController
     
     #opa_results = parse_opa_directory("../resources/OPA_Policies")
@@ -125,6 +125,9 @@ def generate_uvl_from_policies(directory, output_path):
     lines.append("\t\t\tPodTemplateList.PodTemplateListFeatures")
     lines.append("\t\t\tPodTemplateSpec.PodTemplateSpecFeatures") #PodTemplateFeatures
     lines.append("\t\t\tHorizontalPodAutoscaler.HorizontalPodAutoscalerFeatures")
+    lines.append("\t\t\tNamespace.NamespaceFeatures")
+    lines.append("\t\t\tPersistentVolume.PersistentVolumeFeatures")
+    lines.append("\t\t\tStorageClass.StorageClassFeatures")
 
     lines.append("constraints")
     # Recolectar todos los archivos YAML del directorio principal y subcarpetas (recursivo)

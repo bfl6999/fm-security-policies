@@ -38,7 +38,13 @@ def get_base_prefix(kind_prefix):
     elif "PersistentVolumeClaim" in kind_prefix:
         return "PersistVolumeClaim" ## PodDisruptionBudgetFeatures
     elif "PodDisruptionBudget" in kind_prefix:
-        return "PodDisrupBud"    
+        return "PodDisrupBud"
+    elif "Namespace" in kind_prefix:
+        return "Namespace"
+    elif "PersistentVolume" in kind_prefix:
+        return "PersistentVolume"
+    elif "StorageClass" in kind_prefix:
+        return "StorageClass"
     else:
         return "Kubernetes"
     

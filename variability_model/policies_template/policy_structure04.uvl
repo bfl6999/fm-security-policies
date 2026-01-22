@@ -22,6 +22,9 @@ imports
     k8s.PodTemplateList as PodTemplateList
     k8s.PodTemplateSpec as PodTemplateSpec
     k8s.HorizontalPodAutoscaler as HorizontalPodAutoscaler
+    k8s.Namespace as Namespace
+    k8s.PersistentVolume as PersistentVolume
+    k8s.StorageClass as StorageClass
 features
 	PoliciesKubernetes {abstract}
 		optional
@@ -195,6 +198,9 @@ features
 			PodTemplateList.PodTemplateListFeatures
 			PodTemplateSpec.PodTemplateSpecFeatures
 			HorizontalPodAutoscaler.HorizontalPodAutoscalerFeatures
+			Namespace.NamespaceFeatures
+			PersistentVolume.PersistentVolumeFeatures
+			StorageClass.StorageClassFeatures
 constraints
 	Require_aws_node_DaemonSet_use_IRSA => DaemonSet.io_k8s_api_apps_v1_DaemonSet_spec_template_spec_serviceAccountName != 'aws-node'
 	Require_Encryption_with_AWS_LoadBalancers => (Serv.io_k8s_api_core_v1_Service_metadata_annotations_KeyMap == 'service_beta_kubernetes_io/aws-load-balancer-ssl-cert' & Serv.io_k8s_api_core_v1_Service_metadata_annotations_ValueMap == '?*') | (Serv.io_k8s_api_core_v1_Service_spec_type_LoadBalancer)
@@ -204,19 +210,19 @@ constraints
 	Restrict_Image_Registries => (Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_image == 'eu_foo_io/* | bar_io/*' & Pod.io_k8s_api_core_v1_Pod_spec_initContainers_image == 'eu_foo_io/* | bar_io/*' & Pod.io_k8s_api_core_v1_Pod_spec_containers_image == 'eu_foo_io/* | bar_io/*')
 	Disallow_NodePort => !Serv.io_k8s_api_core_v1_Service_spec_type_NodePort
 	Restrict_External_IPs => !Serv.io_k8s_api_core_v1_Service_spec_externalIPs
-	Enforce_Istio_Ambient_Mode => (Kubernetes.io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap == 'istio_io/dataplane-mode' & Kubernetes.io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap == 'ambient')
-	Enforce_Istio_Sidecar_Injection => (Kubernetes.io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap == 'istio-injection' & Kubernetes.io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap == 'enabled')
+	Enforce_Istio_Ambient_Mode => (Namespace.io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap == 'istio_io/dataplane-mode' & Namespace.io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap == 'ambient')
+	Enforce_Istio_Sidecar_Injection => (Namespace.io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap == 'istio-injection' & Namespace.io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap == 'enabled')
 	Prevent_Disabling_Istio_Sidecar_Injection => (Pod.io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap == 'sidecar_istio_io/inject' & Pod.io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap != 'false')
 	Require_Kubecost_Labels => (Pod.io_k8s_api_core_v1_Pod_metadata_labels_KeyMap == 'owner' & Pod.io_k8s_api_core_v1_Pod_metadata_labels_ValueMap == '?*') | (Pod.io_k8s_api_core_v1_Pod_metadata_labels_KeyMap == 'team' & Pod.io_k8s_api_core_v1_Pod_metadata_labels_ValueMap == '?*') | (Pod.io_k8s_api_core_v1_Pod_metadata_labels_KeyMap == 'department' & Pod.io_k8s_api_core_v1_Pod_metadata_labels_ValueMap == '?*') | (Pod.io_k8s_api_core_v1_Pod_metadata_labels_KeyMap == 'app' & Pod.io_k8s_api_core_v1_Pod_metadata_labels_ValueMap == '?*') | (Pod.io_k8s_api_core_v1_Pod_metadata_labels_KeyMap == 'env' & Pod.io_k8s_api_core_v1_Pod_metadata_labels_ValueMap == '?*')
 	Prevent_Linkerd_Pod_Injection_Override => (Pod.io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap == 'linkerd_io/inject' & Pod.io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap != 'disabled')
-	Require_Linkerd_Mesh_Injection => (Kubernetes.io_k8s_api_core_v1_Namespace_metadata_annotations_KeyMap == 'linkerd_io/inject' & Kubernetes.io_k8s_api_core_v1_Namespace_metadata_annotations_ValueMap == 'enabled')
+	Require_Linkerd_Mesh_Injection => (Namespace.io_k8s_api_core_v1_Namespace_metadata_annotations_KeyMap == 'linkerd_io/inject' & Namespace.io_k8s_api_core_v1_Namespace_metadata_annotations_ValueMap == 'enabled')
 	Block_Ephemeral_Containers => !Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers
 	Check_Environment_Variables => (Pod.io_k8s_api_core_v1_Pod_spec_containers_name == '*' & Pod.io_k8s_api_core_v1_Pod_spec_containers_env_name == 'DISABLE_OPA' & Pod.io_k8s_api_core_v1_Pod_spec_containers_env_value != 'true')
 	Deny_Secret_Service_Account_Token_Type => Secret.io_k8s_api_core_v1_Secret_type != 'kubernetes_io/service-account-token'
 	Disallow_Localhost_ExternalName_Services => (Serv.io_k8s_api_core_v1_Service_spec_type_ExternalName & Serv.io_k8s_api_core_v1_Service_spec_externalName != 'localhost')
 	Docker_Socket_Requires_Label => (Pod.io_k8s_api_core_v1_Pod_metadata_labels_KeyMap == 'allow-docker' & Pod.io_k8s_api_core_v1_Pod_metadata_labels_ValueMap) | (Pod.io_k8s_api_core_v1_Pod_spec_volumes_hostPath_path == '/var/run/docker_sock')
 	Enforce_ReadWriteOncePod => PersistVolumeClaim.io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue == 'ReadWriteOncePod'
-	Limit_hostPath_PersistentVolumes_to_Specific_Directories => Kubernetes.io_k8s_api_core_v1_PersistentVolume_spec_hostPath_path == '/data*'
+	Limit_hostPath_PersistentVolumes_to_Specific_Directories => PersistentVolume.io_k8s_api_core_v1_PersistentVolume_spec_hostPath_path == '/data*'
 	PodDisruptionBudget_maxUnavailable_Non_Zero => PodDisrupBud.io_k8s_api_policy_v1_PodDisruptionBudget_spec_maxUnavailable_asInteger > 0
 	Prevent_cr8escape_CVE_2022_0811 => Pod.io_k8s_api_core_v1_Pod_spec_securityContext_sysctls_value != '*+* & *=*'
 	Require_Annotations => (Pod.io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap == 'corp_org/department' & Pod.io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap == '?*')
@@ -237,7 +243,7 @@ constraints
 	Restrict_node_selection => (!Pod.io_k8s_api_core_v1_Pod_spec_nodeSelector & !Pod.io_k8s_api_core_v1_Pod_spec_nodeName)
 	Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account => !ServAcc.io_k8s_api_core_v1_ServiceAccount_automountServiceAccountToken
 	Restrict_Service_Port_Range => (Serv.io_k8s_api_core_v1_Service_spec_ports_port > 31999 & Serv.io_k8s_api_core_v1_Service_spec_ports_port < 33001)
-	Restrict_StorageClass => Kubernetes.io_k8s_api_storage_v1_StorageClass_reclaimPolicy == 'Delete'
+	Restrict_StorageClass => StorageClass.io_k8s_api_storage_v1_StorageClass_reclaimPolicy == 'Delete'
 	Validate_User_ID_Group_ID_and_FS_Group => (Pod.io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser == 1000 & Pod.io_k8s_api_core_v1_Pod_spec_securityContext_runAsGroup == 3000 & Pod.io_k8s_api_core_v1_Pod_spec_securityContext_fsGroup == 2000)
 	Disallow_Host_Namespaces => (!Pod.io_k8s_api_core_v1_Pod_spec_hostPID & !Pod.io_k8s_api_core_v1_Pod_spec_hostIPC & !Pod.io_k8s_api_core_v1_Pod_spec_hostNetwork)
 	Disallow_hostPath => !Pod.io_k8s_api_core_v1_Pod_spec_volumes_hostPath
@@ -250,7 +256,7 @@ constraints
 	Require_Run_As_Non_Root_User => (Pod.io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser > 0 & Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_runAsUser > 0 & Pod.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_runAsUser > 0 & Pod.io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser > 0)
 	Restrict_AppArmor => (Pod.io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap == 'container_apparmor_security_beta_kubernetes_io' & Pod.io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap == 'runtime/default') | (Pod.io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap == 'container_apparmor_security_beta_kubernetes_io' & Pod.io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap == 'localhost')
 	Restrict_Seccomp => ((!Pod.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type | (Pod.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type => Pod.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_RuntimeDefault | Pod.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Localhost)) & (!Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type | (Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type => Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault | Pod.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost)) & (!Pod.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type | (Pod.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type => Pod.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault | Pod.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_Localhost)) & (!Pod.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type | (Pod.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type => Pod.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_RuntimeDefault | Pod.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_Localhost)))
-	Add_PSA_Namespace_Reporting => (Kubernetes.io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap == 'pod-security_kubernetes_io' & Kubernetes.io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap == '?*')
+	Add_PSA_Namespace_Reporting => (Namespace.io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap == 'pod-security_kubernetes_io' & Namespace.io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap == '?*')
 	Check_supplementalGroups => (Pod.io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroups_IntegerValue > 99 & Pod.io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroups_IntegerValue < 201)
 	Require_Run_As_ContainerUser_Windows => (Pod.io_k8s_api_core_v1_Pod_spec_securityContext_windowsOptions_runAsUserName == 'ContainerUser' & Pod.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_windowsOptions_runAsUserName == 'ContainerUser' & Pod.io_k8s_api_core_v1_Pod_spec_containers_securityContext_windowsOptions_runAsUserName == 'ContainerUser')
 	no_shared_ipc_namespace => !CronJob.io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_hostIPC & !DaemonSet.io_k8s_api_apps_v1_DaemonSet_spec_template_spec_hostIPC & !Deployment.io_k8s_api_apps_v1_Deployment_spec_template_spec_hostIPC & !Job.io_k8s_api_batch_v1_Job_spec_template_spec_hostIPC & !ReplicaSet.io_k8s_api_apps_v1_ReplicaSet_spec_template_spec_hostIPC & !RepController.io_k8s_api_core_v1_ReplicationController_spec_template_spec_hostIPC & !StatefulSet.io_k8s_api_apps_v1_StatefulSet_spec_template_spec_hostIPC
