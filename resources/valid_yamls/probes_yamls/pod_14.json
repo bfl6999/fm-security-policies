@@ -1,0 +1,58 @@
+{
+    "filename": "pod_14.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "dependent-envars-demo"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "dependent-envars-demo",
+                    "io_k8s_api_core_v1_Pod_spec_containers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "while true; do echo -en '\\n'; printf UNCHANGED_REFERENCE=$UNCHANGED_REFERENCE'\\n'; printf SERVICE_ADDRESS=$SERVICE_ADDRESS'\\n';printf ESCAPED_REFERENCE=$ESCAPED_REFERENCE'\\n'; sleep 30; done;"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "-c"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox:1.28",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "SERVICE_PORT",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "80"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "SERVICE_IP",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "172.17.0.1"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "UNCHANGED_REFERENCE",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "$(PROTOCOL)://$(SERVICE_IP):$(SERVICE_PORT)"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "PROTOCOL",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "https"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "SERVICE_ADDRESS",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "$(PROTOCOL)://$(SERVICE_IP):$(SERVICE_PORT)"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "ESCAPED_REFERENCE",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "$$(PROTOCOL)://$(SERVICE_IP):$(SERVICE_PORT)"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

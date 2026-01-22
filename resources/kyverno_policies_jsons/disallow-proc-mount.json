@@ -1,0 +1,37 @@
+{
+    "filename": "disallow-proc-mount.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "kyverno_io_v1_ClusterPolicy_apiVersion": "kyverno.io/v1",
+        "kyverno_io_v1_ClusterPolicy_kind": "ClusterPolicy",
+        "kyverno_io_v1_ClusterPolicy_metadata": true,
+        "kyverno_io_v1_ClusterPolicy_spec": {
+            "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction": {
+                "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction_Audit": true
+            },
+            "kyverno_io_v1_ClusterPolicy_spec_background": true,
+            "kyverno_io_v1_ClusterPolicy_spec_rules": [
+                {
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_name": "check-proc-mount",
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_match": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_match_any": [
+                            {
+                                "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources": {
+                                    "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds": [
+                                        {
+                                            "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds_StringValue": "Pod"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_validate": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_message": "Changing the proc mount from the default is not allowed. The fields spec.containers[*].securityContext.procMount, spec.initContainers[*].securityContext.procMount, and spec.ephemeralContainers[*].securityContext.procMount must be unset or set to `Default`.",
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_pattern": true
+                    }
+                }
+            ]
+        }
+    }
+}

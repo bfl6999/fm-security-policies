@@ -1,0 +1,34 @@
+{
+    "filename": "Pod_122.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "server"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "nginx",
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "nginx",
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/mypath",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "git-volume"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "git-volume",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_gitRepo": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_gitRepo_repository": "git@somewhere:me/my-git-repository.git",
+                        "io_k8s_api_core_v1_Pod_spec_volumes_gitRepo_revision": "22f1d8406d464b0c0874075539c1f2e96c253775"
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "policies": {
+        "Disallow_Host_Namespaces": true,
+        "Disallow_hostPath": true,
+        "Disallow_Privileged_Containers": true
+    }
+}

@@ -1,0 +1,87 @@
+{
+    "filename": "pod959_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "dash0-operator-jvm-spring-boot-test-pod",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "dash0-operator-jvm-spring-boot-test-pod-app"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_metadata_annotations": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap": "prometheus.io/scrape",
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap": "true"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap": "prometheus.io/port",
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap": "1311"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "dash0-operator-jvm-spring-boot-test-pod-app",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "dash0-operator-jvm-spring-boot-test-app:latest",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "PORT",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "1311"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "DASH0_DEBUG",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "true"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 1311
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "cpu:500m"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "memory:256Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "ephemeral-storage:500Mi"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "cpu:200m"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "memory:128Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "ephemeral-storage:500Mi"
+                            }
+                        ]
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_Never": true
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet": {
+                            "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_path": "/ready",
+                            "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_httpGet_port_asInteger": 1311
+                            }
+                        },
+                        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_initialDelaySeconds": 1,
+                        "io_k8s_api_core_v1_Pod_spec_containers_readinessProbe_periodSeconds": 1
+                    }
+                }
+            ]
+        }
+    }
+}

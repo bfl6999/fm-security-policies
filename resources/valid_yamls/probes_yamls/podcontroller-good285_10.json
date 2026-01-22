@@ -1,0 +1,70 @@
+{
+    "filename": "podcontroller-good285_10.yaml",
+    "apiVersion": "apps_v1",
+    "config": {
+        "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+        "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+        "io_k8s_api_apps_v1_Deployment_metadata": {
+            "io_k8s_api_apps_v1_Deployment_metadata_name": "gooddeployment11"
+        },
+        "io_k8s_api_apps_v1_Deployment_spec": {
+            "io_k8s_api_apps_v1_Deployment_spec_replicas": 1,
+            "io_k8s_api_apps_v1_Deployment_spec_selector": {
+                "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels": [
+                    {
+                        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap": "app",
+                        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_ValueMap": "app"
+                    }
+                ]
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_template": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_metadata": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_KeyMap": "app",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_ValueMap": "app"
+                        }
+                    ]
+                },
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "container01",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "busybox:1.35",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext": {
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_allowPrivilegeEscalation": false,
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_runAsNonRoot": true,
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile": {
+                                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type": {
+                                        "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_seccompProfile_type_RuntimeDefault": true
+                                    }
+                                },
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_capabilities": {
+                                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_capabilities_drop": [
+                                        {
+                                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_securityContext_capabilities_drop_StringValue": "ALL"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    ],
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_name": "udev",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir": {
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_emptyDir_isEmpty": true
+                            }
+                        },
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_name": "mysettings",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_configMap": {
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_configMap_name": "settings"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

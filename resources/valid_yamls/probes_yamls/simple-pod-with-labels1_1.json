@@ -1,0 +1,28 @@
+{
+    "filename": "simple-pod-with-labels1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Service_apiVersion": "v1",
+        "io_k8s_api_core_v1_Service_kind": "Service",
+        "io_k8s_api_core_v1_Service_metadata": {
+            "io_k8s_api_core_v1_Service_metadata_name": "ng-svc"
+        },
+        "io_k8s_api_core_v1_Service_spec": {
+            "io_k8s_api_core_v1_Service_spec_selector": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "target",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "dev"
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_ports": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_ports_port": 8100,
+                    "io_k8s_api_core_v1_Service_spec_ports_targetPort": {
+                        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asInteger": 80
+                    },
+                    "io_k8s_api_core_v1_Service_spec_ports_name": "web"
+                }
+            ]
+        }
+    }
+}

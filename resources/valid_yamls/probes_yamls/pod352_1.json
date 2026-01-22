@@ -1,0 +1,53 @@
+{
+    "filename": "pod352_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "my-pod"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "my-container",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "alpine:latest",
+                    "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent": true
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "-c"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "tail -f /dev/null"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "USERNAME",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef_name": "my-secret",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef_key": "username"
+                                }
+                            }
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "PASSWORD",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef_name": "my-secret",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef_key": "password"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+namespace PoliciesKyverno
+features
+	Policies {abstract}
+		optional
+      Pod-Security
+        optional
+          PodSecurity_Baseline
+            optional
+              PodSecurity_Baseline_disallow-capabilities
+                optional
+                  PodSecurity_Baseline_disallow-capabilities_v1_ClusterPolicy
+                    optional
+                      PodSecurity_Baseline_disallow-capabilities_v1_ClusterPolicy_apiVersion
+                      PodSecurity_Baseline_disallow-capabilities_v1_ClusterPolicy_kind
+                      PodSecurity_Baseline_disallow-capabilities_v1_ClusterPolicy_metadata
+              PodSecurity_Baseline_disallow-host-namespaces
+              PodSecurity_Baseline_disallow-host-path
+              PodSecurity_Baseline_disallow-host-ports-range
+              PodSecurity_Baseline_disallow-host-ports
+              PodSecurity_Baseline_disallow-host-process

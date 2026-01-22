@@ -1,0 +1,35 @@
+{
+    "filename": "simple-pod15_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Service_apiVersion": "v1",
+        "io_k8s_api_core_v1_Service_kind": "Service",
+        "io_k8s_api_core_v1_Service_metadata": {
+            "io_k8s_api_core_v1_Service_metadata_name": "simple-service-mbouranga"
+        },
+        "io_k8s_api_core_v1_Service_spec": {
+            "io_k8s_api_core_v1_Service_spec_selector": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "app",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "simple-pod-mbouranga"
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_ports": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_ports_protocol": {
+                        "io_k8s_api_core_v1_Service_spec_ports_protocol_TCP": true
+                    },
+                    "io_k8s_api_core_v1_Service_spec_ports_port": 3001,
+                    "io_k8s_api_core_v1_Service_spec_ports_targetPort": {
+                        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asInteger": 3001
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_externalIPs": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_externalIPs_StringValue": "4.225.114.230"
+                }
+            ]
+        }
+    }
+}

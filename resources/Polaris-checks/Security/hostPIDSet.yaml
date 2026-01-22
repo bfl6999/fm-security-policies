@@ -1,0 +1,14 @@
+successMessage: Host PID is not configured
+failureMessage: Host PID should not be configured
+category: Security
+target: PodSpec
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  properties:
+    hostPID:
+      not:
+        const: true
+mutations:
+  - op: remove
+    path: /hostPID

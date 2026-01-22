@@ -1,0 +1,79 @@
+{
+    "filename": "podcontroller-not-patched2_1.yaml",
+    "apiVersion": "apps_v1",
+    "config": {
+        "io_k8s_api_apps_v1_Deployment_apiVersion": "apps/v1",
+        "io_k8s_api_apps_v1_Deployment_kind": "Deployment",
+        "io_k8s_api_apps_v1_Deployment_metadata": {
+            "io_k8s_api_apps_v1_Deployment_metadata_labels": [
+                {
+                    "io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_apps_v1_Deployment_metadata_labels_ValueMap": "busybox"
+                }
+            ],
+            "io_k8s_api_apps_v1_Deployment_metadata_name": "deployment03",
+            "io_k8s_api_apps_v1_Deployment_metadata_namespace": "other-certvol-ns"
+        },
+        "io_k8s_api_apps_v1_Deployment_spec": {
+            "io_k8s_api_apps_v1_Deployment_spec_replicas": 1,
+            "io_k8s_api_apps_v1_Deployment_spec_selector": {
+                "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels": [
+                    {
+                        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap": "app",
+                        "io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_ValueMap": "busybox"
+                    }
+                ]
+            },
+            "io_k8s_api_apps_v1_Deployment_spec_strategy": {},
+            "io_k8s_api_apps_v1_Deployment_spec_template": {
+                "io_k8s_api_apps_v1_Deployment_spec_template_metadata": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_metadata_annotations": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_annotations_KeyMap": "foo",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_annotations_ValueMap": "bar"
+                        }
+                    ],
+                    "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_KeyMap": "app",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_metadata_labels_ValueMap": "busybox"
+                        }
+                    ]
+                },
+                "io_k8s_api_apps_v1_Deployment_spec_template_spec": {
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_automountServiceAccountToken": false,
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "bb-01",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "busybox:1.35",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts": [
+                                {
+                                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_name": "etc-ssl-certs",
+                                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_mountPath": "/etc/ssl/certs"
+                                }
+                            ]
+                        },
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_name": "bb-02",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_image": "busybox:1.35",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts": [
+                                {
+                                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_name": "etc-ssl-certs",
+                                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_volumeMounts_mountPath": "/etc/ssl/certs"
+                                }
+                            ]
+                        }
+                    ],
+                    "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes": [
+                        {
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_name": "etc-ssl-certs",
+                            "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_configMap": {
+                                "io_k8s_api_apps_v1_Deployment_spec_template_spec_volumes_configMap_name": "ca-pemstore"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

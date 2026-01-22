@@ -1,0 +1,30 @@
+{
+    "filename": "redis-pod95_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Service_apiVersion": "v1",
+        "io_k8s_api_core_v1_Service_kind": "Service",
+        "io_k8s_api_core_v1_Service_metadata": {
+            "io_k8s_api_core_v1_Service_metadata_name": "redis"
+        },
+        "io_k8s_api_core_v1_Service_spec": {
+            "io_k8s_api_core_v1_Service_spec_ports": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_ports_port": 6379,
+                    "io_k8s_api_core_v1_Service_spec_ports_targetPort": {
+                        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asInteger": 6379
+                    },
+                    "io_k8s_api_core_v1_Service_spec_ports_protocol": {
+                        "io_k8s_api_core_v1_Service_spec_ports_protocol_TCP": true
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_selector": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "app",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "redis"
+                }
+            ]
+        }
+    }
+}

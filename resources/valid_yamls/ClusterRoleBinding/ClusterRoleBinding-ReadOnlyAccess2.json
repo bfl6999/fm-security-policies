@@ -1,0 +1,24 @@
+{
+    "filename": "ClusterRoleBinding-ReadOnlyAccess2.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_kind": "ClusterRoleBinding",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_name": "aks-cluster-readonly-rolebinding"
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_kind": "ClusterRole",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_name": "aks-cluster-readonly-role"
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_Group": true
+                },
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_name": "e8f709f7-4029-4fdb-b786-d0af29445fc9"
+            }
+        ]
+    }
+}

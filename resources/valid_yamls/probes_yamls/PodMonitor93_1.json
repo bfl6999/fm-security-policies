@@ -1,0 +1,12 @@
+{
+    "filename": "PodMonitor93_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_ServiceAccount_apiVersion": "v1",
+        "io_k8s_api_core_v1_ServiceAccount_kind": "ServiceAccount",
+        "io_k8s_api_core_v1_ServiceAccount_metadata": {
+            "io_k8s_api_core_v1_ServiceAccount_metadata_name": "podmon-sa",
+            "io_k8s_api_core_v1_ServiceAccount_metadata_namespace": "podmonitor-ns"
+        }
+    }
+}

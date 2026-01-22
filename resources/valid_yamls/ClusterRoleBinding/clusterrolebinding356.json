@@ -1,0 +1,35 @@
+{
+    "filename": "clusterrolebinding356.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_kind": "ClusterRoleBinding",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_name": "istiod-clusterrole-istio-system",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels": [
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "istiod"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "release",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "test"
+                }
+            ]
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_kind": "ClusterRole",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_name": "istiod-clusterrole-istio-system"
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount": true
+                },
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_name": "istiod",
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_namespace": "istio-system"
+            }
+        ]
+    }
+}

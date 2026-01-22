@@ -1,0 +1,47 @@
+{
+    "filename": "podcontroller-good46_1.yaml",
+    "apiVersion": "batch_v1",
+    "config": {
+        "io_k8s_api_batch_v1_CronJob_apiVersion": "batch/v1",
+        "io_k8s_api_batch_v1_CronJob_kind": "CronJob",
+        "io_k8s_api_batch_v1_CronJob_metadata": {
+            "io_k8s_api_batch_v1_CronJob_metadata_name": "goodcronjob01-new"
+        },
+        "io_k8s_api_batch_v1_CronJob_spec": {
+            "io_k8s_api_batch_v1_CronJob_spec_schedule": "*/1 * * * *",
+            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate": {
+                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec": {
+                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template": {
+                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec": {
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy": {
+                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy_Never": true
+                            },
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext": {
+                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls": [
+                                    {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls_name": "kernel.shm_rmid_forced",
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls_value": "0"
+                                    },
+                                    {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls_name": "net.ipv4.ip_local_port_range",
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls_value": "5000-6000"
+                                    },
+                                    {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls_name": "net.ipv4.ip_unprivileged_port_start",
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_securityContext_sysctls_value": "60000"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers": [
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "busybox01",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "busybox:1.35"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

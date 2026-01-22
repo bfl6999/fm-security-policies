@@ -1,0 +1,37 @@
+{
+    "filename": "pod976_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Service_apiVersion": "v1",
+        "io_k8s_api_core_v1_Service_kind": "Service",
+        "io_k8s_api_core_v1_Service_metadata": {
+            "io_k8s_api_core_v1_Service_metadata_name": "example-headless"
+        },
+        "io_k8s_api_core_v1_Service_spec": {
+            "io_k8s_api_core_v1_Service_spec_clusterIP": {
+                "io_k8s_api_core_v1_Service_spec_clusterIP_None": true
+            },
+            "io_k8s_api_core_v1_Service_spec_selector": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "app",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "example"
+                },
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "env",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "dev"
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_ports": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_ports_protocol": {
+                        "io_k8s_api_core_v1_Service_spec_ports_protocol_TCP": true
+                    },
+                    "io_k8s_api_core_v1_Service_spec_ports_port": 80,
+                    "io_k8s_api_core_v1_Service_spec_ports_targetPort": {
+                        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asInteger": 80
+                    }
+                }
+            ]
+        }
+    }
+}

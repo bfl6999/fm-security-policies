@@ -1,0 +1,47 @@
+{
+    "filename": "podinfo-result_1.yaml",
+    "apiVersion": "autoscaling_v2",
+    "config": {
+        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_apiVersion": "autoscaling/v2",
+        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_kind": "HorizontalPodAutoscaler",
+        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata": {
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_labels": [
+                {
+                    "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_labels_KeyMap": "kustomize.toolkit.fluxcd.io/name",
+                    "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_labels_ValueMap": "podinfo"
+                },
+                {
+                    "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_labels_KeyMap": "kustomize.toolkit.fluxcd.io/namespace",
+                    "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_labels_ValueMap": "dynamic_parameters"
+                }
+            ],
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_name": "podinfo",
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_metadata_namespace": "default"
+        },
+        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec": {
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_maxReplicas": 4,
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics": [
+                {
+                    "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_resource": {
+                        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_resource_name": "cpu",
+                        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_resource_target": {
+                            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_resource_target_averageUtilization": 99,
+                            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_resource_target_type": {
+                                "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_resource_target_type_Utilization": true
+                            }
+                        }
+                    },
+                    "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_type": {
+                        "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_metrics_type_Resource": true
+                    }
+                }
+            ],
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_minReplicas": 2,
+            "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_scaleTargetRef": {
+                "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_scaleTargetRef_apiVersion": "apps/v1",
+                "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_scaleTargetRef_kind": "Deployment",
+                "io_k8s_api_autoscaling_v2_HorizontalPodAutoscaler_spec_scaleTargetRef_name": "podinfo"
+            }
+        }
+    }
+}

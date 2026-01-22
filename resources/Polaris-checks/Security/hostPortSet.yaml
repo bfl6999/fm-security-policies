@@ -1,0 +1,18 @@
+successMessage: Host port is not configured
+failureMessage: Host port should not be configured
+category: Security
+target: Container
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  required:
+  properties:
+    ports:
+      type: array
+      items:
+        properties:
+          hostPort:
+            const: 0
+mutations:
+  - op: remove
+    path: /ports/*/hostPort

@@ -1,0 +1,35 @@
+{
+    "filename": "podcontroller-good78_1.yaml",
+    "apiVersion": "batch_v1",
+    "config": {
+        "io_k8s_api_batch_v1_CronJob_apiVersion": "batch/v1",
+        "io_k8s_api_batch_v1_CronJob_kind": "CronJob",
+        "io_k8s_api_batch_v1_CronJob_metadata": {
+            "io_k8s_api_batch_v1_CronJob_metadata_name": "goodcronjob01"
+        },
+        "io_k8s_api_batch_v1_CronJob_spec": {
+            "io_k8s_api_batch_v1_CronJob_spec_schedule": "* * * * *",
+            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate": {
+                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec": {
+                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template": {
+                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec": {
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers": [
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "busybox",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "busybox@sha256:67a8ef886e2ca4055f00e7cd13aedb9b24148c1451a6832d16fcc997a157eedc"
+                                },
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "nginx",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "nginx@sha256:1bb5c4b86cb7c1e9f0209611dc2135d8a2c1c3a6436163970c99193787d067ea"
+                                }
+                            ],
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy": {
+                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy_OnFailure": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

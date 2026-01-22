@@ -1,0 +1,513 @@
+Modelado de los CRDs de kyverno definidos en:
+https://github.com/kyverno/kyverno/tree/main/config/crds
+
+schema:
+  openAPIV3Schema:
+define el inicio de la definicion de las propiedades del esquema. Se acompaña de la version a definir
+
+description y properties para cada definicion de una propiedad. La descripcion como se realizo en el de k8s
+se podria agregar como un atributo 'doc', properties sirve para saber que elemento tiene mas propiedades anidadas
+para reflejarlas. En lo que he visto se puede usar para definir profundidad en features.
+type, define el tipo de dato que se declara, util para definir el tipo de dato del feature
+enum, se puede definir como el oneOf, es decir un altenative con la seleccion de los 2 posibles valores ya que
+son valores predefinidos para utilizar/seleccionar.
+
+
+V1.
+generate_uvl_from_crd_yaml.py
+First version to convert CRDs definitions of kyverno to a valid fm
+
+-- Hecho
+Se define al final del todo del Objeto del schema, se necesita agregar el required del spec. 
+                required:
+                - generated
+                - message
+                type: object
+            type: object
+        required:
+        - spec
+        type: object
+-- Hecho
+
+-- Hecho
+Al tener enum y el tipo de la propiedad String hay que modificar manualmente el tipo de dato del feature para que sea Bool
+y permitir la seleccion entre estos 2 valores predefinidos que tambien son Bool.
+
+                enum:
+                - All
+                - One
+                type: string
+-- Hecho
+-- Hecho
+Eliminar los Boolean, en uvl no hace falta mostra el tipeo. Si se añade sin tipo ya se toma por defecto como bool
+-- Hecho
+Revisar como se usa y define el "items:". No es una propiedad, parece mas bien algo similar a que se define un comportamiento
+secundario de la propiedad principal. Podria ser facilmente para definir una prop como Array, se parece al items de k8s, omitir
+su representacion y usarlo como marca de Array--cardinality
+              rules:
+                description: |-
+                  Rules is a list of Rule instances. A Policy contains multiple rules and
+                  each rule can validate, mutate, or generate resources.
+                items:
+
+-- Hecho
+
+Expresion para buscar los arrays de strings; 
+items:\s*\n\s*type:\s*string
+
+items:  
+  type: string
+--
+
+Definir el not... como una constraint de exclusion mutua, donde se podria traducir a:
+!(name & names)
+name => !names | names => !name
+not:
+  required:
+  - name
+  - names
+
+
+
+                    context:
+                      description: Context defines variables and data sources that
+                        can be used during rule execution.
+                      items:
+                        description: |-
+                          ContextEntry adds variables and data sources to a rule Context. Either a
+                          ConfigMap reference or a APILookup must be provided.
+                        oneOf:
+                        - required:
+                          - configMap
+                        - required:
+                          - apiCall
+                        - required:
+                          - imageRegistry
+                        - required:
+                          - variable
+                        - required:
+                          - globalReference
+                        properties:
+                          apiCall:
+                            description: |-
+
+oneOf se traduce a alterenative tambien, al solo declarar una de las propiedades en cada required se da por hecho que solo se seleccionaria una
+: similar a modelar alternativas excluyentes. Cambiaria si en el required se definieran mas propiedades. Ex required: [configMap, apiCall]
+
+**Dude: Se puede definir un alternative + mandatory?
+alternative puede tener sub-features?
+
+-- Hecho
+Hay 2 tipos de additionalProperties, falta definir que tambien sirve para representar mas props bajo el additional...
+
+...validatingpolicies.yaml:
+          status:
+            description: Status contains policy runtime data.
+            properties:
+              autogen:
+                properties:
+                  configs:
+                    additionalProperties:
+                      properties:
+                        spec:
+                          description: ValidatingPolicySpec is the specification of
+                            the desired behavior of the ValidatingPolicy.
+                          properties:
+
+Caso del ClusterPolicy:
+                        imageExtractors:
+                          additionalProperties:
+                            items:
+                              properties:
+                                jmesPath:
+                                  description: |-
+
+metadata se usa en la definicion de las politicas de kyverno, segun pone en la doc es una referencia de metadata de k8s.
+Hacer import del objeto de k8s? 
+metadata:
+  name: disallow-host-namespaces
+  annotations:                
+
+En los CRD: 
+          metadata:
+            type: object
+
+Pero en la documentacion de la web se especifica, aunque la ref esta rota
+metadata
+Kubernetes meta/v1.ObjectMeta	Refer to the Kubernetes API documentation for the fields of the metadata field.
+
+Propiedades clave para las restricciones de las politicas.
+
+validate: ## Define casos de validacion, suelen ser comprobaciones de valores = o ==, faciles de traducir siguiendo
+el spec... se traduce encadenando props e igualando al valor...
+
+deny: ## Parece que define condiciones mas "complejas" que requieren de un mayor analisis
+Restricciones de rangos, lista de valores no permitidos...
+
+
+
+Integer Pod_spec_containers_ports_hostPort
+Integer io_k8s_api_core_v1_Pod_spec_ephemeralContainers_ports_hostPort {doc 'Number of port to expose on the host If specified, this must be a valid port number, 0 < x < 65536 If HostNetwork is specified, this must match ContainerPort Most containers do not need this'}
+Integer io_k8s_api_core_v1_Pod_spec_initContainers_ports_hostPort {doc 'Number of port to expose on the host If specified, this must be a valid port number, 0 < x < 65536 If HostNetwork is specified, this must match ContainerPort Most containers do not need this'}
+
+
+io_k8s_api_core_v1_Pod_spec_securityContext_windowsOptions_hostProcess {doc 'HostProcess determines if a container should be run as a _Host Process_ container All of a Pod_s containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers) In addition, if HostProcess is true then HostNetwork must also be set to true'}
+
+En disallow-proc-mount se referencia a procMount, yo lo defini como un Bool para agregar una restriccion entre reglas del SO. Se personalizo y agrego nameStr para no perder el String de definicion...
+.securityContext.procMount must be unset or
+          set to `Default`.
+											io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_procMount {abstract, doc 'procMount denotes the type of proc mount to use for the containers The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths This requires the ProcMountType feature flag to be enabled Note that this field cannot be set when specosname is windows'}
+												mandatory
+													String io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_procMount_nameStr {doc 'Added String mandatory for changing booleans of boolean_keywords: string *_name'}
+
+restrict-sysctls
+									io_k8s_api_core_v1_Pod_spec_securityContext_sysctls cardinality [1..*] {doc 'Sysctls hold a list of namespaced sysctls used for the pod Pods with unsupported sysctls (by the container runtime) might fail to launch Note that this field cannot be set when specosname is windows'}
+										mandatory
+											String io_k8s_api_core_v1_Pod_spec_securityContext_sysctls_name {doc 'Name of a property to set'}
+											String io_k8s_api_core_v1_Pod_spec_securityContext_sysctls_value {doc 'Value of a property to set'}
+
+
+Influye en las declaraciones.
+x-kubernetes-preserve-unknown-fields: true
+Este campo es de tipo object, pero no se quiere restringir su estructura. Es un tipeo para definir una propiedad con una estructura cambiante y dinamica.
+Es decir, sirve para definir un campo que puede contener cualquier tipo de anidamiento, valores etc.
+
+Para traducirlo a uvl se podria representar como bool para simplemente saber si se declara o no o como string y guardar el contenido... en las politicas
+de kyverno son muy versatiles y almacenan multiples propiedades y valores.
+Se va a añadir un atributo nuevo para este tipo de propiedades con el campo especial
+
+Para no perder informacion sobre el tipo de dato que representa se añade el atributo 'preserveUnknownFields'
+x-kubernetes-preserve-unknown-fields -- 238
+
+
+preserveUnknownFields: custom attribute for delayed the special fiel in properties with x-kubernetes-preserve-unknown-fields: true
+-- Hecho
+Para los:
+ 
+
+Duda sobre los import del metadata. Se 'pierde' coincidencias para las comparaciones de las props entre yaml-features.
+type: object
+Se realiza una validacion parcial de las propiedades definidas pero tambien se permite agregar más: se permite una extensibilidad arbitraria para escenarios avanzados
+
+
+-- Validacion de configuraciones de las politicas, validas.
+(envFmSec) PS C:\projects\investigacion\fm-security-policies\scripts> py .\valid_config.py
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: kyverno_io 
+Valid?: True
+CONF VALID? True 
+
+Configuration 1: {'kyverno_io_v1_ClusterPolicy_apiVersion': 'kyverno.io/v1', 'kyverno_io_v1_ClusterPolicy_kind': 'ClusterPolicy', 'kyverno_io_v1_ClusterPolicy_metadata': True, 'kyverno_io_v1_ClusterPolicy_spec': True, 'kyverno_io_v1_ClusterPolicy_spec_validationFailureAction': True, 'kyverno_io_v1_ClusterPolicy_spec_validationFailureAction_Audit': True, 'kyverno_io_v1_ClusterPolicy_spec_background': True, 'kyverno_io_v1_ClusterPolicy_spec_rules': True, 'kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds_StringValue': 'Pod', 'kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds': True, 'kyverno_io_v1_ClusterPolicy_spec_rules_name': 'host-ports-none', 'kyverno_io_v1_ClusterPolicy_spec_rules_match_any': True, 'kyverno_io_v1_ClusterPolicy_spec_rules_validate_message': 'Use of host ports is disallowed. The fields spec.containers[*].ports[*].hostPort , spec.initContainers[*].ports[*].hostPort, and spec.ephemeralContainers[*].ports[*].hostPort must either be unset or set to `0`.', 'kyverno_io_v1_ClusterPolicy_spec_rules_validate_pattern': True}  True
+(envFmSec) PS C:\projects\investigacion\fm-security-policies\scripts> 
+
+
+Por el momento la 1ºV parece que es válida
+(flamapyenv02) PS C:\Users\CAOSD\projects\fm-json-kubernetes\scripts\ci> py .\valid_model.py v1.30.2.kyverno
+🧪 Validating model for v1.30.2.kyverno...
+✅ Model is valid.
+(flamapyenv02) PS C:\Users\CAOSD\projects\fm-json-kubernetes\scripts\ci> 
+
+
+Continuando con la modelacion de las reglas y el mapeo se va hacer uso de un enfoque que modela las configuraciones politicas como features con descripción en sus atributos y la relacion con los features del esquema de kubernetes haciendo uso del Import.
+Para este segundo enfoque se va a hacer usop del script generate_uvl_policies01.py y el uvl de salida policy_structure01.uvl;
+
+Las politicas mapeadas por el momento son las localizadas en pod-security/baseline o https://github.com/kyverno/policies/tree/main/pod-security/baseline
+
+Restricciones a ajustar:
+
+Disallow_procMount => (Kubernetes.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_procMount == 'Default' & Kubernetes.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_procMount == 'Default' & Kubernetes.io_k8s_api_core_v1_Pod_spec_containers_securityContext_procMount == 'Default')
+
+Para el feature que se menciona concretamente se realizo una personalizacion de estructura y se modifico el feature final a:
+
+io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_procMount {abstract, doc 'procMount denotes the type of proc mount to use for the containers The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths This requires the ProcMountType feature flag to be enabled Note that this field cannot be set when specosname is windows'}
+  mandatory
+    String io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_procMount_nameStr
+
+Por lo que, no coincide exactamente. Se modificara manualmente el featu para que los localizados en esta lista se puedan referenciar correctamente con el uvl de kubernetes.
+**Ajuste: buscar la lista de features personalizados en el script de mapeo de kubernetes y agregarla en este script para tener en cuanta los modificados
+
+Para la siguiente no se definen como Strings, ya se modifico en el fm para que se base en una seleccion de valores:
+
+Restrict_Seccomp => (Kubernetes.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type == 'RuntimeDefault | Localhost' & Kubernetes.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type == 'RuntimeDefault | Localhost' & Kubernetes.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type == 'RuntimeDefault | Localhost' & Kubernetes.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type == 'RuntimeDefault | Localhost')
+
+io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile {doc 'The seccomp options to use by the containers in this pod Note that this field cannot be set when specosname is windows'}
+  mandatory
+    io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type {doc 'type indicates which kind of seccomp profile will be applied Valid options are:Localhost - a profile defined in a file on the node should be used RuntimeDefault - the container runtime default profile should be used Unconfined - no profile should be applied'}
+      alternative
+        io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Unconfined {doc 'Specific value: Unconfined'}
+        io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_RuntimeDefault {doc 'Specific value: RuntimeDefault'}
+        io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Localhost {doc 'Specific value: Localhost'}
+  optional
+
+Obj final: 
+Restrict_Seccomp => (!io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type | (io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type => io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_RuntimeDefault | io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Localhost))
+
+
+Ver como modificar y adaptar para casos futuros.
+
+restrict-apparmor-profiles.yaml
+Define una politica que no hace referencia a Pod_spec sino a Pod_metadata. Ajustar para admitir nuevos parametros como feat principal
+        
+        pattern:
+          =(metadata):
+            =(annotations):
+              =(container.apparmor.security.beta.kubernetes.io/*): "runtime/default | localhost/*"
+El feat io_k8s_api_core_v1_Pod_metadata_annotations es un mapa asi que habria que asignar los valores a cada parte...
+Restrict_AppArmor => io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap == 'container.apparmor.security.beta.kubernetes.io/*' & io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap == 'runtime/default | localhost/*' 
+-- Hecho
+Define una constraint que hace referencia a un feature map, relacionar key y value a cada feat.
+
+	Restrict_Seccomp => (Kubernetes.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_RuntimeDefault = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type_Localhost = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_securityContext_seccompProfile_type == RuntimeDefault | Localhost & Kubernetes.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_RuntimeDefault = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type_Localhost = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_ephemeralContainers_securityContext_seccompProfile_type == RuntimeDefault | Localhost & Kubernetes.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_RuntimeDefault = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type_Localhost = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_seccompProfile_type == RuntimeDefault | Localhost & Kubernetes.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_RuntimeDefault = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type_Localhost = true & Kubernetes.io_k8s_api_core_v1_Pod_spec_containers_securityContext_seccompProfile_type == RuntimeDefault | Localhost)
+
+
+
+Primeras pruebas de las configs en total:
+
+CONF VALID? False
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Disallow_hostPath': True, 'Disallow_Privileged_Containers': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_labels': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'controller', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'metallb-system', 'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap': 'app', 'io_k8s_api_core_v1_Pod_metadata_labels_ValueMap': 'metallb'}  False
+
+Errores con el uso de los feautures cardinality:
+
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies 
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod 
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    1
+Configuration 1: {'Disallow_Host_Namespaces': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'controller', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'metallb-system'}
+#########     VALIDACION
+PRINT CONFIG Disallow_Host_Namespaces, io_k8s_api_core_v1_Pod_apiVersion, io_k8s_api_core_v1_Pod_kind, io_k8s_api_core_v1_Pod_metadata, io_k8s_api_core_v1_Pod_metadata_name, io_k8s_api_core_v1_Pod_metadata_namespace, Pod_Security_Standards_Baseline, PoliciesKyverno, io_k8s_api_core_v1_Pod, PodFeatures
+CONF VALID? True
+Config complet ['Disallow_Host_Namespaces', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_namespace', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 1: {'Disallow_Host_Namespaces': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'controller', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'metallb-system'}  True
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> 
+
+
+
+Omitiendo feat con arrays...
+
+
+Error arr:
+
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies 
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod 
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    1
+Configuration 1: {'Disallow_Host_Namespaces': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_labels': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'controller', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'metallb-system', 'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap': 'app', 'io_k8s_api_core_v1_Pod_metadata_labels_ValueMap': 'metallb'}
+#########     VALIDACION
+PRINT CONFIG Disallow_Host_Namespaces, io_k8s_api_core_v1_Pod_apiVersion, io_k8s_api_core_v1_Pod_kind, io_k8s_api_core_v1_Pod_metadata, io_k8s_api_core_v1_Pod_metadata_labels, io_k8s_api_core_v1_Pod_metadata_name, io_k8s_api_core_v1_Pod_metadata_namespace, io_k8s_api_core_v1_Pod_metadata_labels_KeyMap, io_k8s_api_core_v1_Pod_metadata_labels_ValueMap, Pod_Security_Standards_Baseline, PoliciesKyverno, io_k8s_api_core_v1_Pod, PodFeatures
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\projects\investigacion\fm-security-policies\scripts\valid_config.py", line 156, in <module>
+    valid, complete_config = valid_config_version_json(config, flat_fm, sat_model)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\projects\investigacion\fm-security-policies\scripts\valid_config.py", line 83, in valid_config_version_json
+    return satisfiable_op.execute(sat_model).get_result(), config.get_selected_elements()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\projects\investigacion\fm-security-policies\envFmSec\Lib\site-packages\flamapy\metamodels\pysat_metamodel\operations\pysat_satisfiable_configuration.py", line 37, in execute
+    assumptions.append(sat_model.variables[feature])
+                       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> 
+
+
+
+Test invalid - False with cardinities:
+Prueba con features que deberian de estar a false hecha:
+- Se ha modifica la funcion principal de validacion para modificar los features que no tuviesen coincidencia directa (hasta el momento los cardinality), se buscan y cambian por los que se agregan en el sat, haciendo uso del flatten.
+  Así se agrega la coincidencia para que se puedan usar los features cardinality y se siga usando el formato plato que permite agregar los import..etc
+KeyError: 'io_k8s_api_core_v1_Pod_spec_containers_name'
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies 
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod 
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    1
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Disallow_hostPath': True, 'Disallow_Privileged_Containers': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'vulnerable-pod', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'kube-system', 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_securityContext': True, 'io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser': True, 'io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser_valueInt': 0, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_spec_containers_name': 
+'app', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest', 'io_k8s_api_core_v1_Pod_spec_containers_securityContext': True, 'io_k8s_api_core_v1_Pod_spec_containers_securityContext_privileged': True, 'io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser': True, 'io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser_valueInt': 0}
+#########     VALIDACION
+FEATURES en SAT model:
+[INFO] Se ha guardado la lista completa de features en: C:\projects\investigacion\fm-security-policies\scripts\sat_features_dump.txt
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_securityContext  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_securityContext_privileged  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext_privileged
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser_valueInt  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser_valueInt
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Disallow_hostPath', 'Disallow_Privileged_Containers', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_namespace', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_securityContext', 'io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser', 'io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser_valueInt', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext_privileged', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser_valueInt', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Disallow_hostPath': True, 'Disallow_Privileged_Containers': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'vulnerable-pod', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'kube-system', 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_securityContext': True, 'io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser': True, 'io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser_valueInt': 0, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_spec_containers_name': 
+'app', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest', 'io_k8s_api_core_v1_Pod_spec_containers_securityContext': True, 'io_k8s_api_core_v1_Pod_spec_containers_securityContext_privileged': True, 'io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser': True, 'io_k8s_api_core_v1_Pod_spec_containers_securityContext_runAsUser_valueInt': 0}  False
+
+
+Caso provocado para que de error AppArmor pero no se reconocen los valores?
+
+(envFmSec) PS C:\Users\CAOSD\projects\fm-security-rules> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    3
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'runtime/default', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'owner', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'dev-team', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}        
+Configuration 3: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'description', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'This is a sample pod with annotations', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+#########     VALIDACION
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name     
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image   
+CONF VALID? True
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'runtime/default', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  True
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name     
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image   
+CONF VALID? True
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'owner', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'dev-team', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  True  
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name     
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image   
+CONF VALID? True
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 3: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'description', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'This is a sample pod with annotations', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  True
+
+
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    3
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'insecure-profile', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'owner', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'dev-team', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+Configuration 3: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'local', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+#########     VALIDACION
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n2_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n2_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']        
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'insecure-profile', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  False
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n2_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n2_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']        
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'owner', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'dev-team', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  False
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n2_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n2_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']        
+Configuration 3: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'local', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  False
+(envFmSec) PS C:\projects\investigacion\fm-security-policies> 
+
+
+
+Pruebas ejecucion 01-Pod:
+
+io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap 0..2
+io_k8s_api_core_v1_Pod_spec_containers 0 .. 2 
+False
+
+io_k8s_api_core_v1_Pod_metadata_annotations 0..1
+io_k8s_api_core_v1_Pod_spec_containers 0..2
+False
+
+io_k8s_api_core_v1_Pod_metadata_annotations 0..3
+io_k8s_api_core_v1_Pod_spec_containers 0..1
+False - No por la restriccion sino por la forma de generar los sub-features.
+
+(envFmSec) PS C:\Users\CAOSD\projects\fm-security-rules> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    3
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': 
+True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'insecure-profile', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': 
+True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'owner', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'dev-team', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+Configuration 3: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': 
+True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'local', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}
+#########     VALIDACION
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n2_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n2_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': 
+True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'insecure-profile', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  False
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n2_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n2_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'owner', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'dev-team', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  False
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap  →  io_k8s_api_core_v1_Pod_metadata_annotations_n2_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name  →  io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_annotations', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_metadata_annotations_n1_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_Pod_metadata_annotations_n2_io_k8s_api_core_v1_Pod_metadata_annotations_1_io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_n1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_1_io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures']
+Configuration 3: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'annotated-pod', 'io_k8s_api_core_v1_Pod_metadata_annotations': True, 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap': 'container_apparmor_security_beta_kubernetes_io', 'io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap': 'local', 'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name': 'regcred', 'io_k8s_api_core_v1_Pod_spec_containers_name': 'nginx', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'nginx:latest'}  False
+
+*********
+Politica Disallow_Host_Namespaces:
+
+Files with io_k8s_api_core_v1_Pod_spec_hostNetwork true y True.
+pod_111, Pod_116, pod_dns_1
+08-Pod_DNS_1, 08-Pod_DNS1_1, 08-Pod_DNS2_1.json
+'pod' files search - 255/20.128 en el raw content de git
+1º Test:
+
+*Disallow_Privileged_Containers*
+pods-patched_1 ==> false :: Valido
+podWithHostFS_1 ==> true :: No valido -- 12 Configs V
+
+
+Pruebas sobre policy_structure03.uvl; 2 submodelos agregados
+*Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account*
+controller-serviceaccount14 ==> true :: No valido V
+
+
+********
+(envFmSec) PS C:\Users\CAOSD\projects\fm-security-rules> py -m scripts.valid_config
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: Policies 
+WARNING:root:Namespaces are not meningful for Flama.This model has the following namespaces: KubernetesPod 
+SE LLEGA HASTA AQUI
+Configuraciones que hay:    2
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'busybox', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'default', 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy_Always': True, 'io_k8s_api_core_v1_Pod_spec_hostNetwork': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet': True, 'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue': 'sleep', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'busybox:1.28', 'io_k8s_api_core_v1_Pod_spec_containers_command': True, 'io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent': True, 'io_k8s_api_core_v1_Pod_spec_containers_name': 'busybox'}
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'busybox', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'default', 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy_Always': True, 'io_k8s_api_core_v1_Pod_spec_hostNetwork': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet': True, 'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue': '3600', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'busybox:1.28', 'io_k8s_api_core_v1_Pod_spec_containers_command': True, 'io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent': True, 'io_k8s_api_core_v1_Pod_spec_containers_name': 'busybox'}
+#########     VALIDACION
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_command_StringValue  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_n1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_StringValue
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_command  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_namespace', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_spec_restartPolicy', 'io_k8s_api_core_v1_Pod_spec_restartPolicy_Always', 'io_k8s_api_core_v1_Pod_spec_hostNetwork', 'io_k8s_api_core_v1_Pod_spec_dnsPolicy', 'io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_n1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_StringValue', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy']
+Configuration 1: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'busybox', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'default', 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy_Always': True, 'io_k8s_api_core_v1_Pod_spec_hostNetwork': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet': True, 'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue': 'sleep', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'busybox:1.28', 'io_k8s_api_core_v1_Pod_spec_containers_command': True, 'io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent': True, 'io_k8s_api_core_v1_Pod_spec_containers_name': 'busybox'}  False
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_command_StringValue  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_n1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_StringValue
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_image  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_command  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_name  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name
+[NORMALIZADO] io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy  →  io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy
+CONF VALID? False
+Config complet ['Disallow_Host_Namespaces', 'Restrict_AppArmor', 'io_k8s_api_core_v1_Pod_apiVersion', 'io_k8s_api_core_v1_Pod_kind', 'io_k8s_api_core_v1_Pod_metadata', 'io_k8s_api_core_v1_Pod_metadata_name', 'io_k8s_api_core_v1_Pod_metadata_namespace', 'io_k8s_api_core_v1_Pod_spec', 'io_k8s_api_core_v1_Pod_spec_containers', 'io_k8s_api_core_v1_Pod_spec_restartPolicy', 'io_k8s_api_core_v1_Pod_spec_restartPolicy_Always', 'io_k8s_api_core_v1_Pod_spec_hostNetwork', 'io_k8s_api_core_v1_Pod_spec_dnsPolicy', 'io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_n1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_1_io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command_StringValue', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_image', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_command', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_name', 'Pod_Security_Standards_Baseline', 'PoliciesKyverno', 'io_k8s_api_core_v1_Pod', 'PodFeatures', 'io_k8s_api_core_v1_Pod_spec_containers_n1_io_k8s_api_core_v1_Pod_spec_containers_1_io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy']
+Configuration 2: {'Disallow_Host_Namespaces': True, 'Restrict_AppArmor': True, 'io_k8s_api_core_v1_Pod_apiVersion': 'v1', 'io_k8s_api_core_v1_Pod_kind': 'Pod', 'io_k8s_api_core_v1_Pod_metadata': True, 'io_k8s_api_core_v1_Pod_metadata_name': 'busybox', 'io_k8s_api_core_v1_Pod_metadata_namespace': 'default', 'io_k8s_api_core_v1_Pod_spec': True, 'io_k8s_api_core_v1_Pod_spec_containers': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy': True, 'io_k8s_api_core_v1_Pod_spec_restartPolicy_Always': True, 'io_k8s_api_core_v1_Pod_spec_hostNetwork': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy': True, 'io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet': True, 'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue': '3600', 'io_k8s_api_core_v1_Pod_spec_containers_image': 'busybox:1.28', 'io_k8s_api_core_v1_Pod_spec_containers_command': True, 'io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent': True, 'io_k8s_api_core_v1_Pod_spec_containers_name': 'busybox'}  False

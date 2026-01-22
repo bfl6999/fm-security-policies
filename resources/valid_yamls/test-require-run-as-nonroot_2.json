@@ -1,0 +1,58 @@
+{
+    "filename": "test-require-run-as-nonroot_2.yaml",
+    "apiVersion": "v1",
+    "policies": {
+        "Disallow_Host_Namespaces": true,
+        "Restrict_AppArmor" : true,
+        "Disallow_hostPath" : true,
+        "Disallow_Privileged_Containers": true,
+        "privilegeEscalationAllowed": true,
+        "no_auto_mount_service_token": true,
+        "runAsRootAllowed": true
+    },
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "root-init-ctnr",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "pod-security-standards/policy",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "Restricted"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "pod-security-standards/control",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "Running_as_Non-root"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_securityContext": {
+                "io_k8s_api_core_v1_Pod_spec_securityContext_runAsNonRoot": true
+            },
+            "io_k8s_api_core_v1_Pod_spec_initContainers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_name": "root-init-ctnr",
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_command_StringValue": "sleep"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_command_StringValue": "1"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext": {
+                        "io_k8s_api_core_v1_Pod_spec_initContainers_securityContext_runAsNonRoot": false
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "pause",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "kubernetes/pause"
+                }
+            ]
+        }
+    }
+}

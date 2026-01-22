@@ -1,0 +1,30 @@
+{
+    "filename": "04-pod-annotation.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "annopod",
+            "io_k8s_api_core_v1_Pod_metadata_annotations": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap": "k8slink",
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap": "https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "labelcontainer",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "nginx",
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 80
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

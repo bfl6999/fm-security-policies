@@ -1,0 +1,35 @@
+{
+    "filename": "web-app-2-pods-with-service1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "webapp-release0-5",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "label-app",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "webapp"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "label-release",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "0-5"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "webapp",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "richardchesterwood/k8s-fleetman-webapp-angular:release0-5",
+                    "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent": true
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_Always": true
+            }
+        }
+    }
+}

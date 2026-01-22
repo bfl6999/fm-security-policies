@@ -1,0 +1,37 @@
+{
+    "filename": "disallow-host-ports.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "kyverno_io_v1_ClusterPolicy_apiVersion": "kyverno.io/v1",
+        "kyverno_io_v1_ClusterPolicy_kind": "ClusterPolicy",
+        "kyverno_io_v1_ClusterPolicy_metadata": true,
+        "kyverno_io_v1_ClusterPolicy_spec": {
+            "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction": {
+                "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction_Audit": true
+            },
+            "kyverno_io_v1_ClusterPolicy_spec_background": true,
+            "kyverno_io_v1_ClusterPolicy_spec_rules": [
+                {
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_name": "host-ports-none",
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_match": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_match_any": [
+                            {
+                                "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources": {
+                                    "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds": [
+                                        {
+                                            "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds_StringValue": "Pod"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_validate": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_message": "Use of host ports is disallowed. The fields spec.containers[*].ports[*].hostPort , spec.initContainers[*].ports[*].hostPort, and spec.ephemeralContainers[*].ports[*].hostPort must either be unset or set to `0`.",
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_pattern": true
+                    }
+                }
+            ]
+        }
+    }
+}

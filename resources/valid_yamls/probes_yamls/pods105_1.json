@@ -1,0 +1,16 @@
+{
+    "filename": "pods105_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_ConfigMap_apiVersion": "v1",
+        "io_k8s_api_core_v1_ConfigMap_kind": "ConfigMap",
+        "io_k8s_api_core_v1_ConfigMap_metadata": {
+            "io_k8s_api_core_v1_ConfigMap_metadata_name": "prometheus-configmap"
+        },
+        "io_k8s_api_core_v1_ConfigMap_data": [
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "prometheus.yml:# Place your Prometheus configuration here\n# Example:\nscrape_configs:\n- job_name: 'my-service'\n  static_configs:\n  - targets: ['localhost:8080']\n"
+            }
+        ]
+    }
+}

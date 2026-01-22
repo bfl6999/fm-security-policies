@@ -1,0 +1,28 @@
+successMessage: Not running as privileged
+failureMessage: Should not be running as privileged
+category: Security
+target: Container
+schemaTarget: PodSpec
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  $defs:
+    notBadSecurityContext:
+      type: object
+      properties:
+        privileged:
+          not:
+            const: true
+  type: object
+  properties:
+    securityContext:
+      $ref: "#/$defs/notBadSecurityContext"
+    containers:
+      type: array
+      items:
+        properties:
+          securityContext:
+            $ref: "#/$defs/notBadSecurityContext"
+mutations:
+  - op: add
+    path: /securityContext/privileged
+    value: false

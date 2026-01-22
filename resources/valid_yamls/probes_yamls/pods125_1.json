@@ -1,0 +1,31 @@
+{
+    "filename": "pods125_1.yaml",
+    "apiVersion": "policy_v1",
+    "config": {
+        "io_k8s_api_policy_v1_PodDisruptionBudget_apiVersion": "policy/v1",
+        "io_k8s_api_policy_v1_PodDisruptionBudget_kind": "PodDisruptionBudget",
+        "io_k8s_api_policy_v1_PodDisruptionBudget_metadata": {
+            "io_k8s_api_policy_v1_PodDisruptionBudget_metadata_name": "backend-pdb"
+        },
+        "io_k8s_api_policy_v1_PodDisruptionBudget_spec": {
+            "io_k8s_api_policy_v1_PodDisruptionBudget_spec_minAvailable": {
+                "io_k8s_api_policy_v1_PodDisruptionBudget_spec_minAvailable_asInteger": 2
+            },
+            "io_k8s_api_policy_v1_PodDisruptionBudget_spec_selector": {
+                "io_k8s_api_policy_v1_PodDisruptionBudget_spec_selector_matchLabels": [
+                    {
+                        "io_k8s_api_policy_v1_PodDisruptionBudget_spec_selector_matchLabels_KeyMap": "app",
+                        "io_k8s_api_policy_v1_PodDisruptionBudget_spec_selector_matchLabels_ValueMap": "backend"
+                    }
+                ]
+            }
+        },
+        "io_k8s_api_policy_v1_PodDisruptionBudget_status": {
+            "io_k8s_api_policy_v1_PodDisruptionBudget_status_currentHealthy": 1,
+            "io_k8s_api_policy_v1_PodDisruptionBudget_status_desiredHealthy": 1,
+            "io_k8s_api_policy_v1_PodDisruptionBudget_status_disruptionsAllowed": 1,
+            "io_k8s_api_policy_v1_PodDisruptionBudget_status_expectedPods": 2,
+            "io_k8s_api_policy_v1_PodDisruptionBudget_status_observedGeneration": 1
+        }
+    }
+}

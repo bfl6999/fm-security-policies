@@ -1,0 +1,40 @@
+{
+    "filename": "rbac-delete-pod-sensor_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRole_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRole_kind": "ClusterRole",
+        "io_k8s_api_rbac_v1_ClusterRole_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRole_metadata_name": "sensor-delete-pod-role",
+            "io_k8s_api_rbac_v1_ClusterRole_metadata_namespace": "argo-events"
+        },
+        "io_k8s_api_rbac_v1_ClusterRole_rules": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRole_rules_apiGroups": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_apiGroups_StringValue": "argoproj.io"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_verbs": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "*"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_resources": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resources_StringValue": "workflows"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resources_StringValue": "workflowtemplates"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resources_StringValue": "cronworkflows"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resources_StringValue": "clusterworkflowtemplates"
+                    }
+                ]
+            }
+        ]
+    }
+}

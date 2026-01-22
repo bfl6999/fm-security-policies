@@ -1,0 +1,50 @@
+{
+    "filename": "pod_with_pvc_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "stress-ng"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_Always": true
+            },
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "stress-ng",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "docker.io/derekbit/volume-stressor:latest",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "HDD",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "1"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "HDD_BYTES",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "4G"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "TEMP_PATH",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "/data"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "stress-ng-vol",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/data"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "stress-ng-vol",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim_claimName": "stress-ng-pvc"
+                    }
+                }
+            ]
+        }
+    }
+}

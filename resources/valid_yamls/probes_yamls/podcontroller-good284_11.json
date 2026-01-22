@@ -1,0 +1,70 @@
+{
+    "filename": "podcontroller-good284_11.yaml",
+    "apiVersion": "batch_v1",
+    "config": {
+        "io_k8s_api_batch_v1_CronJob_apiVersion": "batch/v1",
+        "io_k8s_api_batch_v1_CronJob_kind": "CronJob",
+        "io_k8s_api_batch_v1_CronJob_metadata": {
+            "io_k8s_api_batch_v1_CronJob_metadata_namespace": "restrict-voltypes-ns",
+            "io_k8s_api_batch_v1_CronJob_metadata_name": "goodcronjob06"
+        },
+        "io_k8s_api_batch_v1_CronJob_spec": {
+            "io_k8s_api_batch_v1_CronJob_spec_schedule": "*/1 * * * *",
+            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate": {
+                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec": {
+                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template": {
+                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec": {
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy": {
+                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy_OnFailure": true
+                            },
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers": [
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "container01",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "busybox:1.35",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_volumeMounts": [
+                                        {
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_volumeMounts_name": "ephem",
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_volumeMounts_mountPath": "/ephem"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes": [
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_name": "ephem",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral": {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate": {
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata": {
+                                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels": [
+                                                    {
+                                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels_KeyMap": "type",
+                                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels_ValueMap": "my-frontend-volume"
+                                                    }
+                                                ]
+                                            },
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_accessModes": [
+                                                    {
+                                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_accessModes_StringValue": "ReadWriteOnce"
+                                                    }
+                                                ],
+                                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_storageClassName": "scratch-storage-class",
+                                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+                                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests": [
+                                                        {
+                                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString": "storage:1Gi"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

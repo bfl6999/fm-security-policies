@@ -1,0 +1,45 @@
+{
+    "filename": "pre-run-pod_1.yaml",
+    "apiVersion": "apps_v1",
+    "config": {
+        "io_k8s_api_apps_v1_ReplicaSet_apiVersion": "apps/v1",
+        "io_k8s_api_apps_v1_ReplicaSet_kind": "ReplicaSet",
+        "io_k8s_api_apps_v1_ReplicaSet_metadata": {
+            "io_k8s_api_apps_v1_ReplicaSet_metadata_name": "nginx-replicaset",
+            "io_k8s_api_apps_v1_ReplicaSet_metadata_namespace": "nginx"
+        },
+        "io_k8s_api_apps_v1_ReplicaSet_spec": {
+            "io_k8s_api_apps_v1_ReplicaSet_spec_replicas": 3,
+            "io_k8s_api_apps_v1_ReplicaSet_spec_selector": {
+                "io_k8s_api_apps_v1_ReplicaSet_spec_selector_matchLabels": [
+                    {
+                        "io_k8s_api_apps_v1_ReplicaSet_spec_selector_matchLabels_KeyMap": "app",
+                        "io_k8s_api_apps_v1_ReplicaSet_spec_selector_matchLabels_ValueMap": "nginx-replicaset"
+                    }
+                ]
+            },
+            "io_k8s_api_apps_v1_ReplicaSet_spec_template": {
+                "io_k8s_api_apps_v1_ReplicaSet_spec_template_metadata": {
+                    "io_k8s_api_apps_v1_ReplicaSet_spec_template_metadata_labels": [
+                        {
+                            "io_k8s_api_apps_v1_ReplicaSet_spec_template_metadata_labels_KeyMap": "app",
+                            "io_k8s_api_apps_v1_ReplicaSet_spec_template_metadata_labels_ValueMap": "nginx-replicaset"
+                        },
+                        {
+                            "io_k8s_api_apps_v1_ReplicaSet_spec_template_metadata_labels_KeyMap": "pre-run-pod-test",
+                            "io_k8s_api_apps_v1_ReplicaSet_spec_template_metadata_labels_ValueMap": "true"
+                        }
+                    ]
+                },
+                "io_k8s_api_apps_v1_ReplicaSet_spec_template_spec": {
+                    "io_k8s_api_apps_v1_ReplicaSet_spec_template_spec_containers": [
+                        {
+                            "io_k8s_api_apps_v1_ReplicaSet_spec_template_spec_containers_name": "my-container",
+                            "io_k8s_api_apps_v1_ReplicaSet_spec_template_spec_containers_image": "nginx"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

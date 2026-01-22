@@ -1,0 +1,25 @@
+successMessage: Multiple replicas are scheduled
+failureMessage: Only one replica is scheduled
+category: Reliability
+target: Controller
+controllers:
+  include:
+  - Deployment
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  required:
+  - spec
+  properties:
+    spec:
+      type: object
+      required:
+      - replicas
+      properties:
+        replicas:
+          type: integer
+          minimum: 2
+mutations:
+  - op: add
+    path: /spec/replicas
+    value: 3

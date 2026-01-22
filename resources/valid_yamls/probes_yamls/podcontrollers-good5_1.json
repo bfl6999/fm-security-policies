@@ -1,0 +1,58 @@
+{
+    "filename": "podcontrollers-good5_1.yaml",
+    "apiVersion": "batch_v1",
+    "config": {
+        "io_k8s_api_batch_v1_CronJob_apiVersion": "batch/v1",
+        "io_k8s_api_batch_v1_CronJob_kind": "CronJob",
+        "io_k8s_api_batch_v1_CronJob_metadata": {
+            "io_k8s_api_batch_v1_CronJob_metadata_name": "goodcronjob01"
+        },
+        "io_k8s_api_batch_v1_CronJob_spec": {
+            "io_k8s_api_batch_v1_CronJob_spec_schedule": "* * * * *",
+            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate": {
+                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec": {
+                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template": {
+                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec": {
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers": [
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "busybox:1.35",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "busybox",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe": {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec": {
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec_command": [
+                                                {
+                                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec_command_StringValue": "echo"
+                                                },
+                                                {
+                                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec_command_StringValue": "meow"
+                                                }
+                                            ]
+                                        },
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_periodSeconds": 10
+                                    }
+                                },
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "busybox:1.35",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "busybox02",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe": {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec": {
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec_command": [
+                                                {
+                                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_exec_command_StringValue": "uptime"
+                                                }
+                                            ]
+                                        },
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_livenessProbe_periodSeconds": 10
+                                    }
+                                }
+                            ],
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy": {
+                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy_OnFailure": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

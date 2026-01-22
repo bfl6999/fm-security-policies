@@ -1,0 +1,30 @@
+{
+    "filename": "Pods_17.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "counter"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "count",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox:1.28",
+                    "io_k8s_api_core_v1_Pod_spec_containers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "/bin/sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "-c"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "i=0; while true; do echo \"$i: $(date)\"; i=$((i+1)); sleep 1; done"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

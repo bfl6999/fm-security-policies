@@ -1,0 +1,18 @@
+successMessage: Label app.kubernetes.io/instance matches metadata.name
+failureMessage: Label app.kubernetes.io/instance must match metadata.name
+category: Reliability
+target: Controller
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  properties:
+    metadata:
+      type: object
+      required: ["labels"]
+      properties:
+        labels:
+          type: object
+          required: ["app.kubernetes.io/instance"]
+          properties:
+            app.kubernetes.io/instance:
+              const: "{{ .metadata.name }}"

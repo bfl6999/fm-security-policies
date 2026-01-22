@@ -1,0 +1,35 @@
+{
+    "filename": "Pod_123.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "test-pd"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "registry.k8s.io/test-webserver",
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "test-container",
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/my-nfs-data",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "test-volume"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "test-volume",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_nfs": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_nfs_server": "my-nfs-server.example.com",
+                        "io_k8s_api_core_v1_Pod_spec_volumes_nfs_path": "/my-nfs-volume",
+                        "io_k8s_api_core_v1_Pod_spec_volumes_nfs_readOnly": true
+                    }
+                }
+            ]
+        }
+    }
+}

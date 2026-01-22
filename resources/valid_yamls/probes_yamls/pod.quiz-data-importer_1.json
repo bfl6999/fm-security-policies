@@ -1,0 +1,22 @@
+{
+    "filename": "pod.quiz-data-importer_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_ConfigMap_apiVersion": "v1",
+        "io_k8s_api_core_v1_ConfigMap_kind": "ConfigMap",
+        "io_k8s_api_core_v1_ConfigMap_metadata": {
+            "io_k8s_api_core_v1_ConfigMap_metadata_name": "quiz-questions",
+            "io_k8s_api_core_v1_ConfigMap_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_ConfigMap_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_core_v1_ConfigMap_metadata_labels_ValueMap": "quiz"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_ConfigMap_data": [
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "questions.json:{\n    \"id\": 1,\n    \"text\": \"The three sections you can find in most Kubernetes API objects are:\",\n    \"correctAnswerIndex\": 1,\n    \"answers\": [\n        \"`info`, `config`, `status`\",\n        \"`metadata`, `spec`, `status`\",\n        \"`data`, `spec`, `status`\",\n        \"`pod`, `deployment`, `service`\"\n    ]\n}\n{\n    \"id\": 2,\n    \"text\": \"Which `kubectl` command describes the fields associated with an API object type?\",\n    \"correctAnswerIndex\": 2,\n    \"answers\": [\n        \"`kubectl describe`\",\n        \"`kubectl get`\",\n        \"`kubectl explain`\",\n        \"`kubectl create`\"\n    ]\n}\n{\n    \"id\": 3,\n    \"text\": \"Which of the following statements is correct?\",\n    \"correctAnswerIndex\": 2,\n    \"answers\": [\n        \"API objects can be labelled and then selected with field selectors.\",\n        \"Field selectors can filter objects based on their annotations.\",\n        \"A field selector can be used to list pods that run on a particular node.\",\n        \"You can use any field in a field selector.\"\n    ]\n}\n{\n    \"id\": 4,\n    \"text\": \"When is a pod part of a service?\",\n    \"correctAnswerIndex\": 0,\n    \"answers\": [\n        \"When the pod's labels match the label selector defined in the service.\",\n        \"When the pod's name matches the name of the service.\",\n        \"When the pod is added to the service's `spec.members` list.\"\n    ]\n}\n{\n    \"id\": 5,\n    \"text\": \"Which of the following statements regarding the container shutdown process is correct?\",\n    \"correctAnswerIndex\": 0,\n    \"answers\": [\n        \"The container's preStop hook runs first, then the `TERM` signal is sent to the process in the container.\",\n        \"The process in the container receives the `TERM` signal and then runs its preStop hook.\",\n        \"The preStop hook kills the container.\",\n        \"The `TERM` signal kills the container.\",\n        \"The container receives the `KILL` and then the `TERM` signal.\"\n    ]\n}\n{\n    \"id\": 6,\n    \"text\": \"Which of the following statements is correct?\",\n    \"correctAnswerIndex\": 1,\n    \"answers\": [\n        \"When the readiness probe fails, the container is restarted.\",\n        \"When the liveness probe fails, the container is restarted.\",\n        \"Containers without a readiness probe are never restarted.\",\n        \"Containers without a liveness probe are never restarted.\"\n    ]\n}"
+            }
+        ]
+    }
+}

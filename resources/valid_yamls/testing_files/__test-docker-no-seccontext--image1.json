@@ -1,0 +1,45 @@
+{
+    "filename": "__test-docker-no-seccontext--image1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "test-docker-no-seccontext",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "component",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "ci"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "docker",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "docker:dind",
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "cat"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_tty": true,
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/var/run/docker.sock",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "docker-sock"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "docker-sock",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_hostPath": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_hostPath_path": "/var/run/docker.sock"
+                    }
+                }
+            ]
+        }
+    }
+}

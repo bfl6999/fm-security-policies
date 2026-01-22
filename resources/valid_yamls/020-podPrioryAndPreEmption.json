@@ -1,0 +1,14 @@
+{
+    "filename": "020-podPrioryAndPreEmption.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_scheduling_v1_PriorityClass_apiVersion": "scheduling.k8s.io/v1",
+        "io_k8s_api_scheduling_v1_PriorityClass_kind": "PriorityClass",
+        "io_k8s_api_scheduling_v1_PriorityClass_metadata": {
+            "io_k8s_api_scheduling_v1_PriorityClass_metadata_name": "high-priority"
+        },
+        "io_k8s_api_scheduling_v1_PriorityClass_value": 1000000,
+        "io_k8s_api_scheduling_v1_PriorityClass_globalDefault": false,
+        "io_k8s_api_scheduling_v1_PriorityClass_description": "This priority class should be used for XYZ service pods only."
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "filename": "volume-pod1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "volume-pod"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sleep"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "3600"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "config-volume",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/etc/config"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "config-volume",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_configMap": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_configMap_name": "my-config"
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_Never": true
+            }
+        }
+    }
+}

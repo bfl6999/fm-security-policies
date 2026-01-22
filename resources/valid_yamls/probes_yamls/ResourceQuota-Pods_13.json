@@ -1,0 +1,59 @@
+{
+    "filename": "ResourceQuota-Pods_13.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "frontend"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "app",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "images.my-company.example/app:v4",
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "memory:64Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "cpu:250m"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "memory:128Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "cpu:500m"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "log-aggregator",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "images.my-company.example/log-aggregator:v6",
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "memory:64Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "cpu:250m"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "memory:128Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "cpu:500m"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

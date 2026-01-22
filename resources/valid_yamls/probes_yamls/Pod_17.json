@@ -1,0 +1,50 @@
+{
+    "filename": "Pod_17.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "run",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "busybox"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_metadata_name": "liveness-probe-exec"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "liveness-probe",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "/bin/sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "-c"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "touch healthy; sleep 20; rm -rf healthy; sleep 600"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec": {
+                            "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec_command": [
+                                {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec_command_StringValue": "cat"
+                                },
+                                {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec_command_StringValue": "healthy"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_initialDelaySeconds": 5,
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_periodSeconds": 5
+                    }
+                }
+            ]
+        }
+    }
+}

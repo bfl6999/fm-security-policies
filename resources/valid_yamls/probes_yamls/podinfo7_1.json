@@ -1,0 +1,32 @@
+{
+    "filename": "podinfo7_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_RoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_RoleBinding_kind": "RoleBinding",
+        "io_k8s_api_rbac_v1_RoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_RoleBinding_metadata_labels": [
+                {
+                    "io_k8s_api_rbac_v1_RoleBinding_metadata_labels_KeyMap": "toolkit.fluxcd.io/tenant",
+                    "io_k8s_api_rbac_v1_RoleBinding_metadata_labels_ValueMap": "dev-team"
+                }
+            ],
+            "io_k8s_api_rbac_v1_RoleBinding_metadata_name": "flux",
+            "io_k8s_api_rbac_v1_RoleBinding_metadata_namespace": "podinfo"
+        },
+        "io_k8s_api_rbac_v1_RoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_RoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io",
+            "io_k8s_api_rbac_v1_RoleBinding_roleRef_kind": "ClusterRole",
+            "io_k8s_api_rbac_v1_RoleBinding_roleRef_name": "cluster-admin"
+        },
+        "io_k8s_api_rbac_v1_RoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_RoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_RoleBinding_subjects_kind_ServiceAccount": true
+                },
+                "io_k8s_api_rbac_v1_RoleBinding_subjects_name": "flux-restricted",
+                "io_k8s_api_rbac_v1_RoleBinding_subjects_namespace": "${CLUSTER_NAME}"
+            }
+        ]
+    }
+}

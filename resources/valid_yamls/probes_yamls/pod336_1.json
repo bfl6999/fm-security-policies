@@ -1,0 +1,100 @@
+{
+    "filename": "pod336_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "efs-pod"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_Never": true
+            },
+            "io_k8s_api_core_v1_Pod_spec_initContainers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_name": "initializer",
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent": true,
+                        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_IfNotPresent": true
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_command_StringValue": "/bin/sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_command_StringValue": "-c"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_args_StringValue": "echo 'Hello from EFS' > /data/hello.txt && ls -la /data"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_name": "efs",
+                            "io_k8s_api_core_v1_Pod_spec_initContainers_volumeMounts_mountPath": "/data"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "echo",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent": true,
+                        "io_k8s_api_core_v1_Pod_spec_initContainers_imagePullPolicy_IfNotPresent": true
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "/bin/sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "-c"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "cat /data/hello.txt "
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "efs",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/data"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "memory:64Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "cpu:250m"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "memory:128Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "cpu:500m"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "efs",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim_claimName": "efs-claim"
+                    }
+                }
+            ]
+        }
+    }
+}

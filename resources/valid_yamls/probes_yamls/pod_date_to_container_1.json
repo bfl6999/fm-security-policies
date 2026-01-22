@@ -1,0 +1,91 @@
+{
+    "filename": "pod_date_to_container_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "dapi-envars-resourcefieldref"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "test-container",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "k8s.gcr.io/busybox:1.24",
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "-c"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "while true; do echo -en '\\n'; printenv MY_CPU_REQUEST MY_CPU_LIMIT; printenv MY_MEM_REQUEST MY_MEM_LIMIT; sleep 10; done;"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_requests": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "memory:32Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString": "cpu:125m"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_Pod_spec_containers_resources_limits": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "memory:64Mi"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString": "cpu:250m"
+                            }
+                        ]
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "MY_CPU_REQUEST",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_containerName": "test-container",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_resource": "requests.cpu"
+                                }
+                            }
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "MY_CPU_LIMIT",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_containerName": "test-container",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_resource": "limits.cpu"
+                                }
+                            }
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "MY_MEM_REQUEST",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_containerName": "test-container",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_resource": "requests.memory"
+                                }
+                            }
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "MY_MEM_LIMIT",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_containerName": "test-container",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_resourceFieldRef_resource": "limits.memory"
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_Never": true
+            }
+        }
+    }
+}

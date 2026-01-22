@@ -1,0 +1,33 @@
+{
+    "filename": "pods-with-volume7_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "mypod"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "busybox-container",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "config-dir",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/etc/config"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "config-dir",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_configMap": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_configMap_name": "bb-configmap"
+                    }
+                }
+            ]
+        }
+    }
+}

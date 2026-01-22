@@ -1,0 +1,34 @@
+{
+    "filename": "pods85_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "pod02",
+            "io_k8s_api_core_v1_Pod_metadata_namespace": "replace-registry-ns"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_initContainers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_name": "kyverno",
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_image": "kyverno:1.10.1"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_name": "busybox-init",
+                    "io_k8s_api_core_v1_Pod_spec_initContainers_image": "docker.io/busybox:1.35"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "registry.corp.com/kyverno:1.10.1"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "busybox02",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "docker.io/busybox:1.35"
+                }
+            ]
+        }
+    }
+}

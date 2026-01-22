@@ -1,0 +1,37 @@
+{
+    "filename": "POD_PATCH_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_Role_kind": "Role",
+        "io_k8s_api_rbac_v1_Role_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_Role_metadata": {
+            "io_k8s_api_rbac_v1_Role_metadata_namespace": "default",
+            "io_k8s_api_rbac_v1_Role_metadata_name": "patch-pods"
+        },
+        "io_k8s_api_rbac_v1_Role_rules": [
+            {
+                "io_k8s_api_rbac_v1_Role_rules_apiGroups": [
+                    {
+                        "io_k8s_api_rbac_v1_Role_rules_apiGroups_StringValue": "*"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_Role_rules_resources": [
+                    {
+                        "io_k8s_api_rbac_v1_Role_rules_resources_StringValue": "pods"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_Role_rules_verbs": [
+                    {
+                        "io_k8s_api_rbac_v1_Role_rules_verbs_StringValue": "get"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_Role_rules_verbs_StringValue": "list"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_Role_rules_verbs_StringValue": "patch"
+                    }
+                ]
+            }
+        ]
+    }
+}

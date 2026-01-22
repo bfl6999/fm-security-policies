@@ -1,0 +1,26 @@
+{
+    "filename": "clusterRoleBinding234.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_RoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_RoleBinding_kind": "RoleBinding",
+        "io_k8s_api_rbac_v1_RoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_RoleBinding_metadata_name": "app1-user-access",
+            "io_k8s_api_rbac_v1_RoleBinding_metadata_namespace": "app1"
+        },
+        "io_k8s_api_rbac_v1_RoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_RoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io",
+            "io_k8s_api_rbac_v1_RoleBinding_roleRef_kind": "Role",
+            "io_k8s_api_rbac_v1_RoleBinding_roleRef_name": "NameSpaceApp1-FullAccess"
+        },
+        "io_k8s_api_rbac_v1_RoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_RoleBinding_subjects_apiGroup": "rbac.authorization.k8s.io",
+                "io_k8s_api_rbac_v1_RoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_RoleBinding_subjects_kind_Group": true
+                },
+                "io_k8s_api_rbac_v1_RoleBinding_subjects_name": "app1-ns-group"
+            }
+        ]
+    }
+}

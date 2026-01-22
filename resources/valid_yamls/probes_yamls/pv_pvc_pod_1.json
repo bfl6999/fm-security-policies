@@ -1,0 +1,26 @@
+{
+    "filename": "pv_pvc_pod_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_PersistentVolumeClaim_apiVersion": "v1",
+        "io_k8s_api_core_v1_PersistentVolumeClaim_kind": "PersistentVolumeClaim",
+        "io_k8s_api_core_v1_PersistentVolumeClaim_metadata": {
+            "io_k8s_api_core_v1_PersistentVolumeClaim_metadata_name": "task-pv-claim"
+        },
+        "io_k8s_api_core_v1_PersistentVolumeClaim_spec": {
+            "io_k8s_api_core_v1_PersistentVolumeClaim_spec_storageClassName": "manual",
+            "io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes": [
+                {
+                    "io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue": "ReadWriteOnce"
+                }
+            ],
+            "io_k8s_api_core_v1_PersistentVolumeClaim_spec_resources": {
+                "io_k8s_api_core_v1_PersistentVolumeClaim_spec_resources_requests": [
+                    {
+                        "io_k8s_api_core_v1_PersistentVolumeClaim_spec_resources_requests_asString": "storage:3Gi"
+                    }
+                ]
+            }
+        }
+    }
+}

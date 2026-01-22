@@ -1,0 +1,18 @@
+{
+    "filename": "pod-shared_1.yaml",
+    "apiVersion": "v1alpha2",
+    "config": {
+        "io_k8s_api_resource_v1alpha2_ResourceClaim_apiVersion": "resource.k8s.io/v1alpha2",
+        "io_k8s_api_resource_v1alpha2_ResourceClaim_kind": "ResourceClaim",
+        "io_k8s_api_resource_v1alpha2_ResourceClaim_metadata": {
+            "io_k8s_api_resource_v1alpha2_ResourceClaim_metadata_name": "shared-claim"
+        },
+        "io_k8s_api_resource_v1alpha2_ResourceClaim_spec": {
+            "io_k8s_api_resource_v1alpha2_ResourceClaim_spec_resourceClassName": "example",
+            "io_k8s_api_resource_v1alpha2_ResourceClaim_spec_parametersRef": {
+                "io_k8s_api_resource_v1alpha2_ResourceClaim_spec_parametersRef_kind": "ConfigMap",
+                "io_k8s_api_resource_v1alpha2_ResourceClaim_spec_parametersRef_name": "shared-claim-parameters"
+            }
+        }
+    }
+}

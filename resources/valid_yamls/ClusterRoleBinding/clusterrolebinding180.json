@@ -1,0 +1,32 @@
+{
+    "filename": "clusterrolebinding180.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_kind": "ClusterRoleBinding",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_name": "test"
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_Group": true
+                },
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_name": "test",
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_apiGroup": "rbac.authorization.k8s.io"
+            },
+            {
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_User": true
+                },
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_name": "kubelet",
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_apiGroup": "rbac.authorization.k8s.io"
+            }
+        ],
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_kind": "ClusterRole",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_name": "test",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io"
+        }
+    }
+}

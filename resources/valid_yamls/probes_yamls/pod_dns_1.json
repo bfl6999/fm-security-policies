@@ -1,0 +1,38 @@
+{
+    "filename": "pod_dns_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "busybox",
+            "io_k8s_api_core_v1_Pod_metadata_namespace": "default"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox:1.28",
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sleep"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "3600"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_imagePullPolicy_IfNotPresent": true
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "busybox"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_Always": true
+            },
+            "io_k8s_api_core_v1_Pod_spec_hostNetwork": true,
+            "io_k8s_api_core_v1_Pod_spec_dnsPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_dnsPolicy_ClusterFirstWithHostNet": true
+            }
+        }
+    }
+}

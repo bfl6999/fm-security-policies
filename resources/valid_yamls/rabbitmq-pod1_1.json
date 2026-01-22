@@ -1,0 +1,100 @@
+{
+    "filename": "rabbitmq-pod1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_annotations": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap": "kompose.cmd",
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap": "kompose convert -f docker-compose.yml"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap": "kompose.version",
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap": "1.31.2 (a92241f79)"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_metadata_creationTimestamp": {
+                "io_k8s_api_core_v1_Pod_metadata_creationTimestamp_isNull": true
+            },
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "io.kompose.network/kompose-default",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "true"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "io.kompose.service",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "rabbitmq"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_metadata_name": "rabbitmq",
+            "io_k8s_api_core_v1_Pod_metadata_namespace": "common-utils"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "pvc",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim_claimName": "rabbitmq-data"
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "RABBITMQ_DEFAULT_PASS",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "guest"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "RABBITMQ_DEFAULT_USER",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "guest"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "rabbitmq:management",
+                    "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec": {
+                            "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec_command": [
+                                {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_exec_command_StringValue": "rabbitmq-diagnostics check_port_connectivity"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_failureThreshold": 10,
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_periodSeconds": 30,
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_timeoutSeconds": 30
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "rabbitmq",
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 5672,
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_hostPort": 5672,
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_TCP": true
+                            }
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 15672,
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_hostPort": 15672,
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_TCP": true
+                            }
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "pvc",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/var/lib/rabbitmq/mnesia"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {}
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_restartPolicy": {
+                "io_k8s_api_core_v1_Pod_spec_restartPolicy_OnFailure": true
+            }
+        },
+        "io_k8s_api_core_v1_Pod_status": {}
+    }
+}

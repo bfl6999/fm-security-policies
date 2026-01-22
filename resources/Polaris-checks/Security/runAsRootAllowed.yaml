@@ -1,0 +1,56 @@
+successMessage: Is not allowed to run as root
+failureMessage: Should not be allowed to run as root
+category: Security
+target: Container
+schemaTarget: PodSpec
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  $defs:
+    goodSecurityContext:
+      type: object
+      anyOf:
+      - required:
+        - runAsUser
+        properties:
+          runAsUser:
+            minimum: 1
+      - required:
+        - runAsNonRoot
+        properties:
+          runAsNonRoot:
+            const: true
+    notBadSecurityContext:
+      type: object
+      properties:
+        runAsUser:
+          minimum: 1
+        runAsNonRoot:
+          const: true
+  type: object
+  anyOf:
+  # non-root specified at pod-level, and not overridden at container level
+  - required:
+    - securityContext
+    properties:
+      securityContext:
+        $ref: "#/$defs/goodSecurityContext"
+      containers:
+        type: array
+        items:
+          properties:
+            securityContext:
+              $ref: "#/$defs/notBadSecurityContext"
+  # non-root specified at container level
+  - properties:
+      containers:
+        type: array
+        items:
+          required:
+          - securityContext
+          properties:
+            securityContext:
+              $ref: "#/$defs/goodSecurityContext"
+mutations:
+  - op: add
+    path: /securityContext/runAsNonRoot
+    value: true

@@ -1,0 +1,17 @@
+{
+    "filename": "windows-pod-projected_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Secret_apiVersion": "v1",
+        "io_k8s_api_core_v1_Secret_kind": "Secret",
+        "io_k8s_api_core_v1_Secret_metadata": {
+            "io_k8s_api_core_v1_Secret_metadata_name": "my-special-secret"
+        },
+        "io_k8s_api_core_v1_Secret_type": "Opaque",
+        "io_k8s_api_core_v1_Secret_data": [
+            {
+                "io_k8s_api_core_v1_Secret_data_StringValueAdditional": "data-1:aGVsbG8gdGhlcmUh"
+            }
+        ]
+    }
+}

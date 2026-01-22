@@ -1,0 +1,326 @@
+Archivo_Original;Nuevo_Nombre;Categoria;Resultado;Razon
+argo\application-field-validation\application-field-validation.yaml;application-field-validation.yaml;argo;DESCARTADA;Usa anyPattern (Descartado en Baseline)
+argo\application-prevent-default-project\application-prevent-default-project.yaml;application-prevent-default-project.yaml;argo;DESCARTADA;Variables dinámicas complejas
+argo\application-prevent-updates-project\application-prevent-updates-project.yaml;application-prevent-updates-project.yaml;argo;DESCARTADA;Variables dinámicas complejas
+argo\applicationset-name-matches-project\applicationset-name-matches-project.yaml;applicationset-name-matches-project.yaml;argo;DESCARTADA;Variables dinámicas complejas
+argo\appproject-clusterresourceblacklist\appproject-clusterresourceblacklist.yaml;appproject-clusterresourceblacklist.yaml;argo;DESCARTADA;Estructura foreach
+argo\argo-cluster-generation-from-rancher-capi\argo-cluster-generation-from-rancher-capi.yaml;argo-cluster-generation-from-rancher-capi.yaml;argo;DESCARTADA;Mutación/Generación
+aws\require-aws-node-irsa\require-aws-node-irsa.yaml;require-aws-node-irsa.yaml;aws;ACEPTADA;Estática Pura (Pattern Simple)
+aws\require-encryption-aws-loadbalancers\require-encryption-aws-loadbalancers.yaml;require-encryption-aws-loadbalancers.yaml;aws;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\add-network-policy\add-network-policy.yaml;add-network-policy.yaml;best-practices;DESCARTADA;Mutación/Generación
+best-practices\add-networkpolicy-dns\add-networkpolicy-dns.yaml;add-networkpolicy-dns.yaml;best-practices;DESCARTADA;Mutación/Generación
+best-practices\add-ns-quota\add-ns-quota.yaml;add-ns-quota.yaml;best-practices;DESCARTADA;Mutación/Generación
+best-practices\add-rolebinding\add-rolebinding.yaml;add-rolebinding.yaml;best-practices;DESCARTADA;Mutación/Generación
+best-practices\add-safe-to-evict\add-safe-to-evict.yaml;add-safe-to-evict.yaml;best-practices;DESCARTADA;Mutación/Generación
+best-practices\check-deprecated-apis\check-deprecated-apis.yaml;check-deprecated-apis.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\disallow-cri-sock-mount\disallow-cri-sock-mount.yaml;disallow-cri-sock-mount.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\disallow-default-namespace\disallow-default-namespace.yaml;disallow-default-namespace.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\disallow-empty-ingress-host\disallow-empty-ingress-host.yaml;disallow-empty-ingress-host.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\disallow-helm-tiller\disallow-helm-tiller.yaml;disallow-helm-tiller.yaml;best-practices;DESCARTADA;Estructura foreach
+best-practices\disallow-latest-tag\disallow-latest-tag.yaml;disallow-latest-tag.yaml;best-practices;DESCARTADA;Estructura foreach
+best-practices\require-drop-all\require-drop-all.yaml;require-drop-all.yaml;best-practices;DESCARTADA;Estructura foreach
+best-practices\require-drop-cap-net-raw\require-drop-cap-net-raw.yaml;require-drop-cap-net-raw.yaml;best-practices;DESCARTADA;Estructura foreach
+best-practices\require-labels\require-labels.yaml;require-labels.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\require-pod-requests-limits\require-pod-requests-limits.yaml;require-pod-requests-limits.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\require-probes\require-probes.yaml;require-probes.yaml;best-practices;DESCARTADA;Estructura foreach
+best-practices\require-ro-rootfs\require-ro-rootfs.yaml;require-ro-rootfs.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\restrict-image-registries\restrict-image-registries.yaml;restrict-image-registries.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\restrict-node-port\restrict-node-port.yaml;restrict-node-port.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+best-practices\restrict-service-external-ips\restrict-service-external-ips.yaml;restrict-service-external-ips.yaml;best-practices;ACEPTADA;Estática Pura (Pattern Simple)
+castai\add-castai-removal-disabled\add-castai-removal-disabled.yaml;add-castai-removal-disabled.yaml;castai;DESCARTADA;Mutación/Generación
+cert-manager\limit-dnsnames\limit-dnsnames.yaml;limit-dnsnames.yaml;cert-manager;DESCARTADA;Variables dinámicas complejas
+cert-manager\limit-duration\limit-duration.yaml;limit-duration.yaml;cert-manager;ACEPTADA;Estática Pura (Pattern Simple)
+cert-manager\restrict-issuer\restrict-issuer.yaml;restrict-issuer.yaml;cert-manager;ACEPTADA;Estática Pura (Pattern Simple)
+consul\enforce-min-tls-version\enforce-min-tls-version.yaml;enforce-min-tls-version.yaml;consul;ACEPTADA;Estática Pura (Pattern Simple)
+cost-optimization\schedule-based-quotas\schedule-based-quotas.yaml;schedule-based-quotas.yaml;cost-optimization;DESCARTADA;Mutación/Generación
+external-secret-operator\add-external-secret-prefix\add-external-secret-prefix.yaml;add-external-secret-prefix.yaml;external-secret-operator;DESCARTADA;Mutación/Generación
+flux\generate-flux-multi-tenant-resources\generate-flux-multi-tenant-resources.yaml;generate-flux-multi-tenant-resources.yaml;flux;DESCARTADA;Mutación/Generación
+flux\verify-flux-images\verify-flux-images.yaml;verify-flux-images.yaml;flux;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+flux\verify-flux-sources\verify-flux-sources.yaml;verify-flux-sources.yaml;flux;ACEPTADA;Estática Pura (Pattern Simple)
+flux\verify-git-repositories\verify-git-repositories.yaml;verify-git-repositories.yaml;flux;ACEPTADA;Estática Pura (Pattern Simple)
+istio\add-ambient-mode-namespace\add-ambient-mode-namespace.yaml;add-ambient-mode-namespace.yaml;istio;DESCARTADA;Mutación/Generación
+istio\add-sidecar-injection-namespace\add-sidecar-injection-namespace.yaml;add-sidecar-injection-namespace.yaml;istio;DESCARTADA;Mutación/Generación
+istio\create-authorizationpolicy\create-authorizationpolicy.yaml;create-authorizationpolicy.yaml;istio;DESCARTADA;Mutación/Generación
+istio\enforce-ambient-mode-namespace\enforce-ambient-mode-namespace.yaml;enforce-ambient-mode-namespace.yaml;istio;ACEPTADA;Estática Pura (Pattern Simple)
+istio\enforce-sidecar-injection-namespace\enforce-sidecar-injection-namespace.yaml;enforce-sidecar-injection-namespace.yaml;istio;ACEPTADA;Estática Pura (Pattern Simple)
+istio\enforce-strict-mtls\enforce-strict-mtls.yaml;enforce-strict-mtls.yaml;istio;ACEPTADA;Estática Pura (Pattern Simple)
+istio\enforce-tls-hosts-host-subnets\enforce-tls-hosts-host-subnets.yaml;enforce-tls-hosts-host-subnets.yaml;istio;ACEPTADA;Estática Pura (Pattern Simple)
+istio\prevent-disabling-injection-pods\prevent-disabling-injection-pods.yaml;prevent-disabling-injection-pods.yaml;istio;ACEPTADA;Estática Pura (Pattern Simple)
+istio\require-authorizationpolicy\require-authorizationpolicy.yaml;require-authorizationpolicy.yaml;istio;DESCARTADA;API Call / Contexto
+istio\restrict-virtual-service-wildcard\restrict-virtual-service-wildcard.yaml;restrict-virtual-service-wildcard.yaml;istio;DESCARTADA;Estructura foreach
+istio\service-mesh-disallow-capabilities\service-mesh-disallow-capabilities.yaml;service-mesh-disallow-capabilities.yaml;istio;DESCARTADA;API Call / Contexto
+istio\service-mesh-require-run-as-nonroot\service-mesh-require-run-as-nonroot.yaml;service-mesh-require-run-as-nonroot.yaml;istio;DESCARTADA;Usa anyPattern (Descartado en Baseline)
+karpenter\add-karpenter-daemonset-priority-class\add-karpenter-daemonset-priority-class.yaml;add-karpenter-daemonset-priority-class.yaml;karpenter;DESCARTADA;Mutación/Generación
+karpenter\add-karpenter-donot-evict\add-karpenter-donot-evict.yaml;add-karpenter-donot-evict.yaml;karpenter;DESCARTADA;Mutación/Generación
+karpenter\add-karpenter-nodeselector\add-karpenter-nodeselector.yaml;add-karpenter-nodeselector.yaml;karpenter;DESCARTADA;Mutación/Generación
+karpenter\set-karpenter-non-cpu-limits\set-karpenter-non-cpu-limits.yaml;set-karpenter-non-cpu-limits.yaml;karpenter;DESCARTADA;Mutación/Generación
+kasten\kasten-3-2-1-backup\kasten-3-2-1-backup.yaml;kasten-3-2-1-backup.yaml;kasten;ACEPTADA;Estática Pura (Pattern Simple)
+kasten\kasten-data-protection-by-label\kasten-data-protection-by-label.yaml;kasten-data-protection-by-label.yaml;kasten;ACEPTADA;Estática Pura (Pattern Simple)
+kasten\kasten-generate-example-backup-policy\kasten-generate-example-backup-policy.yaml;kasten-generate-example-backup-policy.yaml;kasten;DESCARTADA;Mutación/Generación
+kasten\kasten-generate-policy-by-preset-label\kasten-generate-policy-by-preset-label.yaml;kasten-generate-policy-by-preset-label.yaml;kasten;DESCARTADA;Mutación/Generación
+kasten\kasten-hourly-rpo\kasten-hourly-rpo.yaml;kasten-hourly-rpo.yaml;kasten;DESCARTADA;API Call / Contexto
+kasten\kasten-immutable-location-profile\kasten-immutable-location-profile.yaml;kasten-immutable-location-profile.yaml;kasten;ACEPTADA;Estática Pura (Pattern Simple)
+kasten\kasten-minimum-retention\kasten-minimum-retention.yaml;kasten-minimum-retention.yaml;kasten;DESCARTADA;Mutación/Generación
+kasten\kasten-validate-ns-by-preset-label\kasten-validate-ns-by-preset-label.yaml;kasten-validate-ns-by-preset-label.yaml;kasten;ACEPTADA;Estática Pura (Pattern Simple)
+kubecost\enable-kubecost-continuous-rightsizing\enable-kubecost-continuous-rightsizing.yaml;enable-kubecost-continuous-rightsizing.yaml;kubecost;DESCARTADA;Mutación/Generación
+kubecost\kubecost-proactive-cost-control\kubecost-proactive-cost-control.yaml;kubecost-proactive-cost-control.yaml;kubecost;DESCARTADA;API Call / Contexto
+kubecost\require-kubecost-labels\require-kubecost-labels.yaml;require-kubecost-labels.yaml;kubecost;ACEPTADA;Estática Pura (Pattern Simple)
+kubeops\config-syncer-secret-generation-from-rancher-capi\config-syncer-secret-generation-from-rancher-capi.yaml;config-syncer-secret-generation-from-rancher-capi.yaml;kubeops;DESCARTADA;Mutación/Generación
+kubevirt\add-services\add-services.yaml;add-services.yaml;kubevirt;DESCARTADA;Mutación/Generación
+kubevirt\enforce-instancetype\enforce-instancetype.yaml;enforce-instancetype.yaml;kubevirt;ACEPTADA;Estática Pura (Pattern Simple)
+linkerd\add-linkerd-mesh-injection\add-linkerd-mesh-injection.yaml;add-linkerd-mesh-injection.yaml;linkerd;DESCARTADA;Mutación/Generación
+linkerd\add-linkerd-policy-annotation\add-linkerd-policy-annotation.yaml;add-linkerd-policy-annotation.yaml;linkerd;DESCARTADA;Mutación/Generación
+linkerd\check-linkerd-authorizationpolicy\check-linkerd-authorizationpolicy.yaml;check-linkerd-authorizationpolicy.yaml;linkerd;DESCARTADA;API Call / Contexto
+linkerd\prevent-linkerd-pod-injection-override\prevent-linkerd-pod-injection-override.yaml;prevent-linkerd-pod-injection-override.yaml;linkerd;ACEPTADA;Estática Pura (Pattern Simple)
+linkerd\prevent-linkerd-port-skipping\prevent-linkerd-port-skipping.yaml;prevent-linkerd-port-skipping.yaml;linkerd;ACEPTADA;Estática Pura (Pattern Simple)
+linkerd\require-linkerd-mesh-injection\require-linkerd-mesh-injection.yaml;require-linkerd-mesh-injection.yaml;linkerd;ACEPTADA;Estática Pura (Pattern Simple)
+linkerd\require-linkerd-server\require-linkerd-server.yaml;require-linkerd-server.yaml;linkerd;DESCARTADA;API Call / Contexto
+nginx-ingress\disallow-ingress-nginx-custom-snippets\disallow-ingress-nginx-custom-snippets.yaml;disallow-ingress-nginx-custom-snippets.yaml;nginx-ingress;ACEPTADA;Estática Pura (Pattern Simple)
+nginx-ingress\restrict-annotations\restrict-annotations.yaml;restrict-annotations.yaml;nginx-ingress;DESCARTADA;Variables dinámicas complejas
+nginx-ingress\restrict-ingress-paths\restrict-ingress-paths.yaml;restrict-ingress-paths.yaml;nginx-ingress;ACEPTADA;Estática Pura (Pattern Simple)
+openshift\check-routes\check-routes.yaml;check-routes.yaml;openshift;DESCARTADA;Variables dinámicas complejas
+openshift\disallow-deprecated-apis\disallow-deprecated-apis.yaml;disallow-deprecated-apis.yaml;openshift;ACEPTADA;Estática Pura (Pattern Simple)
+openshift\disallow-jenkins-pipeline-strategy\disallow-jenkins-pipeline-strategy.yaml;disallow-jenkins-pipeline-strategy.yaml;openshift;DESCARTADA;Variables dinámicas complejas
+openshift\disallow-security-context-constraint-anyuid\disallow-security-context-constraint-anyuid.yaml;disallow-security-context-constraint-anyuid.yaml;openshift;DESCARTADA;Estructura foreach
+openshift\disallow-self-provisioner-binding\disallow-self-provisioner-binding.yaml;disallow-self-provisioner-binding.yaml;openshift;DESCARTADA;Variables dinámicas complejas
+openshift\enforce-etcd-encryption\enforce-etcd-encryption.yaml;enforce-etcd-encryption.yaml;openshift;DESCARTADA;Variables dinámicas complejas
+openshift\inject-infrastructurename\inject-infrastructurename.yaml;inject-infrastructurename.yaml;openshift;DESCARTADA;Mutación/Generación
+openshift\team-validate-ns-name\team-validate-ns-name.yaml;team-validate-ns-name.yaml;openshift;DESCARTADA;Variables dinámicas complejas
+openshift\unique-routes\unique-routes.yaml;unique-routes.yaml;openshift;DESCARTADA;API Call / Contexto
+other\add-certificates-volume\add-certificates-volume.yaml;add-certificates-volume.yaml;other;DESCARTADA;Mutación/Generación
+other\add-default-resources\add-default-resources.yaml;add-default-resources.yaml;other;DESCARTADA;Mutación/Generación
+other\add-default-securitycontext\add-default-securitycontext.yaml;add-default-securitycontext.yaml;other;DESCARTADA;Mutación/Generación
+other\add-emptydir-sizelimit\add-emptydir-sizelimit.yaml;add-emptydir-sizelimit.yaml;other;DESCARTADA;Mutación/Generación
+other\add-env-vars-from-cm\add-env-vars-from-cm.yaml;add-env-vars-from-cm.yaml;other;DESCARTADA;Mutación/Generación
+other\add-image-as-env-var\add-image-as-env-var.yaml;add-image-as-env-var.yaml;other;DESCARTADA;Mutación/Generación
+other\add-imagepullsecrets\add-imagepullsecrets.yaml;add-imagepullsecrets.yaml;other;DESCARTADA;Mutación/Generación
+other\add-imagepullsecrets-for-containers-and-initcontainers\add-imagepullsecrets-for-containers-and-initcontainers.yaml;add-imagepullsecrets-for-containers-and-initcontainers.yaml;other;DESCARTADA;Mutación/Generación
+other\add-labels\add-labels.yaml;add-labels.yaml;other;DESCARTADA;Mutación/Generación
+other\add-ndots\add-ndots.yaml;add-ndots.yaml;other;DESCARTADA;Mutación/Generación
+other\add-node-affinity\add-node-affinity.yaml;add-node-affinity.yaml;other;DESCARTADA;Mutación/Generación
+other\add-node-labels-pod\add-node-labels-pod.yaml;add-node-labels-pod.yaml;other;DESCARTADA;Mutación/Generación
+other\add-nodeSelector\add-nodeSelector.yaml;add-nodeSelector.yaml;other;DESCARTADA;Mutación/Generación
+other\add-pod-priorityclassname\add-pod-priorityclassname.yaml;add-pod-priorityclassname.yaml;other;DESCARTADA;Mutación/Generación
+other\add-pod-proxies\add-pod-proxies.yaml;add-pod-proxies.yaml;other;DESCARTADA;Mutación/Generación
+other\add-tolerations\add-tolerations.yaml;add-tolerations.yaml;other;DESCARTADA;Mutación/Generación
+other\add-ttl-jobs\add-ttl-jobs.yaml;add-ttl-jobs.yaml;other;DESCARTADA;Mutación/Generación
+other\add-volume-deployment\add-volume-deployment.yaml;add-volume-deployment.yaml;other;DESCARTADA;Mutación/Generación
+other\advanced-restrict-image-registries\advanced-restrict-image-registries.yaml;advanced-restrict-image-registries.yaml;other;DESCARTADA;API Call / Contexto
+other\advertise-node-extended-resources\advertise-node-extended-resources.yaml;advertise-node-extended-resources.yaml;other;DESCARTADA;Mutación/Generación
+other\allowed-annotations\allowed-annotations.yaml;allowed-annotations.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\allowed-base-images\allowed-base-images.yaml;allowed-base-images.yaml;other;DESCARTADA;API Call / Contexto
+other\allowed-image-repos\allowed-image-repos.yaml;allowed-image-repos.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\allowed-label-changes\allowed-label-changes.yaml;allowed-label-changes.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\allowed-pod-priorities\allowed-pod-priorities.yaml;allowed-pod-priorities.yaml;other;DESCARTADA;API Call / Contexto
+other\always-pull-images\always-pull-images.yaml;always-pull-images.yaml;other;DESCARTADA;Mutación/Generación
+other\annotate-base-images\annotate-base-images.yaml;annotate-base-images.yaml;other;DESCARTADA;Mutación/Generación
+other\apply-pss-restricted-profile\apply-pss-restricted-profile.yaml;apply-pss-restricted-profile.yaml;other;DESCARTADA;Mutación/Generación
+other\audit-event-on-delete\audit-event-on-delete.yaml;audit-event-on-delete.yaml;other;DESCARTADA;Mutación/Generación
+other\audit-event-on-exec\audit-event-on-exec.yaml;audit-event-on-exec.yaml;other;DESCARTADA;Mutación/Generación
+other\block-cluster-admin-from-ns\block-cluster-admin-from-ns.yaml;block-cluster-admin-from-ns.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\block-ephemeral-containers\block-ephemeral-containers.yaml;block-ephemeral-containers.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\block-images-with-volumes\block-images-with-volumes.yaml;block-images-with-volumes.yaml;other;DESCARTADA;Estructura foreach
+other\block-kubectl-cp\block-kubectl-cp.yaml;block-kubectl-cp.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\block-large-images\block-large-images.yaml;block-large-images.yaml;other;DESCARTADA;Estructura foreach
+other\block-pod-exec-by-namespace\block-pod-exec-by-namespace.yaml;block-pod-exec-by-namespace.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\block-pod-exec-by-namespace-label\block-pod-exec-by-namespace-label.yaml;block-pod-exec-by-namespace-label.yaml;other;DESCARTADA;API Call / Contexto
+other\block-pod-exec-by-pod-and-container\block-pod-exec-by-pod-and-container.yaml;block-pod-exec-by-pod-and-container.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\block-pod-exec-by-pod-label\block-pod-exec-by-pod-label.yaml;block-pod-exec-by-pod-label.yaml;other;DESCARTADA;API Call / Contexto
+other\block-pod-exec-by-pod-name\block-pod-exec-by-pod-name.yaml;block-pod-exec-by-pod-name.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\block-stale-images\block-stale-images.yaml;block-stale-images.yaml;other;DESCARTADA;Estructura foreach
+other\block-updates-deletes\block-updates-deletes.yaml;block-updates-deletes.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\check-env-vars\check-env-vars.yaml;check-env-vars.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\check-hpa-exists\check-hpa-exists.yaml;check-hpa-exists.yaml;other;DESCARTADA;API Call / Contexto
+other\check-ingress-nginx-controller-version-and-annotation-policy\check-ingress-nginx-controller-version-and-annotation-policy.yaml;check-ingress-nginx-controller-version-and-annotation-policy.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\check-node-for-cve-2022-0185\check-node-for-cve-2022-0185.yaml;check-node-for-cve-2022-0185.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\check-nvidia-gpu\check-nvidia-gpu.yaml;check-nvidia-gpu.yaml;other;DESCARTADA;Estructura foreach
+other\check-serviceaccount\check-serviceaccount.yaml;check-serviceaccount.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\check-serviceaccount-secrets\check-serviceaccount-secrets.yaml;check-serviceaccount-secrets.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\check-subjectaccessreview\check-subjectaccessreview.yaml;check-subjectaccessreview.yaml;other;DESCARTADA;API Call / Contexto
+other\check-vpa-configuration\check-vpa-configuration.yaml;check-vpa-configuration.yaml;other;DESCARTADA;API Call / Contexto
+other\concatenate-configmaps\concatenate-configmaps.yaml;concatenate-configmaps.yaml;other;DESCARTADA;Mutación/Generación
+other\copy-namespace-labels\copy-namespace-labels.yaml;copy-namespace-labels.yaml;other;DESCARTADA;Mutación/Generación
+other\cordon-and-drain-node\cordon-and-drain-node.yaml;cordon-and-drain-node.yaml;other;DESCARTADA;Mutación/Generación
+other\create-default-pdb\create-default-pdb.yaml;create-default-pdb.yaml;other;DESCARTADA;Mutación/Generación
+other\create-pod-antiaffinity\create-pod-antiaffinity.yaml;create-pod-antiaffinity.yaml;other;DESCARTADA;Mutación/Generación
+other\deny-commands-in-exec-probe\deny-commands-in-exec-probe.yaml;deny-commands-in-exec-probe.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\deny-secret-service-account-token-type\deny-secret-service-account-token-type.yaml;deny-secret-service-account-token-type.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\deployment-replicas-higher-than-pdb\deployment-replicas-higher-than-pdb.yaml;deployment-replicas-higher-than-pdb.yaml;other;DESCARTADA;API Call / Contexto
+other\disable-automountserviceaccounttoken\disable-automountserviceaccounttoken.yaml;disable-automountserviceaccounttoken.yaml;other;DESCARTADA;Mutación/Generación
+other\disable-service-discovery\disable-service-discovery.yaml;disable-service-discovery.yaml;other;DESCARTADA;Mutación/Generación
+other\disallow-all-secrets\disallow-all-secrets.yaml;disallow-all-secrets.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\disallow-localhost-services\disallow-localhost-services.yaml;disallow-localhost-services.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\disallow-secrets-from-env-vars\disallow-secrets-from-env-vars.yaml;disallow-secrets-from-env-vars.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\dns-policy-and-dns-config\dns-policy-and-dns-config.yaml;dns-policy-and-dns-config.yaml;other;DESCARTADA;Mutación/Generación
+other\docker-socket-requires-label\docker-socket-requires-label.yaml;docker-socket-requires-label.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\enforce-pod-duration\enforce-pod-duration.yaml;enforce-pod-duration.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\enforce-readwriteonce-pod\enforce-readwriteonce-pod.yaml;enforce-readwriteonce-pod.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\enforce-resources-as-ratio\enforce-resources-as-ratio.yaml;enforce-resources-as-ratio.yaml;other;DESCARTADA;Estructura foreach
+other\ensure-probes-different\ensure-probes-different.yaml;ensure-probes-different.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\ensure-production-matches-staging\ensure-production-matches-staging.yaml;ensure-production-matches-staging.yaml;other;DESCARTADA;API Call / Contexto
+other\ensure-readonly-hostpath\ensure-readonly-hostpath.yaml;ensure-readonly-hostpath.yaml;other;DESCARTADA;Estructura foreach
+other\exclude-namespaces-dynamically\exclude-namespaces-dynamically.yaml;exclude-namespaces-dynamically.yaml;other;DESCARTADA;API Call / Contexto
+other\expiration-for-policyexceptions\expiration-for-policyexceptions.yaml;expiration-for-policyexceptions.yaml;other;DESCARTADA;Mutación/Generación
+other\forbid-cpu-limits\forbid-cpu-limits.yaml;forbid-cpu-limits.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\generate-networkpolicy-existing\generate-networkpolicy-existing.yaml;generate-networkpolicy-existing.yaml;other;DESCARTADA;Mutación/Generación
+other\get-debug-information\get-debug-information.yaml;get-debug-information.yaml;other;DESCARTADA;Mutación/Generación
+other\imagepullpolicy-always\imagepullpolicy-always.yaml;imagepullpolicy-always.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\ingress-host-match-tls\ingress-host-match-tls.yaml;ingress-host-match-tls.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\inject-env-var-from-image-label\inject-env-var-from-image-label.yaml;inject-env-var-from-image-label.yaml;other;DESCARTADA;Mutación/Generación
+other\inject-sidecar-deployment\inject-sidecar-deployment.yaml;inject-sidecar-deployment.yaml;other;DESCARTADA;Mutación/Generación
+other\inspect-csr\inspect-csr.yaml;inspect-csr.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\kubernetes-version-check\kubernetes-version-check.yaml;kubernetes-version-check.yaml;other;DESCARTADA;Mutación/Generación
+other\label-existing-namespaces\label-existing-namespaces.yaml;label-existing-namespaces.yaml;other;DESCARTADA;Mutación/Generación
+other\label-nodes-cri\label-nodes-cri.yaml;label-nodes-cri.yaml;other;DESCARTADA;Mutación/Generación
+other\limit-configmap-for-sa\limit-configmap-for-sa.yaml;limit-configmap-for-sa.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\limit-containers-per-pod\limit-containers-per-pod.yaml;limit-containers-per-pod.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\limit-hostpath-type-pv\limit-hostpath-type-pv.yaml;limit-hostpath-type-pv.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\limit-hostpath-vols\limit-hostpath-vols.yaml;limit-hostpath-vols.yaml;other;DESCARTADA;Estructura foreach
+other\memory-requests-equal-limits\memory-requests-equal-limits.yaml;memory-requests-equal-limits.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\metadata-match-regex\metadata-match-regex.yaml;metadata-match-regex.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\mitigate-log4shell\mitigate-log4shell.yaml;mitigate-log4shell.yaml;other;DESCARTADA;Mutación/Generación
+other\mutate-large-termination-gps\mutate-large-termination-gps.yaml;mutate-large-termination-gps.yaml;other;DESCARTADA;Mutación/Generación
+other\mutate-pod-binding\mutate-pod-binding.yaml;mutate-pod-binding.yaml;other;DESCARTADA;Mutación/Generación
+other\namespace-inventory-check\namespace-inventory-check.yaml;namespace-inventory-check.yaml;other;DESCARTADA;API Call / Contexto
+other\namespace-protection\namespace-protection.yaml;namespace-protection.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\nfs-subdir-external-provisioner-storage-path\nfs-subdir-external-provisioner-storage-path.yaml;nfs-subdir-external-provisioner-storage-path.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\only-trustworthy-registries-set-root\only-trustworthy-registries-set-root.yaml;only-trustworthy-registries-set-root.yaml;other;DESCARTADA;Estructura foreach
+other\pdb-maxunavailable\pdb-maxunavailable.yaml;pdb-maxunavailable.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\pdb-maxunavailable-with-deployments\pdb-maxunavailable-with-deployments.yaml;pdb-maxunavailable-with-deployments.yaml;other;DESCARTADA;API Call / Contexto
+other\pdb-minavailable\pdb-minavailable.yaml;pdb-minavailable.yaml;other;DESCARTADA;API Call / Contexto
+other\policy-for-exceptions\policy-for-exceptions.yaml;policy-for-exceptions.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\prepend-image-registry\prepend-image-registry.yaml;prepend-image-registry.yaml;other;DESCARTADA;Mutación/Generación
+other\prevent-bare-pods\prevent-bare-pods.yaml;prevent-bare-pods.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\prevent-cr8escape\prevent-cr8escape.yaml;prevent-cr8escape.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\prevent-duplicate-hpa\prevent-duplicate-hpa.yaml;prevent-duplicate-hpa.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\prevent-duplicate-vpa\prevent-duplicate-vpa.yaml;prevent-duplicate-vpa.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\protect-node-taints\protect-node-taints.yaml;protect-node-taints.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\record-creation-details\record-creation-details.yaml;record-creation-details.yaml;other;DESCARTADA;Mutación/Generación
+other\refresh-env-var-in-pod\refresh-env-var-in-pod.yaml;refresh-env-var-in-pod.yaml;other;DESCARTADA;Mutación/Generación
+other\refresh-volumes-in-pods\refresh-volumes-in-pods.yaml;refresh-volumes-in-pods.yaml;other;DESCARTADA;Mutación/Generación
+other\remove-hostpath-volumes\remove-hostpath-volumes.yaml;remove-hostpath-volumes.yaml;other;DESCARTADA;Mutación/Generación
+other\remove-serviceaccount-token\remove-serviceaccount-token.yaml;remove-serviceaccount-token.yaml;other;DESCARTADA;Mutación/Generación
+other\replace-image-registry\replace-image-registry.yaml;replace-image-registry.yaml;other;DESCARTADA;Mutación/Generación
+other\replace-image-registry-with-harbor\replace-image-registry-with-harbor.yaml;replace-image-registry-with-harbor.yaml;other;DESCARTADA;Mutación/Generación
+other\replace-ingress-hosts\replace-ingress-hosts.yaml;replace-ingress-hosts.yaml;other;DESCARTADA;Mutación/Generación
+other\require-annotations\require-annotations.yaml;require-annotations.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-base-image\require-base-image.yaml;require-base-image.yaml;other;DESCARTADA;Estructura foreach
+other\require-container-port-names\require-container-port-names.yaml;require-container-port-names.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-cpu-limits\require-cpu-limits.yaml;require-cpu-limits.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-deployments-have-multiple-replicas\require-deployments-have-multiple-replicas.yaml;require-deployments-have-multiple-replicas.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-emptydir-requests-limits\require-emptydir-requests-limits.yaml;require-emptydir-requests-limits.yaml;other;DESCARTADA;API Call / Contexto
+other\require-image-checksum\require-image-checksum.yaml;require-image-checksum.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-image-source\require-image-source.yaml;require-image-source.yaml;other;DESCARTADA;Estructura foreach
+other\require-imagepullsecrets\require-imagepullsecrets.yaml;require-imagepullsecrets.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\require-ingress-https\require-ingress-https.yaml;require-ingress-https.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\require-netpol\require-netpol.yaml;require-netpol.yaml;other;DESCARTADA;API Call / Contexto
+other\require-non-root-groups\require-non-root-groups.yaml;require-non-root-groups.yaml;other;DESCARTADA;Usa anyPattern (Descartado en Baseline)
+other\require-pdb\require-pdb.yaml;require-pdb.yaml;other;DESCARTADA;API Call / Contexto
+other\require-pod-priorityclassname\require-pod-priorityclassname.yaml;require-pod-priorityclassname.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-qos-burstable\require-qos-burstable.yaml;require-qos-burstable.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-qos-guaranteed\require-qos-guaranteed.yaml;require-qos-guaranteed.yaml;other;DESCARTADA;Estructura foreach
+other\require-reasonable-pdbs\require-reasonable-pdbs.yaml;require-reasonable-pdbs.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-replicas-allow-disruption\require-replicas-allow-disruption.yaml;require-replicas-allow-disruption.yaml;other;DESCARTADA;API Call / Contexto
+other\require-storageclass\require-storageclass.yaml;require-storageclass.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\require-unique-external-dns\require-unique-external-dns.yaml;require-unique-external-dns.yaml;other;DESCARTADA;API Call / Contexto
+other\require-unique-service-selector\require-unique-service-selector.yaml;require-unique-service-selector.yaml;other;DESCARTADA;API Call / Contexto
+other\require-unique-uid-per-workload\require-unique-uid-per-workload.yaml;require-unique-uid-per-workload.yaml;other;DESCARTADA;API Call / Contexto
+other\require-vulnerability-scan\require-vulnerability-scan.yaml;require-vulnerability-scan.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\resolve-image-to-digest\resolve-image-to-digest.yaml;resolve-image-to-digest.yaml;other;DESCARTADA;Mutación/Generación
+other\resource-creation-updating-denied\resource-creation-updating-denied.yaml;resource-creation-updating-denied.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restart-deployment-on-secret-change\restart-deployment-on-secret-change.yaml;restart-deployment-on-secret-change.yaml;other;DESCARTADA;Mutación/Generación
+other\restrict-annotations\restrict-annotations.yaml;restrict-annotations.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-automount-sa-token\restrict-automount-sa-token.yaml;restrict-automount-sa-token.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restrict-binding-clusteradmin\restrict-binding-clusteradmin.yaml;restrict-binding-clusteradmin.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-binding-system-groups\restrict-binding-system-groups.yaml;restrict-binding-system-groups.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-clusterrole-csr\restrict-clusterrole-csr.yaml;restrict-clusterrole-csr.yaml;other;DESCARTADA;Estructura foreach
+other\restrict-clusterrole-mutating-validating-admission-webhooks\restrict-clusterrole-mutating-validating-admission-webhooks.yaml;restrict-clusterrole-mutating-validating-admission-webhooks.yaml;other;DESCARTADA;Estructura foreach
+other\restrict-clusterrole-nodesproxy\restrict-clusterrole-nodesproxy.yaml;restrict-clusterrole-nodesproxy.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-controlplane-scheduling\restrict-controlplane-scheduling.yaml;restrict-controlplane-scheduling.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-deprecated-registry\restrict-deprecated-registry.yaml;restrict-deprecated-registry.yaml;other;DESCARTADA;Estructura foreach
+other\restrict-edit-for-endpoints\restrict-edit-for-endpoints.yaml;restrict-edit-for-endpoints.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-escalation-verbs-roles\restrict-escalation-verbs-roles.yaml;restrict-escalation-verbs-roles.yaml;other;DESCARTADA;Estructura foreach
+other\restrict-ingress-classes\restrict-ingress-classes.yaml;restrict-ingress-classes.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-ingress-defaultbackend\restrict-ingress-defaultbackend.yaml;restrict-ingress-defaultbackend.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-ingress-host\restrict-ingress-host.yaml;restrict-ingress-host.yaml;other;DESCARTADA;API Call / Contexto
+other\restrict-ingress-wildcard\restrict-ingress-wildcard.yaml;restrict-ingress-wildcard.yaml;other;DESCARTADA;Estructura foreach
+other\restrict-jobs\restrict-jobs.yaml;restrict-jobs.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-loadbalancer\restrict-loadbalancer.yaml;restrict-loadbalancer.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-networkpolicy-empty-podselector\restrict-networkpolicy-empty-podselector.yaml;restrict-networkpolicy-empty-podselector.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restrict-node-affinity\restrict-node-affinity.yaml;restrict-node-affinity.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-node-label-changes\restrict-node-label-changes.yaml;restrict-node-label-changes.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-node-label-creation\restrict-node-label-creation.yaml;restrict-node-label-creation.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restrict-node-selection\restrict-node-selection.yaml;restrict-node-selection.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restrict-pod-controller-serviceaccount-updates\restrict-pod-controller-serviceaccount-updates.yaml;restrict-pod-controller-serviceaccount-updates.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-pod-count-per-node\restrict-pod-count-per-node.yaml;restrict-pod-count-per-node.yaml;other;DESCARTADA;API Call / Contexto
+other\restrict-sa-automount-sa-token\restrict-sa-automount-sa-token.yaml;restrict-sa-automount-sa-token.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-scale\restrict-scale.yaml;restrict-scale.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-secret-role-verbs\restrict-secret-role-verbs.yaml;restrict-secret-role-verbs.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-secrets-by-label\restrict-secrets-by-label.yaml;restrict-secrets-by-label.yaml;other;DESCARTADA;API Call / Contexto
+other\restrict-secrets-by-name\restrict-secrets-by-name.yaml;restrict-secrets-by-name.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restrict-service-account\restrict-service-account.yaml;restrict-service-account.yaml;other;DESCARTADA;API Call / Contexto
+other\restrict-service-port-range\restrict-service-port-range.yaml;restrict-service-port-range.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-storageclass\restrict-storageclass.yaml;restrict-storageclass.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-usergroup-fsgroup-id\restrict-usergroup-fsgroup-id.yaml;restrict-usergroup-fsgroup-id.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\restrict-wildcard-resources\restrict-wildcard-resources.yaml;restrict-wildcard-resources.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\restrict-wildcard-verbs\restrict-wildcard-verbs.yaml;restrict-wildcard-verbs.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\scale-deployment-zero\scale-deployment-zero.yaml;scale-deployment-zero.yaml;other;DESCARTADA;Mutación/Generación
+other\spread-pods-across-topology\spread-pods-across-topology.yaml;spread-pods-across-topology.yaml;other;DESCARTADA;Mutación/Generación
+other\sync-secrets\sync-secrets.yaml;sync-secrets.yaml;other;DESCARTADA;Mutación/Generación
+other\time-bound-policy\time-bound-policy.yaml;time-bound-policy.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\topologyspreadconstraints-policy\topologyspreadconstraints-policy.yaml;topologyspreadconstraints-policy.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+other\unique-ingress-host-and-path\unique-ingress-host-and-path.yaml;unique-ingress-host-and-path.yaml;other;DESCARTADA;API Call / Contexto
+other\unique-ingress-paths\unique-ingress-paths.yaml;unique-ingress-paths.yaml;other;DESCARTADA;API Call / Contexto
+other\update-image-tag\update-image-tag.yaml;update-image-tag.yaml;other;DESCARTADA;Mutación/Generación
+other\verify-image\verify-image.yaml;verify-image.yaml;other;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+other\verify-image-cve-2022-42889\verify-image-cve-2022-42889.yaml;verify-image-cve-2022-42889.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\verify-image-gcpkms\verify-image-gcpkms.yaml;verify-image-gcpkms.yaml;other;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+other\verify-image-slsa\verify-image-slsa.yaml;verify-image-slsa.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\verify-image-with-multi-keys\verify-image-with-multi-keys.yaml;verify-image-with-multi-keys.yaml;other;DESCARTADA;API Call / Contexto
+other\verify-manifest-integrity\verify-manifest-integrity.yaml;verify-manifest-integrity.yaml;other;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+other\verify-sbom-cyclonedx\verify-sbom-cyclonedx.yaml;verify-sbom-cyclonedx.yaml;other;DESCARTADA;Variables dinámicas complejas
+other\verify-vpa-target\verify-vpa-target.yaml;verify-vpa-target.yaml;other;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-capabilities\disallow-capabilities.yaml;disallow-capabilities.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-host-namespaces\disallow-host-namespaces.yaml;disallow-host-namespaces.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-host-path\disallow-host-path.yaml;disallow-host-path.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-host-ports\disallow-host-ports.yaml;disallow-host-ports.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-host-ports-range\disallow-host-ports-range.yaml;disallow-host-ports-range.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-host-process\disallow-host-process.yaml;disallow-host-process.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-privileged-containers\disallow-privileged-containers.yaml;disallow-privileged-containers.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-proc-mount\disallow-proc-mount.yaml;disallow-proc-mount.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\disallow-selinux\disallow-selinux.yaml;disallow-selinux.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\restrict-apparmor-profiles\restrict-apparmor-profiles.yaml;restrict-apparmor-profiles.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\restrict-seccomp\restrict-seccomp.yaml;restrict-seccomp.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\baseline\restrict-sysctls\restrict-sysctls.yaml;restrict-sysctls.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\restricted\disallow-capabilities-strict\disallow-capabilities-strict.yaml;disallow-capabilities-strict.yaml;pod-security;DESCARTADA;Estructura foreach
+pod-security\restricted\disallow-privilege-escalation\disallow-privilege-escalation.yaml;disallow-privilege-escalation.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\restricted\require-run-as-non-root-user\require-run-as-non-root-user.yaml;require-run-as-non-root-user.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\restricted\require-run-as-nonroot\require-run-as-nonroot.yaml;require-run-as-nonroot.yaml;pod-security;DESCARTADA;Usa anyPattern (Descartado en Baseline)
+pod-security\restricted\restrict-seccomp-strict\restrict-seccomp-strict.yaml;restrict-seccomp-strict.yaml;pod-security;DESCARTADA;Usa anyPattern (Descartado en Baseline)
+pod-security\restricted\restrict-volume-types\restrict-volume-types.yaml;restrict-volume-types.yaml;pod-security;ACEPTADA;Estática Pura (Pattern Simple)
+pod-security\subrule\podsecurity-subrule-baseline\podsecurity-subrule-baseline.yaml;podsecurity-subrule-baseline.yaml;pod-security;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+pod-security\subrule\restricted\restricted-exclude-capabilities\restricted-exclude-capabilities.yaml;restricted-exclude-capabilities.yaml;pod-security;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+pod-security\subrule\restricted\restricted-exclude-seccomp\restricted-exclude-seccomp.yaml;restricted-exclude-seccomp.yaml;pod-security;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+pod-security\subrule\restricted\restricted-latest\restricted-latest.yaml;restricted-latest.yaml;pod-security;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+psa\add-privileged-existing-namespaces\add-privileged-existing-namespaces.yaml;add-privileged-existing-namespaces.yaml;psa;DESCARTADA;Mutación/Generación
+psa\add-psa-labels\add-psa-labels.yaml;add-psa-labels.yaml;psa;DESCARTADA;Mutación/Generación
+psa\add-psa-namespace-reporting\add-psa-namespace-reporting.yaml;add-psa-namespace-reporting.yaml;psa;ACEPTADA;Estática Pura (Pattern Simple)
+psa\deny-privileged-profile\deny-privileged-profile.yaml;deny-privileged-profile.yaml;psa;ACEPTADA;Estática Pura (Pattern Simple)
+psp-migration\add-apparmor\add-apparmor.yaml;add-apparmor.yaml;psp-migration;DESCARTADA;Mutación/Generación
+psp-migration\add-capabilities\add-capabilities.yaml;add-capabilities.yaml;psp-migration;DESCARTADA;Mutación/Generación
+psp-migration\add-runtimeClassName\add-runtimeClassName.yaml;add-runtimeClassName.yaml;psp-migration;DESCARTADA;Mutación/Generación
+psp-migration\check-supplemental-groups\check-supplemental-groups.yaml;check-supplemental-groups.yaml;psp-migration;DESCARTADA;Variables dinámicas complejas
+psp-migration\restrict-adding-capabilities\restrict-adding-capabilities.yaml;restrict-adding-capabilities.yaml;psp-migration;DESCARTADA;Estructura foreach
+psp-migration\restrict-runtimeClassName\restrict-runtimeClassName.yaml;restrict-runtimeClassName.yaml;psp-migration;DESCARTADA;Variables dinámicas complejas
+tekton\block-tekton-task-runs\block-tekton-task-runs.yaml;block-tekton-task-runs.yaml;tekton;DESCARTADA;Variables dinámicas complejas
+tekton\require-tekton-bundle\require-tekton-bundle.yaml;require-tekton-bundle.yaml;tekton;ACEPTADA;Estática Pura (Pattern Simple)
+tekton\require-tekton-namespace-pipelinerun\require-tekton-namespace-pipelinerun.yaml;require-tekton-namespace-pipelinerun.yaml;tekton;DESCARTADA;Variables dinámicas complejas
+tekton\require-tekton-securitycontext\require-tekton-securitycontext.yaml;require-tekton-securitycontext.yaml;tekton;ACEPTADA;Estática Pura (Pattern Simple)
+tekton\verify-tekton-pipeline-bundle-signatures\verify-tekton-pipeline-bundle-signatures.yaml;verify-tekton-pipeline-bundle-signatures.yaml;tekton;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+tekton\verify-tekton-taskrun-signatures\verify-tekton-taskrun-signatures.yaml;verify-tekton-taskrun-signatures.yaml;tekton;DESCARTADA;No tiene pattern simple ni deny (posible CEL)
+tekton\verify-tekton-taskrun-vuln-scan\verify-tekton-taskrun-vuln-scan.yaml;verify-tekton-taskrun-vuln-scan.yaml;tekton;DESCARTADA;Variables dinámicas complejas
+traefik\disallow-default-tlsoptions\disallow-default-tlsoptions.yaml;disallow-default-tlsoptions.yaml;traefik;ACEPTADA;Estática Pura (Pattern Simple)
+velero\backup-all-volumes\backup-all-volumes.yaml;backup-all-volumes.yaml;velero;DESCARTADA;Mutación/Generación
+velero\block-velero-restore\block-velero-restore.yaml;block-velero-restore.yaml;velero;DESCARTADA;Variables dinámicas complejas
+velero\validate-cron-schedule\validate-cron-schedule.yaml;validate-cron-schedule.yaml;velero;DESCARTADA;Variables dinámicas complejas
+windows-security\require-run-as-containeruser\require-run-as-containeruser.yaml;require-run-as-containeruser.yaml;windows-security;ACEPTADA;Estática Pura (Pattern Simple)

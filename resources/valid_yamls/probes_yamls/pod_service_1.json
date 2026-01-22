@@ -1,0 +1,25 @@
+{
+    "filename": "pod_service_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Endpoints_apiVersion": "v1",
+        "io_k8s_api_core_v1_Endpoints_kind": "Endpoints",
+        "io_k8s_api_core_v1_Endpoints_metadata": {
+            "io_k8s_api_core_v1_Endpoints_metadata_name": "servicewithoutselector"
+        },
+        "io_k8s_api_core_v1_Endpoints_subsets": [
+            {
+                "io_k8s_api_core_v1_Endpoints_subsets_addresses": [
+                    {
+                        "io_k8s_api_core_v1_Endpoints_subsets_addresses_ip": "172.31.59.112"
+                    }
+                ],
+                "io_k8s_api_core_v1_Endpoints_subsets_ports": [
+                    {
+                        "io_k8s_api_core_v1_Endpoints_subsets_ports_port": 9090
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "filename": "podSecurityController_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Namespace_apiVersion": "v1",
+        "io_k8s_api_core_v1_Namespace_kind": "Namespace",
+        "io_k8s_api_core_v1_Namespace_metadata": {
+            "io_k8s_api_core_v1_Namespace_metadata_name": "back",
+            "io_k8s_api_core_v1_Namespace_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap": "pod-security.kubernetes.io/enforce",
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap": "baseline"
+                },
+                {
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap": "pod-security.kubernetes.io/enforce-version",
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap": "v1.30"
+                },
+                {
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap": "pod-security.kubernetes.io/audit",
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap": "restricted"
+                },
+                {
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap": "pod-security.kubernetes.io/audit-version",
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap": "v1.30"
+                },
+                {
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap": "pod-security.kubernetes.io/warn",
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap": "restricted"
+                },
+                {
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_KeyMap": "pod-security.kubernetes.io/warn-version",
+                    "io_k8s_api_core_v1_Namespace_metadata_labels_ValueMap": "v1.30"
+                }
+            ]
+        }
+    }
+}

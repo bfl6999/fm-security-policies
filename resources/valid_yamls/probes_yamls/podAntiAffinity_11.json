@@ -1,0 +1,46 @@
+{
+    "filename": "podAntiAffinity_11.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "with-pod-antiaffinity"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_affinity": {
+                "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity": {
+                    "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_weight": 100,
+                            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+                                "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                                    "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_key": "security",
+                                            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": {
+                                                "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator_In": true
+                                            },
+                                            "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_values_StringValue": "S2"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_Pod_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_topologyKey": "kubernetes.io/hostname"
+                            }
+                        }
+                    ]
+                }
+            },
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "with-pod-affinity",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "docker.io/ocpqe/hello-pod"
+                }
+            ]
+        }
+    }
+}

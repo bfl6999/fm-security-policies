@@ -1,0 +1,37 @@
+{
+    "filename": "Pod_Service1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Service_apiVersion": "v1",
+        "io_k8s_api_core_v1_Service_kind": "Service",
+        "io_k8s_api_core_v1_Service_metadata": {
+            "io_k8s_api_core_v1_Service_metadata_name": "frontend",
+            "io_k8s_api_core_v1_Service_metadata_namespace": "staging",
+            "io_k8s_api_core_v1_Service_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Service_metadata_labels_KeyMap": "role",
+                    "io_k8s_api_core_v1_Service_metadata_labels_ValueMap": "frontend"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Service_spec": {
+            "io_k8s_api_core_v1_Service_spec_selector": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "role",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "frontend"
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_ports": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_ports_protocol": {
+                        "io_k8s_api_core_v1_Service_spec_ports_protocol_TCP": true
+                    },
+                    "io_k8s_api_core_v1_Service_spec_ports_port": 80,
+                    "io_k8s_api_core_v1_Service_spec_ports_targetPort": {
+                        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asString": "http"
+                    }
+                }
+            ]
+        }
+    }
+}

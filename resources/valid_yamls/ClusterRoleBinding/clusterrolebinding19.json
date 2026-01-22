@@ -1,0 +1,47 @@
+{
+    "filename": "clusterrolebinding19.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_kind": "ClusterRoleBinding",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_name": "kube-prometheus-stack-plutono-clusterrolebinding",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels": [
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "helm.sh/chart",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "grafana-6.57.4"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/name",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack-plutono"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/instance",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/version",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "9.5.5"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/managed-by",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "Helm"
+                }
+            ]
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount": true
+                },
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_name": "kube-prometheus-stack-plutono",
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_namespace": "monitoring"
+            }
+        ],
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_kind": "ClusterRole",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_name": "kube-prometheus-stack-plutono-clusterrole",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io"
+        }
+    }
+}

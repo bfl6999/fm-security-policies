@@ -1,0 +1,31 @@
+{
+    "filename": "pod-resources30_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_annotations": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap": "inject-certs",
+                    "io_k8s_api_core_v1_Pod_metadata_annotations_ValueMap": "disabled"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_metadata_name": "pod02",
+            "io_k8s_api_core_v1_Pod_metadata_namespace": "other-certvol-ns"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_automountServiceAccountToken": false,
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "pod02-01",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox:1.35"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "pod02-02",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox:1.35"
+                }
+            ]
+        }
+    }
+}

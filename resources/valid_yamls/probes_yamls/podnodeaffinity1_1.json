@@ -1,0 +1,61 @@
+{
+    "filename": "podnodeaffinity1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "nodeaffinitypod2"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "nodeaffinity2",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "nginx:latest"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_affinity": {
+                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity": {
+                    "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_weight": 1,
+                            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+                                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions": [
+                                    {
+                                        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_key": "app",
+                                        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": {
+                                            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In": true
+                                        },
+                                        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_values": [
+                                            {
+                                                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_values_StringValue": "production"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_weight": 2,
+                            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+                                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions": [
+                                    {
+                                        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_key": "app",
+                                        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": {
+                                            "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator_In": true
+                                        },
+                                        "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_values": [
+                                            {
+                                                "io_k8s_api_core_v1_Pod_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_values_StringValue": "test"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

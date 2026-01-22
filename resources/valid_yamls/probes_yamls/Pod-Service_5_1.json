@@ -1,0 +1,31 @@
+{
+    "filename": "Pod-Service_5_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Service_apiVersion": "v1",
+        "io_k8s_api_core_v1_Service_kind": "Service",
+        "io_k8s_api_core_v1_Service_metadata": {
+            "io_k8s_api_core_v1_Service_metadata_name": "nginx-service"
+        },
+        "io_k8s_api_core_v1_Service_spec": {
+            "io_k8s_api_core_v1_Service_spec_selector": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_selector_KeyMap": "app.kubernetes.io/name",
+                    "io_k8s_api_core_v1_Service_spec_selector_ValueMap": "proxy"
+                }
+            ],
+            "io_k8s_api_core_v1_Service_spec_ports": [
+                {
+                    "io_k8s_api_core_v1_Service_spec_ports_name": "name-of-service-port",
+                    "io_k8s_api_core_v1_Service_spec_ports_protocol": {
+                        "io_k8s_api_core_v1_Service_spec_ports_protocol_TCP": true
+                    },
+                    "io_k8s_api_core_v1_Service_spec_ports_port": 80,
+                    "io_k8s_api_core_v1_Service_spec_ports_targetPort": {
+                        "io_k8s_api_core_v1_Service_spec_ports_targetPort_asString": "http-web-svc"
+                    }
+                }
+            ]
+        }
+    }
+}

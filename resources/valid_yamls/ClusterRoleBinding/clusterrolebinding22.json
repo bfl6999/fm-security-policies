@@ -1,0 +1,69 @@
+{
+    "filename": "clusterrolebinding22.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_kind": "ClusterRoleBinding",
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_name": "kube-prometheus-stack-admission",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_annotations": [
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_annotations_KeyMap": "helm.sh/hook",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_annotations_ValueMap": "pre-install,pre-upgrade,post-install,post-upgrade"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_annotations_KeyMap": "helm.sh/hook-delete-policy",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_annotations_ValueMap": "before-hook-creation,hook-succeeded"
+                }
+            ],
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels": [
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack-admission"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/managed-by",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "Helm"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/instance",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/version",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "47.1.0"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "app.kubernetes.io/part-of",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "chart",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack-47.1.0"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "release",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "kube-prometheus-stack"
+                },
+                {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap": "heritage",
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_ValueMap": "Helm"
+                }
+            ]
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef": {
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_apiGroup": "rbac.authorization.k8s.io",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_kind": "ClusterRole",
+            "io_k8s_api_rbac_v1_ClusterRoleBinding_roleRef_name": "kube-prometheus-stack-admission"
+        },
+        "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind": {
+                    "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount": true
+                },
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_name": "kube-prometheus-stack-admission",
+                "io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_namespace": "monitoring"
+            }
+        ]
+    }
+}

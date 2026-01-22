@@ -1,0 +1,37 @@
+{
+    "filename": "restrict-sysctls.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "kyverno_io_v1_ClusterPolicy_apiVersion": "kyverno.io/v1",
+        "kyverno_io_v1_ClusterPolicy_kind": "ClusterPolicy",
+        "kyverno_io_v1_ClusterPolicy_metadata": true,
+        "kyverno_io_v1_ClusterPolicy_spec": {
+            "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction": {
+                "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction_Audit": true
+            },
+            "kyverno_io_v1_ClusterPolicy_spec_background": true,
+            "kyverno_io_v1_ClusterPolicy_spec_rules": [
+                {
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_name": "check-sysctls",
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_match": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_match_any": [
+                            {
+                                "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources": {
+                                    "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds": [
+                                        {
+                                            "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds_StringValue": "Pod"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_validate": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_message": "Setting additional sysctls above the allowed type is disallowed. The field spec.securityContext.sysctls must be unset or not use any other names than kernel.shm_rmid_forced, net.ipv4.ip_local_port_range, net.ipv4.ip_unprivileged_port_start, net.ipv4.tcp_syncookies and net.ipv4.ping_group_range.",
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_pattern": true
+                    }
+                }
+            ]
+        }
+    }
+}

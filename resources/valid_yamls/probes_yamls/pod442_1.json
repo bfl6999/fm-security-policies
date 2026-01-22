@@ -1,0 +1,69 @@
+{
+    "filename": "pod442_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "cmtest",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "configmapkeys"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "configmaptest",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "dsatizabal/configmapkeys:v2",
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "config",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/etc/config/"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "TARGET_DIR",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "/etc/config/"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_resources": {
+                        "request": {
+                            "cpu": "100mi",
+                            "memory": "100MiB"
+                        },
+                        "limits": {
+                            "cpu": 1,
+                            "memory": "1GiB"
+                        }
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "config",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_configMap": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_configMap_name": "configmaptest",
+                        "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items": [
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items_key": "key1",
+                                "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items_path": "keys/key1"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items_key": "key2",
+                                "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items_path": "keys/key2"
+                            },
+                            {
+                                "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items_key": "file.yaml",
+                                "io_k8s_api_core_v1_Pod_spec_volumes_configMap_items_path": "yaml/file.yaml"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

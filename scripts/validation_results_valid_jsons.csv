@@ -1,0 +1,385 @@
+Filename,Secure,TimeVal,TimeConf,PoliciesApplied,ToolPolicy,Severity,Features,Configurations,Description
+.cmp_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+.cmp_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_initContainers_volumeMounts_name'
+.rc-template.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ReplicationController_metadata_labels_KeyMap'
+.rs-template.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_ReplicaSet_metadata_labels_KeyMap'
+.serviceaccount.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_annotations_KeyMap'
+.template.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+.template1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-add-node-labels.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-app-configmap.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-app-configmap1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-app-configmap2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-app-configmap3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-cluster-autoscaler.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+0-cluster-autoscaler1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+0-cluster-autoscaler1_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-cluster-autoscaler1_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-cluster-autoscaler1_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap'
+0-cluster-autoscaler1_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_RoleBinding_metadata_labels_KeyMap'
+0-cluster-autoscaler1_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+0-cluster-autoscaler_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-cluster-autoscaler_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-cluster-autoscaler_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_metadata_labels_KeyMap'
+0-cluster-autoscaler_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_RoleBinding_metadata_labels_KeyMap'
+0-cluster-autoscaler_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+0-cluster-role.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+0-cluster-role1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+0-config.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config5.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config7.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-config8.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-configmap.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+0-dashboard1_10.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+0-dashboard1_11.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+0-dashboard1_12.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+0-dashboard1_13.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+0-dashboard1_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+0-dashboard1_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_labels_KeyMap'
+0-dashboard1_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_labels_KeyMap'
+0-dashboard1_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_labels_KeyMap'
+0-dashboard1_6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard1_7.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard1_8.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard1_9.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_RoleBinding_metadata_labels_KeyMap'
+0-dashboard_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+0-dashboard_10.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+0-dashboard_11.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+0-dashboard_12.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+0-dashboard_13.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+0-dashboard_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+0-dashboard_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_labels_KeyMap'
+0-dashboard_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_labels_KeyMap'
+0-dashboard_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_labels_KeyMap'
+0-dashboard_6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard_7.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard_8.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0-dashboard_9.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_RoleBinding_metadata_labels_KeyMap'
+0.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-all-custom-namespaces.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-all-custom-namespaces_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-app-namespace.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-assert1.json,True,0.81978,0.005,"{'Disallow_Default_Namespace': True, 'Require_StorageClass': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,10,1,Ningun parametro invalido
+00-assert10.json,True,0.63308,0.007,"{'Disallow_Default_Namespace': True, 'Require_Multiple_Replicas': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,6,1,Ningun parametro invalido
+00-assert10_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-assert10_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_imagePullSecrets_name'
+00-assert11.json,True,0.70205,0.00815,"{'Disallow_Default_Namespace': True, 'Require_StorageClass': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,7,1,Ningun parametro invalido
+00-assert11_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-assert11_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_StatefulSet_spec_template_spec_imagePullSecrets_name'
+00-assert12.json,True,0.63611,0.01005,"{'Disallow_Default_Namespace': True, 'Require_Multiple_Replicas': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,6,1,Ningun parametro invalido
+00-assert12_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-assert12_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_imagePullSecrets_name'
+00-assert1_1.json,True,1.08323,0.007,"{'Disallow_Host_Namespaces': True, 'Disallow_hostPath': True, 'Disallow_hostPorts_Range_Alternate': True, 'Disallow_hostPorts': True, 'Disallow_hostProcess': True, 'Disallow_Privileged_Containers': True, 'Disallow_procMount': True, 'Restrict_AppArmor': True, 'Restrict_Seccomp': True, 'Disallow_Default_Namespace': True, 'Require_Read_Only_Root_Filesystem': True, 'Require_Annotations': True, 'Restrict_control_plane_scheduling': True, 'Restrict_Node_Affinity': True, 'Require_Run_As_ContainerUser_Windows': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_auto_mount_service_token': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True, 'privilegeEscalationAllowed': True, 'procMount': True, 'runAsRootAllowed': True}",Kyverno,medium,6,1,Ningun parametro invalido
+00-assert21_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString'
+00-assert22_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_containers_resources_requests_asString'
+00-assert23_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_StatefulSet_spec_template_spec_containers_resources_requests_asString'
+00-assert24.json,True,1.14543,0.01,"{'Disallow_Host_Namespaces': True, 'Disallow_hostPath': True, 'Disallow_hostPorts_Range_Alternate': True, 'Disallow_hostPorts': True, 'Disallow_hostProcess': True, 'Disallow_Privileged_Containers': True, 'Disallow_procMount': True, 'Restrict_AppArmor': True, 'Restrict_Seccomp': True, 'Disallow_Default_Namespace': True, 'Require_Read_Only_Root_Filesystem': True, 'Require_Annotations': True, 'Restrict_control_plane_scheduling': True, 'Restrict_Node_Affinity': True, 'Require_Run_As_ContainerUser_Windows': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_auto_mount_service_token': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True, 'privilegeEscalationAllowed': True, 'procMount': True, 'runAsRootAllowed': True}",Kyverno,medium,7,1,Ningun parametro invalido
+00-assert25_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_StatefulSet_spec_template_spec_containers_resources_requests_asString'
+00-assert3.json,True,0.85566,0.01905,"{'Disallow_Default_Namespace': True, 'Require_StorageClass': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,10,1,Ningun parametro invalido
+00-assert3_1.json,True,1.05647,0.006,"{'Disallow_Host_Namespaces': True, 'Disallow_hostPath': True, 'Disallow_hostPorts_Range_Alternate': True, 'Disallow_hostPorts': True, 'Disallow_hostProcess': True, 'Disallow_Privileged_Containers': True, 'Disallow_procMount': True, 'Restrict_AppArmor': True, 'Restrict_Seccomp': True, 'Disallow_Default_Namespace': True, 'Require_Read_Only_Root_Filesystem': True, 'Require_Annotations': True, 'Restrict_control_plane_scheduling': True, 'Restrict_Node_Affinity': True, 'Require_Run_As_ContainerUser_Windows': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_auto_mount_service_token': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True, 'privilegeEscalationAllowed': True, 'procMount': True, 'runAsRootAllowed': True}",Kyverno,medium,6,1,Ningun parametro invalido
+00-assert4.json,True,0.7504,0.0172,"{'Disallow_Default_Namespace': True, 'Require_Multiple_Replicas': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,9,1,Ningun parametro invalido
+00-assert4_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-assert4_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_imagePullSecrets_name'
+00-assert5.json,True,0.69155,0.007,"{'Disallow_Default_Namespace': True, 'Require_Multiple_Replicas': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,7,1,Ningun parametro invalido
+00-assert5_1.json,True,0.67002,0.00803,"{'Disallow_Default_Namespace': True, 'Require_Multiple_Replicas': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,7,1,Ningun parametro invalido
+00-assert5_2.json,True,0.66637,0.007,"{'Disallow_Default_Namespace': True, 'Require_Multiple_Replicas': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,7,1,Ningun parametro invalido
+00-assert5_3.json,True,0.68288,0.02023,"{'Disallow_Default_Namespace': True, 'Require_StorageClass': True, 'no_shared_ipc_namespace': True, 'no_host_network': True, 'no_host_pid': True, 'no_docker_sock_mount': True, 'no_privileged_containers': True, 'no_root': True, 'use_high_gid': True, 'use_high_uid': True, 'no_sysadmin_capability': True, 'no_sysmodule_capability': True}",Kyverno,medium,7,1,Ningun parametro invalido
+00-assert5_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-assert5_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_imagePullSecrets_name'
+00-assert5_6.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_imagePullSecrets_name'
+00-assert5_7.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_template_spec_imagePullSecrets_name'
+00-assert5_8.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_StatefulSet_spec_template_spec_imagePullSecrets_name'
+00-busybox.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_imagePullSecrets_name'
+00-caddy.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-caddy1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-caddy1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_stringData_StringValueAdditional'
+00-caddy1_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_StatefulSet_metadata_labels_KeyMap'
+00-caddy1_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_spec_selector_KeyMap'
+00-caddy1_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString'
+00-caddy_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_stringData_StringValueAdditional'
+00-caddy_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_StatefulSet_metadata_labels_KeyMap'
+00-caddy_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_spec_selector_KeyMap'
+00-caddy_4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString'
+00-common.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-common1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-common1_1.json,True,0.28056,0.005,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-common_1.json,True,0.2733,0.00807,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-common_2.json,True,0.27254,0.007,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-config.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-config1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-config2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-config3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-config4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-configmap-currency-conversion.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-configmap-currency-conversion1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-configmap-currency-conversion3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-configmap-currency-conversion4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-configmap-currency-conversion6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-configmap.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-db-secret.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_data_StringValueAdditional'
+00-db.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-db_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_spec_selector_KeyMap'
+00-db_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PersistentVolumeClaim_spec_resources_requests_asString'
+00-db_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap'
+00-deployment.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-DeplyExternalDNS.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_annotations_KeyMap'
+00-DeplyExternalDNS_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-DeplyExternalDNS_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-DeplyExternalDNS_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_spec_selector_matchLabels_KeyMap'
+00-EFS-StorageClass.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-env-configmap.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-exporter.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_spec_selector_KeyMap'
+00-exporter_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-filestore-storage-class.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-filestore-storage-class1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-filestore-storage-class2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-filestore-storage-class3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-gauca-namespace.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-helloworld.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-helloworld1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-helloworld2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-ingress-class.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class5.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-ingress-class7.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-kubernetes-namespace.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-kubernetes-namespace1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-kubernetes-namespace2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-kubernetes-namespace3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-kubernetes-namespace4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-mi-nginx.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-minio-deployment.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-minio-deployment1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-minio-deployment1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-minio-deployment1_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+00-minio-deployment2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-minio-deployment2_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-minio-deployment2_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+00-minio-deployment3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-minio-deployment3_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+00-minio-deployment_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+00-minio-deployment_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_metadata_labels_KeyMap'
+00-monitoring-ns.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-monitoring-ns1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-monitoring-ns2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-monitoring-ns3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-monitoring-ns4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-monitoring-ns5.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace-limit-range-resource-quota-default.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace17.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace18.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace19.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace20.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace21.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace22.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace23.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace24.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace25.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace26.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace27.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace28.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace29.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace30.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace31.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace32.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace33.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace34.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace35.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace36.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace37.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace38.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace39.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace40.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace41.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace42.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace43.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace44.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespace45.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespaces2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-namespaces2_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-openshift-monitoring-user-projects.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-openshift-monitoring-user-projects1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-persistent-volume.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-persistent-volume1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-persistent-volume2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-persistent-volume3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-persistent-volume4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-pod.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-pod1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-pod2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-pod3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-pod4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-pod5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-postgress-namespace.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prepare.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prepare_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_stringData_StringValueAdditional'
+00-prereqs.json,True,0.26772,0.008,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs1.json,True,0.37962,0.008,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs1_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs1_3.json,True,0.26073,0.005,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs1_4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs1_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs2.json,True,0.27914,0.00808,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs2_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs2_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs2_3.json,True,0.30973,0.005,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs2_4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs2_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs3.json,True,0.30133,0.007,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs3_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs3_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs3_3.json,True,0.27242,0.006,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs3_4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs3_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs4.json,True,0.37515,0.007,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs4_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs4_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs4_3.json,True,0.32833,0.005,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs4_4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs4_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-prereqs_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs_3.json,True,0.24984,0.005,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-prereqs_4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-prereqs_5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+00-pv.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-pv1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-pv1_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-pv2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-pv2_1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-secret.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_data_StringValueAdditional'
+00-service-account-token.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-service-account.json,True,0.26054,0.00803,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-serviceaccount.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-serviceaccount1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-serviceaccount1_1.json,True,0.25545,0.004,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-serviceaccount1_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-serviceaccount_1.json,True,0.28626,0.0081,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00-serviceaccount_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_metadata_annotations_KeyMap'
+00-sock-shop-ns.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-sock-shop-ns1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-sock-shop-ns2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class10.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class5.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class7.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class8.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-storage-class9.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-StorageClass.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-testing-pod.json,False,0.36284,0.004,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,6,1,Recomendacion: 
+00-testing-pod1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-testing-pod1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_spec_selector_KeyMap'
+00-testing-pod_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+00-testing-pod_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Service_spec_selector_KeyMap'
+00-traefik-cluster-role.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00-traefik-service-account.json,True,0.25099,0.005,{'Restrict_Auto_Mount_of_Service_Account_Tokens_in_Service_Account': True},Kyverno,medium,5,1,Ningun parametro invalido
+00Srilab-ApacheKafka-pv-pvc.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00Srilab-ApacheKafka-pv-pvc_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue'
+00Srilab-ApacheKafka-pv-pvc_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00Srilab-ApacheKafka-pv-pvc_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue'
+00Srilab-promgraf-pv-pvc.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00Srilab-promgraf-pv-pvc_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue'
+00Srilab-promgraf-pv-pvc_2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+00Srilab-promgraf-pv-pvc_3.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue'
+00_persistent_volume_claim.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PersistentVolumeClaim_spec_accessModes_StringValue'
+00_secret.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Secret_stringData_StringValueAdditional'
+00_us_nginx.json,Error,-,-,-,-,-,-,-,'io_k8s_api_apps_v1_Deployment_metadata_labels_KeyMap'
+01-Pod-Annotation.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+020-podPrioryAndPreEmption.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+04-pod-annotation.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+08-Pod_DNS1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue'
+08-Pod_DNS2_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue'
+08-Pod_DNS_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue'
+0_namespace.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace1.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace10.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace11.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace12.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace13.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace14.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace2.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace3.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace4.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace5.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace6.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace7.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace8.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_namespace9.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+0_no_managedFields.json,Configuracion sin politicas que verificar,-,-,-,-,-,-,-,Skip
+2-clusterrolebinding.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+4-clusterrolebinding.json,Error,-,-,-,-,-,-,-,'io_k8s_api_rbac_v1_ClusterRoleBinding_subjects_kind_ServiceAccount'
+cainjector-serviceaccount4.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+cainjector-serviceaccount5.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+calico-cpva-serviceaccount7.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+controller-serviceaccount14.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_metadata_labels_KeyMap'
+core.v1.PodTemplate.after_roundtrip.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_PodTemplate_metadata_annotations_KeyMap'
+core.v1.ServiceAccount.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_imagePullSecrets_name'
+core.v1.ServiceAccount1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_imagePullSecrets_name'
+core.v1.ServiceAccount10.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_ServiceAccount_imagePullSecrets_name'
+pod-resources10_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod-resources20_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod-resources30_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod-resources40_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod506_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod530_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod537_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod544_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pod959_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pod960_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pods-bad22_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pods-bad23_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-bad36_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pods-bad37_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-bad40_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_resources_requests_asString'
+pods-bad50_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pods-bad51_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-bad55_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_securityContext_sysctls_name'
+pods-bad64_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pods-bad69_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_securityContext_sysctls_name'
+pods-bad8_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+pods-bad9_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-good23_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-good37_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-good51_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-good65_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-good9_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+pods-patched10_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_securityContext_capabilities_drop_StringValue'
+pods-patched15_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_securityContext_capabilities_drop_StringValue'
+pods-patched20_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_securityContext_capabilities_drop_StringValue'
+pods-patched5_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_securityContext_capabilities_drop_StringValue'
+pods-patched_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_securityContext_capabilities_drop_StringValue'
+pods83_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath'
+pods97_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath'
+Pods_112.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue'
+podWithHostFS_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_resources_limits_asString'
+pod_111.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue'
+Pod_116.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_name'
+Pod_117.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort'
+pod_dns_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_command_StringValue'
+pod_volumes_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name'
+rabbitmq-pod1_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_annotations_KeyMap'
+simple-pod24_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+test-require-run-as-nonroot_1.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'
+test-require-run-as-nonroot_2.json,Error,-,-,-,-,-,-,-,'io_k8s_api_core_v1_Pod_metadata_labels_KeyMap'

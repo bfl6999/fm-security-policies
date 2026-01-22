@@ -1,0 +1,1945 @@
+{
+    "filename": "core.v1.PodTemplate.after_roundtrip.yaml",
+    "apiVersion": "v1",
+    "policies": {
+        "Disallow_Host_Namespaces": true,
+        "Restrict_AppArmor" : true,
+        "Disallow_hostPath" : true,
+        "Disallow_Privileged_Containers": true,
+        "privilegeEscalationAllowed": true,
+        "no_auto_mount_service_token": true
+    },
+    "config": {
+        "io_k8s_api_core_v1_PodTemplate_apiVersion": "v1",
+        "io_k8s_api_core_v1_PodTemplate_kind": "PodTemplate",
+        "io_k8s_api_core_v1_PodTemplate_metadata": {
+            "io_k8s_api_core_v1_PodTemplate_metadata_annotations": [
+                {
+                    "io_k8s_api_core_v1_PodTemplate_metadata_annotations_KeyMap": "annotationsKey",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_annotations_ValueMap": "annotationsValue"
+                }
+            ],
+            "io_k8s_api_core_v1_PodTemplate_metadata_creationTimestamp": "2008-01-01T01:01:01Z",
+            "io_k8s_api_core_v1_PodTemplate_metadata_deletionGracePeriodSeconds": 10,
+            "io_k8s_api_core_v1_PodTemplate_metadata_deletionTimestamp": "2009-01-01T01:01:01Z",
+            "io_k8s_api_core_v1_PodTemplate_metadata_finalizers": [
+                {
+                    "io_k8s_api_core_v1_PodTemplate_metadata_finalizers_StringValue": "finalizersValue"
+                }
+            ],
+            "io_k8s_api_core_v1_PodTemplate_metadata_generateName": "generateNameValue",
+            "io_k8s_api_core_v1_PodTemplate_metadata_generation": 7,
+            "io_k8s_api_core_v1_PodTemplate_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_PodTemplate_metadata_labels_KeyMap": "labelsKey",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_labels_ValueMap": "labelsValue"
+                }
+            ],
+            "io_k8s_api_core_v1_PodTemplate_metadata_managedFields": [
+                {
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_apiVersion": "apiVersionValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_fieldsType": "fieldsTypeValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_fieldsV1": {
+                        "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_fieldsV1_isEmpty02": true
+                    },
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_manager": "managerValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_operation": "operationValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_subresource": "subresourceValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_managedFields_time": "2004-01-01T01:01:01Z"
+                }
+            ],
+            "io_k8s_api_core_v1_PodTemplate_metadata_name": "nameValue",
+            "io_k8s_api_core_v1_PodTemplate_metadata_namespace": "namespaceValue",
+            "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences": [
+                {
+                    "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences_apiVersion": "apiVersionValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences_blockOwnerDeletion": true,
+                    "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences_controller": true,
+                    "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences_kind": "kindValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences_name": "nameValue",
+                    "io_k8s_api_core_v1_PodTemplate_metadata_ownerReferences_uid": "uidValue"
+                }
+            ],
+            "io_k8s_api_core_v1_PodTemplate_metadata_resourceVersion": "resourceVersionValue",
+            "io_k8s_api_core_v1_PodTemplate_metadata_selfLink": "selfLinkValue",
+            "io_k8s_api_core_v1_PodTemplate_metadata_uid": "uidValue"
+        },
+        "io_k8s_api_core_v1_PodTemplate_template": {
+            "io_k8s_api_core_v1_PodTemplate_template_metadata": {
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_annotations": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_annotations_KeyMap": "annotationsKey",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_annotations_ValueMap": "annotationsValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_creationTimestamp": "2008-01-01T01:01:01Z",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_deletionGracePeriodSeconds": 10,
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_deletionTimestamp": "2009-01-01T01:01:01Z",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_finalizers": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_finalizers_StringValue": "finalizersValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_generateName": "generateNameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_generation": 7,
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_labels": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_labels_KeyMap": "labelsKey",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_labels_ValueMap": "labelsValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_apiVersion": "apiVersionValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_fieldsType": "fieldsTypeValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_fieldsV1": {
+                            "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_fieldsV1_isEmpty02": true
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_manager": "managerValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_operation": "operationValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_subresource": "subresourceValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_managedFields_time": "2004-01-01T01:01:01Z"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_name": "nameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_namespace": "namespaceValue",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences_apiVersion": "apiVersionValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences_blockOwnerDeletion": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences_controller": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences_kind": "kindValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences_name": "nameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_metadata_ownerReferences_uid": "uidValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_resourceVersion": "resourceVersionValue",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_selfLink": "selfLinkValue",
+                "io_k8s_api_core_v1_PodTemplate_template_metadata_uid": "uidValue"
+            },
+            "io_k8s_api_core_v1_PodTemplate_template_spec": {
+                "io_k8s_api_core_v1_PodTemplate_template_spec_activeDeadlineSeconds": 5,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity": {
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity": {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchExpressions_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_preference_matchFields_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_preferredDuringSchedulingIgnoredDuringExecution_weight": 1
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchExpressions_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_nodeAffinity_requiredDuringSchedulingIgnoredDuringExecution_nodeSelectorTerms_matchFields_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity": {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": "operatorValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_values": [
+                                                    {
+                                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchLabels": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": "operatorValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_values": [
+                                                    {
+                                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchLabels": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaces": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaces_StringValue": "namespacesValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_topologyKey": "topologyKeyValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_preferredDuringSchedulingIgnoredDuringExecution_weight": 1
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchLabels": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchLabels": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaces": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaces_StringValue": "namespacesValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAffinity_requiredDuringSchedulingIgnoredDuringExecution_topologyKey": "topologyKeyValue"
+                            }
+                        ]
+                    },
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity": {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_operator": "operatorValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_values": [
+                                                    {
+                                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchLabels": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_labelSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_operator": "operatorValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_values": [
+                                                    {
+                                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchLabels": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaceSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaces": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_namespaces_StringValue": "namespacesValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_podAffinityTerm_topologyKey": "topologyKeyValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_preferredDuringSchedulingIgnoredDuringExecution_weight": 1
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchLabels": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_labelSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_key": "keyValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_operator": "operatorValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_values": [
+                                                {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchExpressions_values_StringValue": "valuesValue"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchLabels": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaceSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaces": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_namespaces_StringValue": "namespacesValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_affinity_podAntiAffinity_requiredDuringSchedulingIgnoredDuringExecution_topologyKey": "topologyKeyValue"
+                            }
+                        ]
+                    }
+                },
+                "io_k8s_api_core_v1_PodTemplate_template_spec_automountServiceAccountToken": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_containers": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_args": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_args_StringValue": "argsValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_command": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_command_StringValue": "commandValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_value": "valueValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_configMapKeyRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_configMapKeyRef_key": "keyValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_configMapKeyRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_configMapKeyRef_optional": true
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_fieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_fieldRef_apiVersion": "apiVersionValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_fieldRef_fieldPath": "fieldPathValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_resourceFieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_resourceFieldRef_containerName": "containerNameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_resourceFieldRef_divisor": {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_resourceFieldRef_divisor_asString": "0"
+                                        },
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_resourceFieldRef_resource": "resourceValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_secretKeyRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_secretKeyRef_key": "keyValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_secretKeyRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_env_valueFrom_secretKeyRef_optional": true
+                                    }
+                                }
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_configMapRef": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_configMapRef_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_configMapRef_optional": true
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_prefix": "prefixValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_secretRef": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_secretRef_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_envFrom_secretRef_optional": true
+                                }
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_image": "imageValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_imagePullPolicy": "imagePullPolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_exec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_exec_command": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_exec_command_StringValue": "commandValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_httpHeaders": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_httpHeaders_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_httpHeaders_value": "valueValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_port_asString": "portValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_httpGet_scheme": "schemeValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_tcpSocket": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_tcpSocket_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_tcpSocket_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_postStart_tcpSocket_port_asString": "portValue"
+                                    }
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_exec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_exec_command": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_exec_command_StringValue": "commandValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_httpHeaders": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_httpHeaders_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_httpHeaders_value": "valueValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_port_asString": "portValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_httpGet_scheme": "schemeValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_tcpSocket": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_tcpSocket_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_tcpSocket_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_lifecycle_preStop_tcpSocket_port_asString": "portValue"
+                                    }
+                                }
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_livenessProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_name": "nameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_ports": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_ports_containerPort": 3,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_ports_hostIP": "hostIPValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_ports_hostPort": 2,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_ports_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_ports_protocol": "protocolValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_readinessProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resizePolicy": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resizePolicy_resourceName": "resourceNameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resizePolicy_restartPolicy": "restartPolicyValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources_claims": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources_claims_name": "nameValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources_limits": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources_limits_asString": "limitsKey:0"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources_requests": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_resources_requests_asString": "requestsKey:0"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_allowPrivilegeEscalation": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_capabilities": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_capabilities_add": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_capabilities_add_StringValue": "addValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_capabilities_drop": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_capabilities_drop_StringValue": "dropValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_privileged": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_procMount": "procMountValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_readOnlyRootFilesystem": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_runAsGroup": 8,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_runAsNonRoot": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_runAsUser": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seLinuxOptions": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seLinuxOptions_level": "levelValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seLinuxOptions_role": "roleValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seLinuxOptions_type": "typeValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seLinuxOptions_user": "userValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seccompProfile": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seccompProfile_localhostProfile": "localhostProfileValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_seccompProfile_type": "typeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_windowsOptions": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_windowsOptions_gmsaCredentialSpec": "gmsaCredentialSpecValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_windowsOptions_gmsaCredentialSpecName": "gmsaCredentialSpecNameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_windowsOptions_hostProcess": true,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_securityContext_windowsOptions_runAsUserName": "runAsUserNameValue"
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_containers_startupProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_stdin": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_stdinOnce": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_terminationMessagePath": "terminationMessagePathValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_terminationMessagePolicy": "terminationMessagePolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_tty": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeDevices": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeDevices_devicePath": "devicePathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeDevices_name": "nameValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts_mountPath": "mountPathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts_mountPropagation": "mountPropagationValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts_readOnly": true,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts_subPath": "subPathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_containers_volumeMounts_subPathExpr": "subPathExprValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_containers_workingDir": "workingDirValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig": {
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_nameservers": [
+                        {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_nameservers_StringValue": "nameserversValue"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_options": [
+                        {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_options_name": "nameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_options_value": "valueValue"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_searches": [
+                        {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_dnsConfig_searches_StringValue": "searchesValue"
+                        }
+                    ]
+                },
+                "io_k8s_api_core_v1_PodTemplate_template_spec_dnsPolicy": "dnsPolicyValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_enableServiceLinks": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_args": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_args_StringValue": "argsValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_command": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_command_StringValue": "commandValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_value": "valueValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_configMapKeyRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_configMapKeyRef_key": "keyValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_configMapKeyRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_configMapKeyRef_optional": true
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_fieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_fieldRef_apiVersion": "apiVersionValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_fieldRef_fieldPath": "fieldPathValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_containerName": "containerNameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor": {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_divisor_asString": "0"
+                                        },
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_resourceFieldRef_resource": "resourceValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_secretKeyRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_secretKeyRef_key": "keyValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_secretKeyRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_env_valueFrom_secretKeyRef_optional": true
+                                    }
+                                }
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_configMapRef": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_configMapRef_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_configMapRef_optional": true
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_prefix": "prefixValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_secretRef": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_secretRef_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_envFrom_secretRef_optional": true
+                                }
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_image": "imageValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_imagePullPolicy": "imagePullPolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_exec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_exec_command": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_exec_command_StringValue": "commandValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_httpHeaders": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_httpHeaders_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_httpHeaders_value": "valueValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_port_asString": "portValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_httpGet_scheme": "schemeValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_postStart_tcpSocket_port_asString": "portValue"
+                                    }
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_exec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_exec_command": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_exec_command_StringValue": "commandValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_httpHeaders": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_httpHeaders_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_httpHeaders_value": "valueValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_port_asString": "portValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_httpGet_scheme": "schemeValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_lifecycle_preStop_tcpSocket_port_asString": "portValue"
+                                    }
+                                }
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_livenessProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_name": "nameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_ports": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_ports_containerPort": 3,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_ports_hostIP": "hostIPValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_ports_hostPort": 2,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_ports_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_ports_protocol": "protocolValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_readinessProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resizePolicy": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resizePolicy_resourceName": "resourceNameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resizePolicy_restartPolicy": "restartPolicyValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources_claims": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources_claims_name": "nameValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources_limits": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources_limits_asString": "limitsKey:0"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources_requests": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_resources_requests_asString": "requestsKey:0"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_allowPrivilegeEscalation": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_capabilities": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_capabilities_add": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_capabilities_add_StringValue": "addValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_capabilities_drop": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_capabilities_drop_StringValue": "dropValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_privileged": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_procMount": "procMountValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_readOnlyRootFilesystem": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_runAsGroup": 8,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_runAsNonRoot": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_runAsUser": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seLinuxOptions": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seLinuxOptions_level": "levelValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seLinuxOptions_role": "roleValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seLinuxOptions_type": "typeValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seLinuxOptions_user": "userValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seccompProfile": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seccompProfile_localhostProfile": "localhostProfileValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_seccompProfile_type": "typeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_windowsOptions": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_windowsOptions_gmsaCredentialSpec": "gmsaCredentialSpecValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_windowsOptions_gmsaCredentialSpecName": "gmsaCredentialSpecNameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_windowsOptions_hostProcess": true,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_securityContext_windowsOptions_runAsUserName": "runAsUserNameValue"
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_startupProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_stdin": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_stdinOnce": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_targetContainerName": "targetContainerNameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_terminationMessagePath": "terminationMessagePathValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_terminationMessagePolicy": "terminationMessagePolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_tty": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeDevices": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeDevices_devicePath": "devicePathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeDevices_name": "nameValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts_mountPath": "mountPathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts_mountPropagation": "mountPropagationValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts_readOnly": true,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts_subPath": "subPathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_volumeMounts_subPathExpr": "subPathExprValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_ephemeralContainers_workingDir": "workingDirValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_hostAliases": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_hostAliases_hostnames": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_hostAliases_hostnames_StringValue": "hostnamesValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_hostAliases_ip": "ipValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_hostIPC": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_hostNetwork": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_hostPID": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_hostUsers": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_hostname": "hostnameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_imagePullSecrets": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_imagePullSecrets_name": "nameValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_args": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_args_StringValue": "argsValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_command": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_command_StringValue": "commandValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_value": "valueValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_configMapKeyRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_configMapKeyRef_key": "keyValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_configMapKeyRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_configMapKeyRef_optional": true
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_fieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_fieldRef_apiVersion": "apiVersionValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_fieldRef_fieldPath": "fieldPathValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_resourceFieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_resourceFieldRef_containerName": "containerNameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor": {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_resourceFieldRef_divisor_asString": "0"
+                                        },
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_resourceFieldRef_resource": "resourceValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_secretKeyRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_secretKeyRef_key": "keyValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_secretKeyRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_env_valueFrom_secretKeyRef_optional": true
+                                    }
+                                }
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_configMapRef": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_configMapRef_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_configMapRef_optional": true
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_prefix": "prefixValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_secretRef": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_secretRef_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_envFrom_secretRef_optional": true
+                                }
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_image": "imageValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_imagePullPolicy": "imagePullPolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_exec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_exec_command": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_exec_command_StringValue": "commandValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_httpHeaders": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_httpHeaders_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_httpHeaders_value": "valueValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_port_asString": "portValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_httpGet_scheme": "schemeValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_tcpSocket": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_tcpSocket_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_tcpSocket_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_postStart_tcpSocket_port_asString": "portValue"
+                                    }
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_exec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_exec_command": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_exec_command_StringValue": "commandValue"
+                                        }
+                                    ]
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_httpHeaders": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_httpHeaders_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_httpHeaders_value": "valueValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_port_asString": "portValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_httpGet_scheme": "schemeValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_tcpSocket": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_tcpSocket_host": "hostValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_tcpSocket_port": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_lifecycle_preStop_tcpSocket_port_asString": "portValue"
+                                    }
+                                }
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_livenessProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_name": "nameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_ports": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_ports_containerPort": 3,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_ports_hostIP": "hostIPValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_ports_hostPort": 2,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_ports_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_ports_protocol": "protocolValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_readinessProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resizePolicy": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resizePolicy_resourceName": "resourceNameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resizePolicy_restartPolicy": "restartPolicyValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources_claims": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources_claims_name": "nameValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources_limits": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources_limits_asString": "limitsKey:0"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources_requests": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_resources_requests_asString": "requestsKey:0"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_allowPrivilegeEscalation": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_capabilities": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_capabilities_add": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_capabilities_add_StringValue": "addValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_capabilities_drop": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_capabilities_drop_StringValue": "dropValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_privileged": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_procMount": "procMountValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_readOnlyRootFilesystem": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_runAsGroup": 8,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_runAsNonRoot": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_runAsUser": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seLinuxOptions": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seLinuxOptions_level": "levelValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seLinuxOptions_role": "roleValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seLinuxOptions_type": "typeValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seLinuxOptions_user": "userValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seccompProfile": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seccompProfile_localhostProfile": "localhostProfileValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_seccompProfile_type": "typeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_windowsOptions": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_windowsOptions_gmsaCredentialSpec": "gmsaCredentialSpecValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_windowsOptions_gmsaCredentialSpecName": "gmsaCredentialSpecNameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_windowsOptions_hostProcess": true,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_securityContext_windowsOptions_runAsUserName": "runAsUserNameValue"
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_exec": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_exec_command": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_exec_command_StringValue": "commandValue"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_failureThreshold": 6,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_grpc": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_grpc_port": 1,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_grpc_service": "serviceValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_httpHeaders": [
+                                    {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_httpHeaders_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_httpHeaders_value": "valueValue"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_path": "pathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_port_asString": "portValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_httpGet_scheme": "schemeValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_initialDelaySeconds": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_periodSeconds": 4,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_successThreshold": 5,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_tcpSocket": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_tcpSocket_host": "hostValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_tcpSocket_port": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_tcpSocket_port_asString": "portValue"
+                                }
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_terminationGracePeriodSeconds": 7,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_startupProbe_timeoutSeconds": 3
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_stdin": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_stdinOnce": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_terminationMessagePath": "terminationMessagePathValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_terminationMessagePolicy": "terminationMessagePolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_tty": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeDevices": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeDevices_devicePath": "devicePathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeDevices_name": "nameValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts_mountPath": "mountPathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts_mountPropagation": "mountPropagationValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts_name": "nameValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts_readOnly": true,
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts_subPath": "subPathValue",
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_volumeMounts_subPathExpr": "subPathExprValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_initContainers_workingDir": "workingDirValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_nodeName": "nodeNameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_nodeSelector": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_nodeSelector_StringValueAdditional": "nodeSelectorKey:nodeSelectorValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_os": {
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_os_name": "nameValue"
+                },
+                "io_k8s_api_core_v1_PodTemplate_template_spec_overhead": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_overhead_asString": "overheadKey:0"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_preemptionPolicy": "preemptionPolicyValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_priority": 25,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_priorityClassName": "priorityClassNameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_readinessGates": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_readinessGates_conditionType": "conditionTypeValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_resourceClaims": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_resourceClaims_name": "nameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_resourceClaims_source": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_resourceClaims_source_resourceClaimName": "resourceClaimNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_resourceClaims_source_resourceClaimTemplateName": "resourceClaimTemplateNameValue"
+                        }
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_restartPolicy": "restartPolicyValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_runtimeClassName": "runtimeClassNameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_schedulerName": "schedulerNameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_schedulingGates": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_schedulingGates_name": "nameValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext": {
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_fsGroup": 5,
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_fsGroupChangePolicy": "fsGroupChangePolicyValue",
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_runAsGroup": 6,
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_runAsNonRoot": true,
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_runAsUser": 2,
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seLinuxOptions": {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seLinuxOptions_level": "levelValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seLinuxOptions_role": "roleValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seLinuxOptions_type": "typeValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seLinuxOptions_user": "userValue"
+                    },
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seccompProfile": {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seccompProfile_localhostProfile": "localhostProfileValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_seccompProfile_type": "typeValue"
+                    },
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_supplementalGroups": [
+                        {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_supplementalGroups_IntegerValue": 4
+                        }
+                    ],
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_sysctls": [
+                        {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_sysctls_name": "nameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_sysctls_value": "valueValue"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_windowsOptions": {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_windowsOptions_gmsaCredentialSpec": "gmsaCredentialSpecValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_windowsOptions_gmsaCredentialSpecName": "gmsaCredentialSpecNameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_windowsOptions_hostProcess": true,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_securityContext_windowsOptions_runAsUserName": "runAsUserNameValue"
+                    }
+                },
+                "io_k8s_api_core_v1_PodTemplate_template_spec_serviceAccount": "serviceAccountValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_serviceAccountName": "serviceAccountNameValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_setHostnameAsFQDN": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_shareProcessNamespace": true,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_subdomain": "subdomainValue",
+                "io_k8s_api_core_v1_PodTemplate_template_spec_terminationGracePeriodSeconds": 4,
+                "io_k8s_api_core_v1_PodTemplate_template_spec_tolerations": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_tolerations_effect": "effectValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_tolerations_key": "keyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_tolerations_operator": "operatorValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_tolerations_tolerationSeconds": 5,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_tolerations_value": "valueValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchExpressions": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_key": "keyValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_operator": "operatorValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_values": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchExpressions_values_StringValue": "valuesValue"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchLabels": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchLabels_KeyMap": "matchLabelsKey",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_labelSelector_matchLabels_ValueMap": "matchLabelsValue"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_matchLabelKeys": [
+                            {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_matchLabelKeys_StringValue": "matchLabelKeysValue"
+                            }
+                        ],
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_maxSkew": 1,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_minDomains": 5,
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_nodeAffinityPolicy": "nodeAffinityPolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_nodeTaintsPolicy": "nodeTaintsPolicyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_topologyKey": "topologyKeyValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_topologySpreadConstraints_whenUnsatisfiable": "whenUnsatisfiableValue"
+                    }
+                ],
+                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes": [
+                    {
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_awsElasticBlockStore": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_awsElasticBlockStore_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_awsElasticBlockStore_partition": 3,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_awsElasticBlockStore_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_awsElasticBlockStore_volumeID": "volumeIDValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk_cachingMode": "cachingModeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk_diskName": "diskNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk_diskURI": "diskURIValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk_kind": "kindValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureDisk_readOnly": true
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureFile": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureFile_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureFile_secretName": "secretNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_azureFile_shareName": "shareNameValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_monitors": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_monitors_StringValue": "monitorsValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_path": "pathValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_secretFile": "secretFileValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_secretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cephfs_user": "userValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cinder": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cinder_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cinder_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cinder_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cinder_secretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_cinder_volumeID": "volumeIDValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_defaultMode": 3,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_items": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_items_key": "keyValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_items_mode": 3,
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_items_path": "pathValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_name": "nameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_configMap_optional": true
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_driver": "driverValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_nodePublishSecretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_nodePublishSecretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_volumeAttributes": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_csi_volumeAttributes_StringValueAdditional": "volumeAttributesKey:volumeAttributesValue"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_defaultMode": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_fieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_fieldRef_apiVersion": "apiVersionValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_fieldRef_fieldPath": "fieldPathValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_mode": 4,
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_path": "pathValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_resourceFieldRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_resourceFieldRef_containerName": "containerNameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor": {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_resourceFieldRef_divisor_asString": "0"
+                                        },
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_downwardAPI_items_resourceFieldRef_resource": "resourceValue"
+                                    }
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_emptyDir": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_emptyDir_medium": "mediumValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_emptyDir_sizeLimit": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_emptyDir_sizeLimit_asString": "0"
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_annotations": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_annotations_KeyMap": "annotationsKey",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_annotations_ValueMap": "annotationsValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_creationTimestamp": "2008-01-01T01:01:01Z",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_deletionGracePeriodSeconds": 10,
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_deletionTimestamp": "2009-01-01T01:01:01Z",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_finalizers": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_finalizers_StringValue": "finalizersValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_generateName": "generateNameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_generation": 7,
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels_KeyMap": "labelsKey",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels_ValueMap": "labelsValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_apiVersion": "apiVersionValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_fieldsType": "fieldsTypeValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_fieldsV1": {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_fieldsV1_isEmpty02": true
+                                            },
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_manager": "managerValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_operation": "operationValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_subresource": "subresourceValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_managedFields_time": "2004-01-01T01:01:01Z"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_name": "nameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_namespace": "namespaceValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences_apiVersion": "apiVersionValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences_blockOwnerDeletion": true,
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences_controller": true,
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences_kind": "kindValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences_name": "nameValue",
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_ownerReferences_uid": "uidValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_resourceVersion": "resourceVersionValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_selfLink": "selfLinkValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_metadata_uid": "uidValue"
+                                },
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_accessModes": [
+                                        {
+                                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_accessModes_StringValue": "accessModesValue"
+                                        }
+                                    ],
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSource": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSource_apiGroup": "apiGroupValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSource_kind": "kindValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSource_name": "nameValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSourceRef": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSourceRef_apiGroup": "apiGroupValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSourceRef_kind": "kindValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSourceRef_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_dataSourceRef_namespace": "namespaceValue"
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_limits_asString": "limitsKey:0"
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString": "requestsKey:0"
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_operator": "operatorValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_values": [
+                                                    {
+                                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchExpressions_values_StringValue": "valuesValue"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchLabels": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchLabels_KeyMap": "matchLabelsKey",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_selector_matchLabels_ValueMap": "matchLabelsValue"
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_storageClassName": "storageClassNameValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_volumeMode": "volumeModeValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_ephemeral_volumeClaimTemplate_spec_volumeName": "volumeNameValue"
+                                }
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_lun": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_targetWWNs": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_targetWWNs_StringValue": "targetWWNsValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_wwids": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_fc_wwids_StringValue": "wwidsValue"
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_driver": "driverValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_options": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_options_StringValueAdditional": "optionsKey:optionsValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flexVolume_secretRef_name": "nameValue"
+                            }
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flocker": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flocker_datasetName": "datasetNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_flocker_datasetUUID": "datasetUUIDValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gcePersistentDisk": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gcePersistentDisk_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gcePersistentDisk_partition": 3,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gcePersistentDisk_pdName": "pdNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gcePersistentDisk_readOnly": true
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gitRepo": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gitRepo_directory": "directoryValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gitRepo_repository": "repositoryValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_gitRepo_revision": "revisionValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_glusterfs": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_glusterfs_endpoints": "endpointsValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_glusterfs_path": "pathValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_glusterfs_readOnly": true
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_hostPath": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_hostPath_path": "pathValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_hostPath_type": "typeValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_chapAuthDiscovery": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_chapAuthSession": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_initiatorName": "initiatorNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_iqn": "iqnValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_iscsiInterface": "iscsiInterfaceValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_lun": 3,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_portals": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_portals_StringValue": "portalsValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_secretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_iscsi_targetPortal": "targetPortalValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_name": "nameValue",
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_nfs": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_nfs_path": "pathValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_nfs_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_nfs_server": "serverValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_persistentVolumeClaim": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_persistentVolumeClaim_claimName": "claimNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_persistentVolumeClaim_readOnly": true
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_photonPersistentDisk": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_photonPersistentDisk_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_photonPersistentDisk_pdID": "pdIDValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_portworxVolume": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_portworxVolume_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_portworxVolume_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_portworxVolume_volumeID": "volumeIDValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_defaultMode": 2,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap_items": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap_items_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap_items_mode": 3,
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap_items_path": "pathValue"
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_configMap_optional": true
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_fieldRef": {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_fieldRef_apiVersion": "apiVersionValue",
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_fieldRef_fieldPath": "fieldPathValue"
+                                                },
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_mode": 4,
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_path": "pathValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef": {
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_containerName": "containerNameValue",
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor": {
+                                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_divisor_asString": "0"
+                                                    },
+                                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_downwardAPI_items_resourceFieldRef_resource": "resourceValue"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret_items": [
+                                            {
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret_items_key": "keyValue",
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret_items_mode": 3,
+                                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret_items_path": "pathValue"
+                                            }
+                                        ],
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret_name": "nameValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_secret_optional": true
+                                    },
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_serviceAccountToken": {
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_serviceAccountToken_audience": "audienceValue",
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_serviceAccountToken_expirationSeconds": 2,
+                                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_projected_sources_serviceAccountToken_path": "pathValue"
+                                    }
+                                }
+                            ]
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte_group": "groupValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte_registry": "registryValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte_tenant": "tenantValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte_user": "userValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_quobyte_volume": "volumeValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_image": "imageValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_keyring": "keyringValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_monitors": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_monitors_StringValue": "monitorsValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_pool": "poolValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_secretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_rbd_user": "userValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_gateway": "gatewayValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_protectionDomain": "protectionDomainValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_secretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_sslEnabled": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_storageMode": "storageModeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_storagePool": "storagePoolValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_system": "systemValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_scaleIO_volumeName": "volumeNameValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_defaultMode": 3,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_items": [
+                                {
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_items_key": "keyValue",
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_items_mode": 3,
+                                    "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_items_path": "pathValue"
+                                }
+                            ],
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_optional": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_secret_secretName": "secretNameValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos_readOnly": true,
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos_secretRef": {
+                                "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos_secretRef_name": "nameValue"
+                            },
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos_volumeName": "volumeNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_storageos_volumeNamespace": "volumeNamespaceValue"
+                        },
+                        "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_vsphereVolume": {
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_vsphereVolume_fsType": "fsTypeValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_vsphereVolume_storagePolicyID": "storagePolicyIDValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_vsphereVolume_storagePolicyName": "storagePolicyNameValue",
+                            "io_k8s_api_core_v1_PodTemplate_template_spec_volumes_vsphereVolume_volumePath": "volumePathValue"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

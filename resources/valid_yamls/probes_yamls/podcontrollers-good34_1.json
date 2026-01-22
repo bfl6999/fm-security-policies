@@ -1,0 +1,48 @@
+{
+    "filename": "podcontrollers-good34_1.yaml",
+    "apiVersion": "batch_v1",
+    "config": {
+        "io_k8s_api_batch_v1_CronJob_apiVersion": "batch/v1",
+        "io_k8s_api_batch_v1_CronJob_kind": "CronJob",
+        "io_k8s_api_batch_v1_CronJob_metadata": {
+            "io_k8s_api_batch_v1_CronJob_metadata_name": "goodcronjob01",
+            "io_k8s_api_batch_v1_CronJob_metadata_namespace": "nvidia-gpu-ns"
+        },
+        "io_k8s_api_batch_v1_CronJob_spec": {
+            "io_k8s_api_batch_v1_CronJob_spec_schedule": "* * * * *",
+            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate": {
+                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec": {
+                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template": {
+                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec": {
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers": [
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "busybox:1.35",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "busybox"
+                                },
+                                {
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_name": "cuda",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_image": "nvidia/cuda:12.2.0-devel-ubi8",
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_command": [
+                                        {
+                                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_command_StringValue": "nvidia-smi"
+                                        }
+                                    ],
+                                    "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_resources": {
+                                        "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_resources_limits": [
+                                            {
+                                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_containers_resources_limits_asString": "memory:100Mi"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy": {
+                                "io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_spec_restartPolicy_OnFailure": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

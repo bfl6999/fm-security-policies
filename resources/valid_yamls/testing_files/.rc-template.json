@@ -1,0 +1,47 @@
+{
+    "filename": ".rc-template.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_ReplicationController_apiVersion": "v1",
+        "io_k8s_api_core_v1_ReplicationController_kind": "ReplicationController",
+        "io_k8s_api_core_v1_ReplicationController_metadata": {
+            "io_k8s_api_core_v1_ReplicationController_metadata_name": "myapp-rc",
+            "io_k8s_api_core_v1_ReplicationController_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_ReplicationController_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_core_v1_ReplicationController_metadata_labels_ValueMap": "myapp"
+                },
+                {
+                    "io_k8s_api_core_v1_ReplicationController_metadata_labels_KeyMap": "type",
+                    "io_k8s_api_core_v1_ReplicationController_metadata_labels_ValueMap": "frontend"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_ReplicationController_spec": {
+            "io_k8s_api_core_v1_ReplicationController_spec_template": {
+                "io_k8s_api_core_v1_ReplicationController_spec_template_metadata": {
+                    "io_k8s_api_core_v1_ReplicationController_spec_template_metadata_name": "myapp-pod",
+                    "io_k8s_api_core_v1_ReplicationController_spec_template_metadata_labels": [
+                        {
+                            "io_k8s_api_core_v1_ReplicationController_spec_template_metadata_labels_KeyMap": "app",
+                            "io_k8s_api_core_v1_ReplicationController_spec_template_metadata_labels_ValueMap": "myapp"
+                        },
+                        {
+                            "io_k8s_api_core_v1_ReplicationController_spec_template_metadata_labels_KeyMap": "type",
+                            "io_k8s_api_core_v1_ReplicationController_spec_template_metadata_labels_ValueMap": "frontend"
+                        }
+                    ]
+                },
+                "io_k8s_api_core_v1_ReplicationController_spec_template_spec": {
+                    "io_k8s_api_core_v1_ReplicationController_spec_template_spec_containers": [
+                        {
+                            "io_k8s_api_core_v1_ReplicationController_spec_template_spec_containers_name": "nginx-container",
+                            "io_k8s_api_core_v1_ReplicationController_spec_template_spec_containers_image": "nginx"
+                        }
+                    ]
+                }
+            },
+            "io_k8s_api_core_v1_ReplicationController_spec_replicas": 3
+        }
+    }
+}

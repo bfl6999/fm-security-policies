@@ -1,0 +1,31 @@
+successMessage: Container does not have any dangerous capabilities
+failureMessage: Container should not have dangerous capabilities
+category: Security
+target: Container
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  properties:
+    securityContext:
+      type: object
+      properties:
+        capabilities:
+          type: object
+          properties:
+            add:
+              type: array
+              allOf:
+                - not:
+                    contains:
+                      pattern: '^(?i)ALL$'
+                - not:
+                    contains:
+                      pattern: '^(?i)SYS_ADMIN$'
+                - not:
+                    contains:
+                      pattern: '^(?i)NET_ADMIN$'
+
+
+mutations:
+  - op: remove
+    path: /securityContext/capabilities/add

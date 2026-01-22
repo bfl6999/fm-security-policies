@@ -1,0 +1,444 @@
+Archivo;Categoria;Resultado;Razon
+.chainsaw.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifacthub-repo.yml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+application-field-validation.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+argo\application-prevent-default-project\application-prevent-default-project.yaml;argo;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Application_spec_project']
+application-prevent-updates-project.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+argo\applicationset-name-matches-project\applicationset-name-matches-project.yaml;argo;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_ApplicationSet_spec_template_spec_project']
+appproject-clusterresourceblacklist.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+argo-cluster-generation-from-rancher-capi.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+aws\require-aws-node-irsa\require-aws-node-irsa.yaml;aws;ACEPTADA;Semántica Correcta
+aws\require-encryption-aws-loadbalancers\require-encryption-aws-loadbalancers.yaml;aws;ACEPTADA;Semántica Correcta
+add-network-policy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-networkpolicy-dns.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-ns-quota.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-rolebinding.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-safe-to-evict.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-deprecated-apis.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+best-practices\disallow-cri-sock-mount\disallow-cri-sock-mount.yaml;best-practices;ACEPTADA;Semántica Correcta
+best-practices\disallow-default-namespace\disallow-default-namespace.yaml;best-practices;ACEPTADA;Semántica Correcta
+disallow-empty-ingress-host.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-helm-tiller.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-latest-tag.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-drop-all.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-drop-cap-net-raw.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+best-practices\require-labels\require-labels.yaml;best-practices;ACEPTADA;Semántica Correcta
+best-practices\require-pod-requests-limits\require-pod-requests-limits.yaml;best-practices;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_memory', 'io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_memory', 'io_k8s_api_core_v1_Pod_spec_initContainers_resources_requests_cpu']
+require-probes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+best-practices\require-ro-rootfs\require-ro-rootfs.yaml;best-practices;ACEPTADA;Semántica Correcta
+best-practices\restrict-image-registries\restrict-image-registries.yaml;best-practices;ACEPTADA;Semántica Correcta
+best-practices\restrict-node-port\restrict-node-port.yaml;best-practices;ACEPTADA;Semántica Correcta
+best-practices\restrict-service-external-ips\restrict-service-external-ips.yaml;best-practices;ACEPTADA;Semántica Correcta
+add-castai-removal-disabled.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-dnsnames.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-duration.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+cert-manager\restrict-issuer\restrict-issuer.yaml;cert-manager;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Certificate_spec_issuerRef_kind', 'io_k8s_api_core_v1_Certificate_spec_issuerRef_name', 'io_k8s_api_core_v1_Certificate_spec_dnsNames']
+cleanup-bare-pods.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+cleanup-empty-replicasets.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+consul\enforce-min-tls-version\enforce-min-tls-version.yaml;consul;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Mesh_spec_tls_incoming_tlsMinVersion']
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+schedule-based-quotas.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-external-secret-prefix.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+generate-flux-multi-tenant-resources.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-flux-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+flux\verify-flux-sources\verify-flux-sources.yaml;flux;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_ImageRepository_spec_image', 'io_k8s_api_core_v1_GitRepository_spec_url', 'io_k8s_api_core_v1_Bucket_spec_endpoint']
+flux\verify-git-repositories\verify-git-repositories.yaml;flux;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_GitRepository_spec_url']
+add-ambient-mode-namespace.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-sidecar-injection-namespace.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+create-authorizationpolicy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+istio\enforce-ambient-mode-namespace\enforce-ambient-mode-namespace.yaml;istio;ACEPTADA;Semántica Correcta
+istio\enforce-sidecar-injection-namespace\enforce-sidecar-injection-namespace.yaml;istio;ACEPTADA;Semántica Correcta
+istio\enforce-strict-mtls\enforce-strict-mtls.yaml;istio;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_PeerAuthentication_spec_mtls_mode']
+istio\enforce-tls-hosts-host-subnets\enforce-tls-hosts-host-subnets.yaml;istio;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_DestinationRule_spec_trafficPolicy_tls_mode']
+istio\prevent-disabling-injection-pods\prevent-disabling-injection-pods.yaml;istio;ACEPTADA;Semántica Correcta
+require-authorizationpolicy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-virtual-service-wildcard.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+service-mesh-disallow-capabilities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+service-mesh-require-run-as-nonroot.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-karpenter-daemonset-priority-class.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-karpenter-donot-evict.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-karpenter-nodeselector.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+set-karpenter-non-cpu-limits.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kasten-3-2-1-backup.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kasten\kasten-data-protection-by-label\kasten-data-protection-by-label.yaml;kasten;ACEPTADA;Semántica Correcta
+kasten-generate-example-backup-policy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kasten-generate-policy-by-preset-label.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kasten-hourly-rpo.yaml;Unknown;DESCARTADA;Error Traductor: argument of type 'int' is not iterable
+kasten-immutable-location-profile.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kasten-minimum-retention.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kasten\kasten-validate-ns-by-preset-label\kasten-validate-ns-by-preset-label.yaml;kasten;ACEPTADA;Semántica Correcta
+enable-kubecost-continuous-rightsizing.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kubecost-proactive-cost-control.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kubecost\require-kubecost-labels\require-kubecost-labels.yaml;kubecost;ACEPTADA;Semántica Correcta
+config-syncer-secret-generation-from-rancher-capi.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-services.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kubevirt\enforce-instancetype\enforce-instancetype.yaml;kubevirt;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_VirtualMachine_spec_preference_name', 'io_k8s_api_core_v1_VirtualMachine_spec_instancetype_name']
+add-linkerd-mesh-injection.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-linkerd-policy-annotation.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-linkerd-authorizationpolicy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+linkerd\prevent-linkerd-pod-injection-override\prevent-linkerd-pod-injection-override.yaml;linkerd;ACEPTADA;Semántica Correcta
+linkerd\prevent-linkerd-port-skipping\prevent-linkerd-port-skipping.yaml;linkerd;ACEPTADA;Semántica Correcta
+linkerd\require-linkerd-mesh-injection\require-linkerd-mesh-injection.yaml;linkerd;ACEPTADA;Semántica Correcta
+require-linkerd-server.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+nginx-ingress\disallow-ingress-nginx-custom-snippets\disallow-ingress-nginx-custom-snippets.yaml;nginx-ingress;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_networking_k8s_io_v1_Ingress_metadata_annotations_KeyMap', 'io_k8s_api_core_v1_networking_k8s_io_v1_Ingress_metadata_annotations_ValueMap', 'io_k8s_api_core_v1_ConfigMap_data_']
+restrict-annotations.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-ingress-paths.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+openshift\check-routes\check-routes.yaml;openshift;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_route_openshift_io_v1_Route__request_operation_']
+disallow-deprecated-apis.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-jenkins-pipeline-strategy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-security-context-constraint-anyuid.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+openshift\disallow-self-provisioner-binding\disallow-self-provisioner-binding.yaml;openshift;DESCARTADA;Feature fantasma: ['io_k8s_api_rbac_v1_ClusterRoleBinding_request_object_metadata_name_', 'io_k8s_api_rbac_v1_ClusterRoleBinding_request_object_metadata_name', 'io_k8s_api_rbac_v1_ClusterRoleBinding_request_operation_']
+enforce-etcd-encryption.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+inject-infrastructurename.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+team-validate-ns-name.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+openshift\unique-routes\unique-routes.yaml;openshift;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_route_openshift_io_v1_Route__request_operation_']
+add-certificates-volume.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-default-resources.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-default-securitycontext.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-emptydir-sizelimit.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-env-vars-from-cm.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-image-as-env-var.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-imagepullsecrets.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-imagepullsecrets-for-containers-and-initcontainers.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-labels.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-ndots.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-node-affinity.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-node-labels-pod.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-nodeSelector.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-pod-priorityclassname.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-pod-proxies.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-tolerations.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-ttl-jobs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-volume-deployment.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+advanced-restrict-image-registries.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+advertise-node-extended-resources.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-annotations.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-base-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-image-repos.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\allowed-label-changes\allowed-label-changes.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_batch_v1_Job__request_operation_', 'io_k8s_api_batch_v1_CronJob__request_operation_', 'io_k8s_api_core_v1_Pod__request_operation_']
+allowed-pod-priorities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+always-pull-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+annotate-base-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+apply-pss-restricted-profile.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+audit-event-on-delete.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+audit-event-on-exec.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-cluster-admin-from-ns.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\block-ephemeral-containers\block-ephemeral-containers.yaml;other;ACEPTADA;Semántica Correcta
+block-images-with-volumes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\block-kubectl-cp\block-kubectl-cp.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_exec__request_operation_']
+block-large-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\block-pod-exec-by-namespace\block-pod-exec-by-namespace.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_exec__request_operation_']
+other\block-pod-exec-by-namespace-label\block-pod-exec-by-namespace-label.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_exec__request_operation_']
+other\block-pod-exec-by-pod-and-container\block-pod-exec-by-pod-and-container.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_exec__request_operation_', 'io_k8s_api_core_v1_Pod_exec__request_name']
+other\block-pod-exec-by-pod-label\block-pod-exec-by-pod-label.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_exec__request_operation_']
+other\block-pod-exec-by-pod-name\block-pod-exec-by-pod-name.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_exec__request_operation_']
+block-stale-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-updates-deletes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\check-env-vars\check-env-vars.yaml;other;ACEPTADA;Semántica Correcta
+check-hpa-exists.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-ingress-nginx-controller-version-and-annotation-policy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-node-for-cve-2022-0185.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-nvidia-gpu.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\check-serviceaccount\check-serviceaccount.yaml;other;ACEPTADA;Semántica Correcta
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-serviceaccount-secrets.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-subjectaccessreview.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifact-hub.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-vpa-configuration.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+concatenate-configmaps.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+copy-namespace-labels.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+cordon-and-drain-node.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+create-default-pdb.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+create-pod-antiaffinity.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+deny-commands-in-exec-probe.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\deny-secret-service-account-token-type\deny-secret-service-account-token-type.yaml;other;ACEPTADA;Semántica Correcta
+artifact-hub.yml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+deployment-replicas-higher-than-pdb.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disable-automountserviceaccounttoken.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disable-service-discovery.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\disallow-all-secrets\disallow-all-secrets.yaml;other;ACEPTADA;Semántica Correcta
+other\disallow-localhost-services\disallow-localhost-services.yaml;other;ACEPTADA;Semántica Correcta
+other\disallow-secrets-from-env-vars\disallow-secrets-from-env-vars.yaml;other;ACEPTADA;Semántica Correcta
+dns-policy-and-dns-config.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\docker-socket-requires-label\docker-socket-requires-label.yaml;other;ACEPTADA;Semántica Correcta
+enforce-pod-duration.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\enforce-readwriteonce-pod\enforce-readwriteonce-pod.yaml;other;ACEPTADA;Semántica Correcta
+enforce-resources-as-ratio.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+ensure-probes-different.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+ensure-production-matches-staging.yaml;Unknown;DESCARTADA;Error Traductor: argument of type 'int' is not iterable
+ensure-readonly-hostpath.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\exclude-namespaces-dynamically\exclude-namespaces-dynamically.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_apps_v1_StatefulSet_spec_template_metadata_labels_foo', 'io_k8s_api_batch_v1_CronJob_spec_jobTemplate_spec_template_metadata_labels_foo', 'io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_labels_foo']
+expiration-for-policyexceptions.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\forbid-cpu-limits\forbid-cpu-limits.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_spec_containers_resources_limits_cpu']
+generate-networkpolicy-existing.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+get-debug-information.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\imagepullpolicy-always\imagepullpolicy-always.yaml;other;ACEPTADA;Semántica Correcta
+ingress-host-match-tls.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+inject-env-var-from-image-label.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+inject-sidecar-deployment.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+inspect-csr.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+kubernetes-version-check.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+label-existing-namespaces.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+label-nodes-cri.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-configmap-for-sa.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-containers-per-pod.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\limit-hostpath-type-pv\limit-hostpath-type-pv.yaml;other;ACEPTADA;Semántica Correcta
+limit-hostpath-vols.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+memory-requests-equal-limits.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+metadata-match-regex.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+mitigate-log4shell.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+mutate-large-termination-gps.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+mutate-pod-binding.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+namespace-inventory-check.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+namespace-protection.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\nfs-subdir-external-provisioner-storage-path\nfs-subdir-external-provisioner-storage-path.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_PersistentVolumeClaim_spec_']
+only-trustworthy-registries-set-root.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\pdb-maxunavailable\pdb-maxunavailable.yaml;other;ACEPTADA;Semántica Correcta
+artifact-hub.yml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pdb-maxunavailable-with-deployments.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pdb-minavailable.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\policy-for-exceptions\policy-for-exceptions.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_PolicyException_spec_match_all_resources_names', 'io_k8s_api_core_v1_PolicyException_spec_match_all_subjects_name', 'io_k8s_api_core_v1_PolicyException_spec_match_any_subjects_name']
+prepend-image-registry.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+prevent-bare-pods.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\prevent-cr8escape\prevent-cr8escape.yaml;other;ACEPTADA;Semántica Correcta
+other\prevent-duplicate-hpa\prevent-duplicate-hpa.yaml;other;ACEPTADA;Semántica Correcta
+other\prevent-duplicate-vpa\prevent-duplicate-vpa.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_VerticalPodAutoscaler_spec_targetRef_kind']
+other\protect-node-taints\protect-node-taints.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Node_request_operation_']
+other\record-creation-details\record-creation-details.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_']
+refresh-env-var-in-pod.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+refresh-volumes-in-pods.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+remove-hostpath-volumes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+remove-serviceaccount-token.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+replace-image-registry.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+replace-image-registry-with-harbor.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+replace-ingress-hosts.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-annotations\require-annotations.yaml;other;ACEPTADA;Semántica Correcta
+require-base-image.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-container-port-names\require-container-port-names.yaml;other;ACEPTADA;Semántica Correcta
+other\require-cpu-limits\require-cpu-limits.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_spec_initContainers_resources_limits_cpu', 'io_k8s_api_core_v1_Pod_spec_ephemeralContainers_resources_limits_cpu', 'io_k8s_api_core_v1_Pod_spec_containers_resources_limits_cpu']
+other\require-deployments-have-multiple-replicas\require-deployments-have-multiple-replicas.yaml;other;ACEPTADA;Semántica Correcta
+require-emptydir-requests-limits.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-image-checksum\require-image-checksum.yaml;other;ACEPTADA;Semántica Correcta
+require-image-source.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-imagepullsecrets\require-imagepullsecrets.yaml;other;ACEPTADA;Semántica Correcta
+other\require-ingress-https\require-ingress-https.yaml;other;ACEPTADA;Semántica Correcta
+require-netpol.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-non-root-groups\require-non-root-groups.yaml;other;ACEPTADA;Semántica Correcta
+require-pdb.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-pod-priorityclassname\require-pod-priorityclassname.yaml;other;ACEPTADA;Semántica Correcta
+require-qos-burstable.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-qos-guaranteed.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifact-hub.yml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-reasonable-pdbs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifact-hub.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-replicas-allow-disruption.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\require-storageclass\require-storageclass.yaml;other;ACEPTADA;Semántica Correcta
+require-unique-external-dns.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-unique-service-selector.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-unique-uid-per-workload.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-vulnerability-scan.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+resolve-image-to-digest.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+resource-creation-updating-denied.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restart-deployment-on-secret-change.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-annotations\restrict-annotations.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-automount-sa-token\restrict-automount-sa-token.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-binding-clusteradmin\restrict-binding-clusteradmin.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-binding-system-groups\restrict-binding-system-groups.yaml;other;ACEPTADA;Semántica Correcta
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-clusterrole-csr.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-clusterrole-mutating-validating-admission-webhooks.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-clusterrole-nodesproxy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-controlplane-scheduling\restrict-controlplane-scheduling.yaml;other;ACEPTADA;Semántica Correcta
+restrict-deprecated-registry.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-edit-for-endpoints.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-escalation-verbs-roles.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-ingress-classes\restrict-ingress-classes.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-ingress-defaultbackend\restrict-ingress-defaultbackend.yaml;other;ACEPTADA;Semántica Correcta
+restrict-ingress-host.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-ingress-wildcard.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-jobs\restrict-jobs.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-loadbalancer\restrict-loadbalancer.yaml;other;ACEPTADA;Semántica Correcta
+restrict-networkpolicy-empty-podselector.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-node-affinity\restrict-node-affinity.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-node-label-changes\restrict-node-label-changes.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Node__request_oldObject_metadata_labels_foo', 'io_k8s_api_core_v1_Node__request_operation_']
+other\restrict-node-label-creation\restrict-node-label-creation.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Node_request_operation_', 'io_k8s_api_core_v1_Node_request_object_metadata_labels_foo']
+other\restrict-node-selection\restrict-node-selection.yaml;other;ACEPTADA;Semántica Correcta
+restrict-pod-controller-serviceaccount-updates.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-pod-count-per-node.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-sa-automount-sa-token\restrict-sa-automount-sa-token.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-scale\restrict-scale.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Deployment_scale_status_selector', 'io_k8s_api_core_v1_Deployment_scale_spec_replicas']
+restrict-secret-role-verbs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-secrets-by-label.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-secrets-by-name\restrict-secrets-by-name.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_request_operation_']
+restrict-service-account.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\restrict-service-port-range\restrict-service-port-range.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-storageclass\restrict-storageclass.yaml;other;ACEPTADA;Semántica Correcta
+other\restrict-usergroup-fsgroup-id\restrict-usergroup-fsgroup-id.yaml;other;ACEPTADA;Semántica Correcta
+restrict-wildcard-resources.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-wildcard-verbs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+scale-deployment-zero.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+spread-pods-across-topology.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+sync-secrets.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\time-bound-policy\time-bound-policy.yaml;other;ACEPTADA;Semántica Correcta
+topologyspreadconstraints-policy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+unique-ingress-host-and-path.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+unique-ingress-paths.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+update-image-tag.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-image.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-image-cve-2022-42889.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-image-gcpkms.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-image-ivpol.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-image-slsa.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-image-with-multi-keys.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-manifest-integrity.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-sbom-cyclonedx.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+other\verify-vpa-target\verify-vpa-target.yaml;other;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_VerticalPodAutoscaler_spec_targetRef_kind']
+advanced-restrict-image-registries.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-annotations.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-base-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-image-repos.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+allowed-pod-priorities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-cluster-admin-from-ns.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-ephemeral-containers.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-images-with-volumes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-kubectl-cp.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-large-images.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-pod-exec-by-namespace.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-pod-exec-by-namespace-label.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-pod-exec-by-pod-and-container.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-pod-exec-by-pod-label.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-pod-exec-by-pod-name.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-updates-deletes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-env-vars.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-hpa-exists.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-ingress-nginx-controller-version-and-annotation-policy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-node-for-cve-2022-0185.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-nvidia-gpu.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-serviceaccount.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-serviceaccount-secrets.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+check-subjectaccessreview.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+deny-commands-in-exec-probe.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+artifacthub-pkg.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+deny-secret-service-account-token-type.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-all-secrets.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-localhost-services.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-secrets-from-env-vars.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+docker-socket-requires-label.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+enforce-pod-duration.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+enforce-readwriteonce-pod.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+.chainsaw.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+ensure-probes-different.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+ensure-readonly-hostpath.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+exclude-namespaces-dynamically.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+forbid-cpu-limits.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+imagepullpolicy-always.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+ingress-host-match-tls.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-containers-per-pod.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-hostpath-type-pv.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+limit-hostpath-vols.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+memory-requests-equal-limits.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+metadata-match-regex.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pdb-maxunavailable.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+prevent-bare-pods.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+prevent-cr8escape.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-annotations.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-container-port-names.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-deployments-have-multiple-replicas.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-emptydir-requests-limits.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-image-checksum.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-ingress-https.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-non-root-groups.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-pod-priorityclassname.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-qos-burstable.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-qos-guaranteed.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-storageclass.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-annotations.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-binding-clusteradmin.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-binding-system-groups.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-clusterrole-nodesproxy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-controlplane-scheduling.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-deprecated-registry.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-edit-for-endpoints.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-escalation-verbs-roles.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-ingress-classes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-ingress-defaultbackend.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-ingress-wildcard.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-jobs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-loadbalancer.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-networkpolicy-empty-podselector.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-node-affinity.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-node-label-creation.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-pod-controller-serviceaccount-updates.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-sa-automount-sa-token.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-secret-role-verbs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-secrets-by-name.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-service-port-range.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-storageclass.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-usergroup-fsgroup-id.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-wildcard-resources.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-wildcard-verbs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+topologyspreadconstraints-policy.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+unique-ingress-paths.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-capabilities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pod-security\baseline\disallow-host-namespaces\disallow-host-namespaces.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\baseline\disallow-host-path\disallow-host-path.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\baseline\disallow-host-ports\disallow-host-ports.yaml;pod-security;ACEPTADA;Semántica Correcta
+disallow-host-ports-range.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pod-security\baseline\disallow-host-process\disallow-host-process.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\baseline\disallow-privileged-containers\disallow-privileged-containers.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\baseline\disallow-proc-mount\disallow-proc-mount.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\baseline\disallow-selinux\disallow-selinux.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\baseline\restrict-apparmor-profiles\restrict-apparmor-profiles.yaml;pod-security;ACEPTADA;Semántica Correcta
+restrict-seccomp.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pod-security\baseline\restrict-sysctls\restrict-sysctls.yaml;pod-security;ACEPTADA;Semántica Correcta
+disallow-capabilities-strict.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+pod-security\restricted\disallow-privilege-escalation\disallow-privilege-escalation.yaml;pod-security;ACEPTADA;Semántica Correcta
+pod-security\restricted\require-run-as-non-root-user\require-run-as-non-root-user.yaml;pod-security;ACEPTADA;Semántica Correcta
+require-run-as-nonroot.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-seccomp-strict.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-volume-types.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+podsecurity-subrule-baseline.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restricted-exclude-capabilities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restricted-exclude-seccomp.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restricted-latest.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-capabilities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-host-namespaces.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-host-path.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-host-ports.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-host-process.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-privileged-containers.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-proc-mount.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-selinux.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-seccomp.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-sysctls.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-capabilities-strict.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-privilege-escalation.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-run-as-non-root-user.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+require-run-as-nonroot.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-seccomp-strict.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+restrict-volume-types.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-privileged-existing-namespaces.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-psa-labels.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+psa\add-psa-namespace-reporting\add-psa-namespace-reporting.yaml;psa;ACEPTADA;Semántica Correcta
+deny-privileged-profile.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-apparmor.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-capabilities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+add-runtimeClassName.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+psp-migration\check-supplemental-groups\check-supplemental-groups.yaml;psp-migration;ACEPTADA;Semántica Correcta
+restrict-adding-capabilities.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+psp-migration\restrict-runtimeClassName\restrict-runtimeClassName.yaml;psp-migration;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_Pod_request_operation_']
+block-tekton-task-runs.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+tekton\require-tekton-bundle\require-tekton-bundle.yaml;tekton;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_PipelineRun_spec_pipelineRef_bundle', 'io_k8s_api_core_v1_TaskRun_spec_taskRef_bundle']
+tekton\require-tekton-namespace-pipelinerun\require-tekton-namespace-pipelinerun.yaml;tekton;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_PipelineRun_metadata_namespace']
+tekton\require-tekton-securitycontext\require-tekton-securitycontext.yaml;tekton;DESCARTADA;Feature fantasma: ['io_k8s_api_core_v1_tekton_dev_v1beta1_TaskRun_status_status_']
+verify-tekton-pipeline-bundle-signatures.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-tekton-taskrun-signatures.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+verify-tekton-taskrun-vuln-scan.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+disallow-default-tlsoptions.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+backup-all-volumes.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+block-velero-restore.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+validate-cron-schedule.yaml;Unknown;DESCARTADA;Sin reglas estáticas detectadas
+windows-security\require-run-as-containeruser\require-run-as-containeruser.yaml;windows-security;ACEPTADA;Semántica Correcta

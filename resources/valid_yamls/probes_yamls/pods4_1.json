@@ -1,0 +1,29 @@
+{
+    "filename": "pods4_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "webapp-release-0",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "app",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "webapp"
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "release",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "0"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "webapp",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "richardchesterwood/k8s-fleetman-webapp-angular:release0"
+                }
+            ]
+        }
+    }
+}

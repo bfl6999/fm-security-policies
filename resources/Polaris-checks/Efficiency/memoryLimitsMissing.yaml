@@ -1,0 +1,32 @@
+successMessage: Memory limits are set
+failureMessage: Memory limits should be set
+category: Efficiency
+target: Container
+containers:
+  exclude:
+  - initContainer
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  required:
+  - resources
+  properties:
+    resources:
+      type: object
+      required:
+      - limits
+      properties:
+        limits:
+          type: object
+          required:
+          - memory
+          properties:
+            memory:
+              type: string
+              not:
+                const: ''
+mutations:
+  - op: add
+    path: /resources/limits/memory
+    value: "512Mi"
+    comment: "TODO: Set this to the maximum amount of memory you want your workload to use"

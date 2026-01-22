@@ -1,0 +1,90 @@
+successMessage: The ClusterRoleBinding does not reference the default cluster-admin ClusterRole or one with wildcard permissions
+failureMessage: The ClusterRoleBinding references the default cluster-admin ClusterRole or one with wildcard permissions
+category: Security
+target: rbac.authorization.k8s.io/ClusterRoleBinding
+schemaString: |
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  anyOf:
+    # Do not alert on default ClusterRoleBindings.
+    - required: ["metadata"]
+      properties:
+        metadata:
+          type: object
+          required: ["name"]
+          properties:
+            name:
+              type: string
+              anyOf:
+                - const: "cluster-admin"
+                - pattern: '^system:'
+                - const: "gce:podsecuritypolicy:calico-sa"
+    - required: ["roleRef"]
+      properties:
+        roleRef:
+          required: ["apiGroup", "kind", "name"]
+          properties:
+            apiGroup:
+              type: string
+              const: "rbac.authorization.k8s.io"
+            kind:
+              type: string
+              const: "ClusterRole"
+            name:
+              type: string
+              minLength: 1
+              not:
+                const: "cluster-admin"
+additionalSchemaStrings:
+  rbac.authorization.k8s.io/ClusterRole: |
+    {{ if (ne .roleRef.name "view") }}
+    {{ if and (ne .metadata.name "cluster-admin") (not (hasPrefix .metadata.name "system:")) (ne .metadata.name "gce:podsecuritypolicy:calico-sa") }}
+    # Do not alert on default ClusterRoleBindings.
+    type: object
+    required: ["metadata", "rules"]
+    allOf:
+      - properties:
+          metadata:
+            required: ["name"]
+            properties:
+              name:
+                type: string
+                const: "{{ .roleRef.name }}"
+      - properties:
+          rules:
+            type: array
+            items:
+              type: object
+              not:
+                required: ["apiGroups", "resources", "verbs"]
+                properties:
+                  apiGroups:
+                    type: array
+                    contains:
+                      type: string
+                      const: "*"
+                  resources:
+                    type: array
+                    contains:
+                      type: string
+                      const: '*'
+                  verbs:
+                    type: array
+                    uniqueItems: true
+                    oneOf:
+                      - contains:
+                          type: string
+                          const: '*'
+                      - minItems: 7
+                        items:
+                          type: string
+                          enum:
+                            - "get"
+                            - "list"
+                            - "watch"
+                            - "create"
+                            - "update"
+                            - "patch"
+                            - "delete"
+    {{ end }}
+    {{ end }}

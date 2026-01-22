@@ -1,0 +1,42 @@
+{
+    "filename": "rbac-wf-template-delete-pod_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRole_kind": "ClusterRole",
+        "io_k8s_api_rbac_v1_ClusterRole_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRole_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRole_metadata_name": "delete-pod-cluster-role"
+        },
+        "io_k8s_api_rbac_v1_ClusterRole_rules": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRole_rules_apiGroups": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_apiGroups_StringValue": ""
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_resources": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resources_StringValue": "pods"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_verbs": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "delete"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "get"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "list"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "patch"
+                    },
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "watch"
+                    }
+                ]
+            }
+        ]
+    }
+}

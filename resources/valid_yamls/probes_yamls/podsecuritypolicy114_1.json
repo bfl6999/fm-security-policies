@@ -1,0 +1,36 @@
+{
+    "filename": "podsecuritypolicy114_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_rbac_v1_ClusterRole_kind": "ClusterRole",
+        "io_k8s_api_rbac_v1_ClusterRole_apiVersion": "rbac.authorization.k8s.io/v1",
+        "io_k8s_api_rbac_v1_ClusterRole_metadata": {
+            "io_k8s_api_rbac_v1_ClusterRole_metadata_name": "dynamic_parameters-use-psp",
+            "io_k8s_api_rbac_v1_ClusterRole_metadata_labels": []
+        },
+        "io_k8s_api_rbac_v1_ClusterRole_rules": [
+            {
+                "io_k8s_api_rbac_v1_ClusterRole_rules_apiGroups": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_apiGroups_StringValue": "extensions"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_resources": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resources_StringValue": "podsecuritypolicies"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_resourceNames": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_resourceNames_StringValue": "dynamic_parameters"
+                    }
+                ],
+                "io_k8s_api_rbac_v1_ClusterRole_rules_verbs": [
+                    {
+                        "io_k8s_api_rbac_v1_ClusterRole_rules_verbs_StringValue": "use"
+                    }
+                ]
+            }
+        ]
+    }
+}

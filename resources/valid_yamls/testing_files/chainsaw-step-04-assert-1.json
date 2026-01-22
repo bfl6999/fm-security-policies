@@ -1,0 +1,22 @@
+{
+    "filename": "chainsaw-step-04-assert-1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_events_v1_Event_apiVersion": "v1",
+        "io_k8s_api_core_v1_Event_involvedObject": {
+            "io_k8s_api_core_v1_Event_involvedObject_apiVersion": "v1",
+            "io_k8s_api_core_v1_Event_involvedObject_kind": "Secret",
+            "io_k8s_api_core_v1_Event_involvedObject_name": "secret-tbd",
+            "io_k8s_api_core_v1_Event_involvedObject_namespace": "delete-event-ns"
+        },
+        "io_k8s_api_events_v1_Event_kind": "Event",
+        "io_k8s_api_events_v1_Event_metadata": {
+            "io_k8s_api_events_v1_Event_metadata_namespace": "delete-event-ns"
+        },
+        "io_k8s_api_events_v1_Event_reason": "Delete",
+        "io_k8s_api_core_v1_Event_source": {
+            "io_k8s_api_core_v1_Event_source_component": "kyverno"
+        },
+        "io_k8s_api_events_v1_Event_type": "Warning"
+    }
+}

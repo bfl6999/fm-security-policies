@@ -1,0 +1,53 @@
+{
+    "filename": "Pod_120.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "hello-openshift-nfs-pod",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "name",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "hello-openshift-nfs-pod"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "hello-openshift-nfs-pod",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "openshift/hello-openshift",
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_name": "web",
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 80
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "nfsvol",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/usr/share/nginx/html"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_securityContext": {
+                "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroups": [
+                    {
+                        "io_k8s_api_core_v1_Pod_spec_securityContext_supplementalGroups_IntegerValue": 100003
+                    }
+                ],
+                "privileged": false
+            },
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "nfsvol",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_persistentVolumeClaim_claimName": "nfs-pvc"
+                    }
+                }
+            ]
+        }
+    }
+}

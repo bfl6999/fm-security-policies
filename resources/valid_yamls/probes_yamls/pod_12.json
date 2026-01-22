@@ -1,0 +1,48 @@
+{
+    "filename": "pod_12.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "themoviedb"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "main",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "radial/busyboxplus:curl",
+                    "io_k8s_api_core_v1_Pod_spec_containers_args": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "sleep"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_args_StringValue": "600"
+                        }
+                    ]
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "ambassador",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "startkubernetes/ambassador:0.1.0",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "API_KEY",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef": {
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef_name": "themoviedb",
+                                    "io_k8s_api_core_v1_Pod_spec_containers_env_valueFrom_secretKeyRef_key": "apikey"
+                                }
+                            }
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_name": "http",
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 8080
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

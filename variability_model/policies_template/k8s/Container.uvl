@@ -1,0 +1,360 @@
+namespace KubernetesContainer
+features
+	ContainerFeatures {abstract}
+		optional
+			io_k8s_api_core_v1_Container {doc 'A single application container that you want to run within a pod'}
+				mandatory
+					String io_k8s_api_core_v1_Container_name {doc 'Name of the container specified as a DNS_LABEL Each container in a pod must have a unique name (DNS_LABEL) Cannot be updated'}
+				optional
+					io_k8s_api_core_v1_Container_args cardinality [0..1] {doc 'Arguments to the entrypoint The container image_s CMD is used if this is not provided Variable references $(VAR_NAME) are expanded using the container_s environment If a variable cannot be resolved, the reference in the input string will be unchanged Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: ie $$(VAR_NAME) will produce the string literal $(VAR_NAME) Escaped references will never be expanded, regardless of whether the variable exists or not Cannot be updated More info: https:_kubernetesio/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell'}
+						mandatory
+							String io_k8s_api_core_v1_Container_args_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+					io_k8s_api_core_v1_Container_command cardinality [0..1] {doc 'Entrypoint array Not executed within a shell The container image_s ENTRYPOINT is used if this is not provided Variable references $(VAR_NAME) are expanded using the container_s environment If a variable cannot be resolved, the reference in the input string will be unchanged Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: ie $$(VAR_NAME) will produce the string literal $(VAR_NAME) Escaped references will never be expanded, regardless of whether the variable exists or not Cannot be updated More info: https:_kubernetesio/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell'}
+						mandatory
+							String io_k8s_api_core_v1_Container_command_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+					io_k8s_api_core_v1_Container_env cardinality [0..1] {doc 'List of environment variables to set in the container Cannot be updated'}
+						mandatory
+							String io_k8s_api_core_v1_Container_env_name {doc 'Name of the environment variable Must be a C_IDENTIFIER'}
+						optional
+							String io_k8s_api_core_v1_Container_env_value {doc 'Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables If a variable cannot be resolved, the reference in the input string will be unchanged Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: ie $$(VAR_NAME) will produce the string literal $(VAR_NAME) Escaped references will never be expanded, regardless of whether the variable exists or not Defaults to '}
+							io_k8s_api_core_v1_Container_env_valueFrom {doc 'Source for the environment variable_s value Cannot be used if value is not empty'}
+								optional
+									io_k8s_api_core_v1_Container_env_valueFrom_configMapKeyRef {doc 'Selects a key of a ConfigMap'}
+										mandatory
+											String io_k8s_api_core_v1_Container_env_valueFrom_configMapKeyRef_key {doc 'The key to select'}
+										optional
+											String io_k8s_api_core_v1_Container_env_valueFrom_configMapKeyRef_name {doc 'Name of the referent This field is effectively required, but due to backwards compatibility is allowed to be empty Instances of this type with an empty value here are almost certainly wrong More info: https:_kubernetesio/docs/concepts/overview/working-with-objects/names/#names'}
+											io_k8s_api_core_v1_Container_env_valueFrom_configMapKeyRef_optional {doc 'Specify whether the ConfigMap or its key must be defined'}
+									io_k8s_api_core_v1_Container_env_valueFrom_fieldRef {doc 'Selects a field of the pod: supports metadataname, metadatanamespace, metadatalabels[_<KEY>_], metadataannotations[_<KEY>_], specnodeName, specserviceAccountName, statushostIP, statuspodIP, statuspodIPs'}
+										mandatory
+											String io_k8s_api_core_v1_Container_env_valueFrom_fieldRef_fieldPath {doc 'Path of the field to select in the specified API version'}
+										optional
+											String io_k8s_api_core_v1_Container_env_valueFrom_fieldRef_apiVersion {doc 'Version of the schema the FieldPath is written in terms of, defaults to v1'}
+									io_k8s_api_core_v1_Container_env_valueFrom_resourceFieldRef {doc 'Selects a resource of the container: only resources limits and requests (limitscpu, limitsmemory, limitsephemeral-storage, requestscpu, requestsmemory and requestsephemeral-storage) are currently supported'}
+										mandatory
+											String io_k8s_api_core_v1_Container_env_valueFrom_resourceFieldRef_resource {doc 'Required: resource to select'}
+										optional
+											String io_k8s_api_core_v1_Container_env_valueFrom_resourceFieldRef_containerName {doc 'Container name: required for volumes, optional for env vars'}
+											io_k8s_api_core_v1_Container_env_valueFrom_resourceFieldRef_divisor {doc 'Specifies the output format of the exposed resources, defaults to 1'}
+												alternative
+													String io_k8s_api_core_v1_Container_env_valueFrom_resourceFieldRef_divisor_asString {doc 'Sub-feature added of type String'}
+													Integer io_k8s_api_core_v1_Container_env_valueFrom_resourceFieldRef_divisor_asNumber {doc 'Sub-feature added of type Number'}
+									io_k8s_api_core_v1_Container_env_valueFrom_secretKeyRef {doc 'Selects a key of a secret in the pod_s namespace'}
+										mandatory
+											String io_k8s_api_core_v1_Container_env_valueFrom_secretKeyRef_key {doc 'The key of the secret to select from  Must be a valid secret key'}
+										optional
+											String io_k8s_api_core_v1_Container_env_valueFrom_secretKeyRef_name {doc 'Name of the referent This field is effectively required, but due to backwards compatibility is allowed to be empty Instances of this type with an empty value here are almost certainly wrong More info: https:_kubernetesio/docs/concepts/overview/working-with-objects/names/#names'}
+											io_k8s_api_core_v1_Container_env_valueFrom_secretKeyRef_optional {doc 'Specify whether the Secret or its key must be defined'}
+					io_k8s_api_core_v1_Container_envFrom cardinality [0..1] {doc 'List of sources to populate environment variables in the container The keys defined within a source must be a C_IDENTIFIER All invalid keys will be reported as an event when the container is starting When a key exists in multiple sources, the value associated with the last source will take precedence Values defined by an Env with a duplicate key will take precedence Cannot be updated'}
+						optional
+							io_k8s_api_core_v1_Container_envFrom_configMapRef {doc 'The ConfigMap to select from'}
+								optional
+									String io_k8s_api_core_v1_Container_envFrom_configMapRef_name {doc 'Name of the referent This field is effectively required, but due to backwards compatibility is allowed to be empty Instances of this type with an empty value here are almost certainly wrong More info: https:_kubernetesio/docs/concepts/overview/working-with-objects/names/#names'}
+									io_k8s_api_core_v1_Container_envFrom_configMapRef_optional {doc 'Specify whether the ConfigMap must be defined'}
+							String io_k8s_api_core_v1_Container_envFrom_prefix {doc 'An optional identifier to prepend to each key in the ConfigMap Must be a C_IDENTIFIER'}
+							io_k8s_api_core_v1_Container_envFrom_secretRef {doc 'The Secret to select from'}
+								optional
+									String io_k8s_api_core_v1_Container_envFrom_secretRef_name {doc 'Name of the referent This field is effectively required, but due to backwards compatibility is allowed to be empty Instances of this type with an empty value here are almost certainly wrong More info: https:_kubernetesio/docs/concepts/overview/working-with-objects/names/#names'}
+									io_k8s_api_core_v1_Container_envFrom_secretRef_optional {doc 'Specify whether the Secret must be defined'}
+					String io_k8s_api_core_v1_Container_image {doc 'Container image name More info: https:_kubernetesio/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets'}
+					io_k8s_api_core_v1_Container_imagePullPolicy {doc 'Image pull policy One of Always, Never, IfNotPresent Defaults to Always if :latest tag is specified, or IfNotPresent otherwise Cannot be updated More info: https:_kubernetesio/docs/concepts/containers/images#updating-images'}
+						alternative
+							io_k8s_api_core_v1_Container_imagePullPolicy_Never {doc 'Specific value: Never'}
+							io_k8s_api_core_v1_Container_imagePullPolicy_IfNotPresent {doc 'Specific value: IfNotPresent'}
+							io_k8s_api_core_v1_Container_imagePullPolicy_Always {doc 'Specific value: Always'}
+					io_k8s_api_core_v1_Container_lifecycle {doc 'Actions that the management system should take in response to container lifecycle events Cannot be updated'}
+						optional
+							io_k8s_api_core_v1_Container_lifecycle_postStart {doc 'PostStart is called immediately after a container is created If the handler fails, the container is terminated and restarted according to its restart policy Other management of the container blocks until the hook completes More info: https:_kubernetesio/docs/concepts/containers/container-lifecycle-hooks/#container-hooks'}
+								optional
+									io_k8s_api_core_v1_Container_lifecycle_postStart_exec {doc 'Exec specifies the action to take'}
+										optional
+											io_k8s_api_core_v1_Container_lifecycle_postStart_exec_command cardinality [0..1] {doc 'Command is the command line to execute inside the container, the working directory for the command  is root (_/_) in the container_s filesystem The command is simply exec_d, it is not run inside a shell, so traditional shell instructions (_|_, etc) won_t work To use a shell, you need to explicitly call out to that shell Exit status of 0 is treated as live/healthy and non-zero is unhealthy'}
+												mandatory
+													String io_k8s_api_core_v1_Container_lifecycle_postStart_exec_command_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+									io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet {doc 'HTTPGet specifies the http request to perform'}
+										mandatory
+											io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_port {doc 'Name or number of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+												alternative
+													String io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_port_asString {doc 'Sub-feature added of type String'}
+													Integer io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_port_asInteger {doc 'Sub-feature added of type Integer'}
+										optional
+											String io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_host {doc 'Host name to connect to, defaults to the pod IP You probably want to set Host in httpHeaders instead'}
+											io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_httpHeaders cardinality [0..1] {doc 'Custom headers to set in the request HTTP allows repeated headers'}
+												mandatory
+													String io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_httpHeaders_name {doc 'The header field name This will be canonicalized upon output, so case-variant names will be understood as the same header'}
+													String io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_httpHeaders_value {doc 'The header field value'}
+											String io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_path {doc 'Path to access on the HTTP server'}
+											String io_k8s_api_core_v1_Container_lifecycle_postStart_httpGet_scheme {doc 'Scheme to use for connecting to the host Defaults to HTTP'}
+									io_k8s_api_core_v1_Container_lifecycle_postStart_sleep {doc 'Sleep represents the duration that the container should sleep before being terminated'}
+										mandatory
+											Integer io_k8s_api_core_v1_Container_lifecycle_postStart_sleep_seconds {doc 'Seconds is the number of seconds to sleep'}
+									io_k8s_api_core_v1_Container_lifecycle_postStart_tcpSocket {doc 'Deprecated TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified'}
+										mandatory
+											io_k8s_api_core_v1_Container_lifecycle_postStart_tcpSocket_port {doc 'Number or name of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+												alternative
+													String io_k8s_api_core_v1_Container_lifecycle_postStart_tcpSocket_port_asString {doc 'Sub-feature added of type String'}
+													Integer io_k8s_api_core_v1_Container_lifecycle_postStart_tcpSocket_port_asInteger {doc 'Sub-feature added of type Integer'}
+										optional
+											String io_k8s_api_core_v1_Container_lifecycle_postStart_tcpSocket_host {doc 'Optional: Host name to connect to, defaults to the pod IP'}
+							io_k8s_api_core_v1_Container_lifecycle_preStop {doc 'PreStop is called immediately before a container is terminated due to an API request or management event such as liveness/startup probe failure, preemption, resource contention, etc The handler is not called if the container crashes or exits The Pod_s termination grace period countdown begins before the PreStop hook is executed Regardless of the outcome of the handler, the container will eventually terminate within the Pod_s termination grace period (unless delayed by finalizers) Other management of the container blocks until the hook completes or until the termination grace period is reached More info: https:_kubernetesio/docs/concepts/containers/container-lifecycle-hooks/#container-hooks'}
+								optional
+									io_k8s_api_core_v1_Container_lifecycle_preStop_exec {doc 'Exec specifies the action to take'}
+										optional
+											io_k8s_api_core_v1_Container_lifecycle_preStop_exec_command cardinality [0..1] {doc 'Command is the command line to execute inside the container, the working directory for the command  is root (_/_) in the container_s filesystem The command is simply exec_d, it is not run inside a shell, so traditional shell instructions (_|_, etc) won_t work To use a shell, you need to explicitly call out to that shell Exit status of 0 is treated as live/healthy and non-zero is unhealthy'}
+												mandatory
+													String io_k8s_api_core_v1_Container_lifecycle_preStop_exec_command_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+									io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet {doc 'HTTPGet specifies the http request to perform'}
+										mandatory
+											io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_port {doc 'Name or number of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+												alternative
+													String io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_port_asString {doc 'Sub-feature added of type String'}
+													Integer io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_port_asInteger {doc 'Sub-feature added of type Integer'}
+										optional
+											String io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_host {doc 'Host name to connect to, defaults to the pod IP You probably want to set Host in httpHeaders instead'}
+											io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_httpHeaders cardinality [0..1] {doc 'Custom headers to set in the request HTTP allows repeated headers'}
+												mandatory
+													String io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_httpHeaders_name {doc 'The header field name This will be canonicalized upon output, so case-variant names will be understood as the same header'}
+													String io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_httpHeaders_value {doc 'The header field value'}
+											String io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_path {doc 'Path to access on the HTTP server'}
+											String io_k8s_api_core_v1_Container_lifecycle_preStop_httpGet_scheme {doc 'Scheme to use for connecting to the host Defaults to HTTP'}
+									io_k8s_api_core_v1_Container_lifecycle_preStop_sleep {doc 'Sleep represents the duration that the container should sleep before being terminated'}
+										mandatory
+											Integer io_k8s_api_core_v1_Container_lifecycle_preStop_sleep_seconds {doc 'Seconds is the number of seconds to sleep'}
+									io_k8s_api_core_v1_Container_lifecycle_preStop_tcpSocket {doc 'Deprecated TCPSocket is NOT supported as a LifecycleHandler and kept for the backward compatibility There are no validation of this field and lifecycle hooks will fail in runtime when tcp handler is specified'}
+										mandatory
+											io_k8s_api_core_v1_Container_lifecycle_preStop_tcpSocket_port {doc 'Number or name of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+												alternative
+													String io_k8s_api_core_v1_Container_lifecycle_preStop_tcpSocket_port_asString {doc 'Sub-feature added of type String'}
+													Integer io_k8s_api_core_v1_Container_lifecycle_preStop_tcpSocket_port_asInteger {doc 'Sub-feature added of type Integer'}
+										optional
+											String io_k8s_api_core_v1_Container_lifecycle_preStop_tcpSocket_host {doc 'Optional: Host name to connect to, defaults to the pod IP'}
+					io_k8s_api_core_v1_Container_livenessProbe {doc 'Periodic probe of container liveness Container will be restarted if the probe fails Cannot be updated More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+						optional
+							io_k8s_api_core_v1_Container_livenessProbe_exec {doc 'Exec specifies the action to take'}
+								optional
+									io_k8s_api_core_v1_Container_livenessProbe_exec_command cardinality [0..1] {doc 'Command is the command line to execute inside the container, the working directory for the command  is root (_/_) in the container_s filesystem The command is simply exec_d, it is not run inside a shell, so traditional shell instructions (_|_, etc) won_t work To use a shell, you need to explicitly call out to that shell Exit status of 0 is treated as live/healthy and non-zero is unhealthy'}
+										mandatory
+											String io_k8s_api_core_v1_Container_livenessProbe_exec_command_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+							Integer io_k8s_api_core_v1_Container_livenessProbe_failureThreshold {default 3, doc 'Minimum consecutive failures for the probe to be considered failed after having succeeded Defaults to 3 Minimum value is 1'}
+							io_k8s_api_core_v1_Container_livenessProbe_grpc {doc 'GRPC specifies an action involving a GRPC port'}
+								mandatory
+									Integer io_k8s_api_core_v1_Container_livenessProbe_grpc_port {doc 'Port number of the gRPC service Number must be in the range 1 to 65535'}
+								optional
+									String io_k8s_api_core_v1_Container_livenessProbe_grpc_service {doc 'Service is the name of the service to place in the gRPC HealthCheckRequest (see https:_githubcom/grpc/grpc/blob/master/doc/health-checkingmd)If this is not specified, the default behavior is defined by gRPC'}
+							io_k8s_api_core_v1_Container_livenessProbe_httpGet {doc 'HTTPGet specifies the http request to perform'}
+								mandatory
+									io_k8s_api_core_v1_Container_livenessProbe_httpGet_port {doc 'Name or number of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+										alternative
+											String io_k8s_api_core_v1_Container_livenessProbe_httpGet_port_asString {doc 'Sub-feature added of type String'}
+											Integer io_k8s_api_core_v1_Container_livenessProbe_httpGet_port_asInteger {doc 'Sub-feature added of type Integer'}
+								optional
+									String io_k8s_api_core_v1_Container_livenessProbe_httpGet_host {doc 'Host name to connect to, defaults to the pod IP You probably want to set Host in httpHeaders instead'}
+									io_k8s_api_core_v1_Container_livenessProbe_httpGet_httpHeaders cardinality [0..1] {doc 'Custom headers to set in the request HTTP allows repeated headers'}
+										mandatory
+											String io_k8s_api_core_v1_Container_livenessProbe_httpGet_httpHeaders_name {doc 'The header field name This will be canonicalized upon output, so case-variant names will be understood as the same header'}
+											String io_k8s_api_core_v1_Container_livenessProbe_httpGet_httpHeaders_value {doc 'The header field value'}
+									String io_k8s_api_core_v1_Container_livenessProbe_httpGet_path {doc 'Path to access on the HTTP server'}
+									String io_k8s_api_core_v1_Container_livenessProbe_httpGet_scheme {doc 'Scheme to use for connecting to the host Defaults to HTTP'}
+							Integer io_k8s_api_core_v1_Container_livenessProbe_initialDelaySeconds {doc 'Number of seconds after the container has started before liveness probes are initiated More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+							Integer io_k8s_api_core_v1_Container_livenessProbe_periodSeconds {default 10, doc 'How often (in seconds) to perform the probe Default to 10 seconds Minimum value is 1'}
+							Integer io_k8s_api_core_v1_Container_livenessProbe_successThreshold {default 1, doc 'Minimum consecutive successes for the probe to be considered successful after having failed Defaults to 1 Must be 1 for liveness and startup Minimum value is 1'}
+							io_k8s_api_core_v1_Container_livenessProbe_tcpSocket {doc 'TCPSocket specifies an action involving a TCP port'}
+								mandatory
+									io_k8s_api_core_v1_Container_livenessProbe_tcpSocket_port {doc 'Number or name of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+										alternative
+											String io_k8s_api_core_v1_Container_livenessProbe_tcpSocket_port_asString {doc 'Sub-feature added of type String'}
+											Integer io_k8s_api_core_v1_Container_livenessProbe_tcpSocket_port_asInteger {doc 'Sub-feature added of type Integer'}
+								optional
+									String io_k8s_api_core_v1_Container_livenessProbe_tcpSocket_host {doc 'Optional: Host name to connect to, defaults to the pod IP'}
+							Integer io_k8s_api_core_v1_Container_livenessProbe_terminationGracePeriodSeconds {doc 'Optional duration in seconds the pod needs to terminate gracefully upon probe failure The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal Set this value longer than the expected cleanup time for your process If this value is nil, the pod_s terminationGracePeriodSeconds will be used Otherwise, this value overrides the value provided by the pod spec Value must be non-negative integer The value zero indicates stop immediately via the kill signal (no opportunity to shut down) This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate Minimum value is 1 specterminationGracePeriodSeconds is used if unset'}
+							Integer io_k8s_api_core_v1_Container_livenessProbe_timeoutSeconds {default 1, doc 'Number of seconds after which the probe times out Defaults to 1 second Minimum value is 1 More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+					io_k8s_api_core_v1_Container_ports cardinality [0..1] {doc 'List of ports to expose from the container Not specifying a port here DOES NOT prevent that port from being exposed Any port which is listening on the default 0000 address inside a container will be accessible from the network Modifying this array with strategic merge patch may corrupt the data For more information See https:_githubcom/kubernetes/kubernetes/issues/108255 Cannot be updated'}
+						mandatory
+							Integer io_k8s_api_core_v1_Container_ports_containerPort {doc 'Number of port to expose on the pod_s IP address This must be a valid port number, 0 < x < 65536'}
+						optional
+							String io_k8s_api_core_v1_Container_ports_hostIP {doc 'What host IP to bind the external port to'}
+							Integer io_k8s_api_core_v1_Container_ports_hostPort {doc 'Number of port to expose on the host If specified, this must be a valid port number, 0 < x < 65536 If HostNetwork is specified, this must match ContainerPort Most containers do not need this'}
+							String io_k8s_api_core_v1_Container_ports_name {doc 'If specified, this must be an IANA_SVC_NAME and unique within the pod Each named port in a pod must have a unique name Name for the port that can be referred to by services'}
+							io_k8s_api_core_v1_Container_ports_protocol {doc 'Protocol for port Must be UDP, TCP, or SCTP Defaults to TCP'}
+								alternative
+									io_k8s_api_core_v1_Container_ports_protocol_SCTP {doc 'Specific value: SCTP'}
+									io_k8s_api_core_v1_Container_ports_protocol_TCP {default, doc 'Specific value: TCP'}
+									io_k8s_api_core_v1_Container_ports_protocol_UDP {doc 'Specific value: UDP'}
+					io_k8s_api_core_v1_Container_readinessProbe {doc 'Periodic probe of container service readiness Container will be removed from service endpoints if the probe fails Cannot be updated More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+						optional
+							io_k8s_api_core_v1_Container_readinessProbe_exec {doc 'Exec specifies the action to take'}
+								optional
+									io_k8s_api_core_v1_Container_readinessProbe_exec_command cardinality [0..1] {doc 'Command is the command line to execute inside the container, the working directory for the command  is root (_/_) in the container_s filesystem The command is simply exec_d, it is not run inside a shell, so traditional shell instructions (_|_, etc) won_t work To use a shell, you need to explicitly call out to that shell Exit status of 0 is treated as live/healthy and non-zero is unhealthy'}
+										mandatory
+											String io_k8s_api_core_v1_Container_readinessProbe_exec_command_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+							Integer io_k8s_api_core_v1_Container_readinessProbe_failureThreshold {default 3, doc 'Minimum consecutive failures for the probe to be considered failed after having succeeded Defaults to 3 Minimum value is 1'}
+							io_k8s_api_core_v1_Container_readinessProbe_grpc {doc 'GRPC specifies an action involving a GRPC port'}
+								mandatory
+									Integer io_k8s_api_core_v1_Container_readinessProbe_grpc_port {doc 'Port number of the gRPC service Number must be in the range 1 to 65535'}
+								optional
+									String io_k8s_api_core_v1_Container_readinessProbe_grpc_service {doc 'Service is the name of the service to place in the gRPC HealthCheckRequest (see https:_githubcom/grpc/grpc/blob/master/doc/health-checkingmd)If this is not specified, the default behavior is defined by gRPC'}
+							io_k8s_api_core_v1_Container_readinessProbe_httpGet {doc 'HTTPGet specifies the http request to perform'}
+								mandatory
+									io_k8s_api_core_v1_Container_readinessProbe_httpGet_port {doc 'Name or number of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+										alternative
+											String io_k8s_api_core_v1_Container_readinessProbe_httpGet_port_asString {doc 'Sub-feature added of type String'}
+											Integer io_k8s_api_core_v1_Container_readinessProbe_httpGet_port_asInteger {doc 'Sub-feature added of type Integer'}
+								optional
+									String io_k8s_api_core_v1_Container_readinessProbe_httpGet_host {doc 'Host name to connect to, defaults to the pod IP You probably want to set Host in httpHeaders instead'}
+									io_k8s_api_core_v1_Container_readinessProbe_httpGet_httpHeaders cardinality [0..1] {doc 'Custom headers to set in the request HTTP allows repeated headers'}
+										mandatory
+											String io_k8s_api_core_v1_Container_readinessProbe_httpGet_httpHeaders_name {doc 'The header field name This will be canonicalized upon output, so case-variant names will be understood as the same header'}
+											String io_k8s_api_core_v1_Container_readinessProbe_httpGet_httpHeaders_value {doc 'The header field value'}
+									String io_k8s_api_core_v1_Container_readinessProbe_httpGet_path {doc 'Path to access on the HTTP server'}
+									String io_k8s_api_core_v1_Container_readinessProbe_httpGet_scheme {doc 'Scheme to use for connecting to the host Defaults to HTTP'}
+							Integer io_k8s_api_core_v1_Container_readinessProbe_initialDelaySeconds {doc 'Number of seconds after the container has started before liveness probes are initiated More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+							Integer io_k8s_api_core_v1_Container_readinessProbe_periodSeconds {default 10, doc 'How often (in seconds) to perform the probe Default to 10 seconds Minimum value is 1'}
+							Integer io_k8s_api_core_v1_Container_readinessProbe_successThreshold {default 1, doc 'Minimum consecutive successes for the probe to be considered successful after having failed Defaults to 1 Must be 1 for liveness and startup Minimum value is 1'}
+							io_k8s_api_core_v1_Container_readinessProbe_tcpSocket {doc 'TCPSocket specifies an action involving a TCP port'}
+								mandatory
+									io_k8s_api_core_v1_Container_readinessProbe_tcpSocket_port {doc 'Number or name of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+										alternative
+											String io_k8s_api_core_v1_Container_readinessProbe_tcpSocket_port_asString {doc 'Sub-feature added of type String'}
+											Integer io_k8s_api_core_v1_Container_readinessProbe_tcpSocket_port_asInteger {doc 'Sub-feature added of type Integer'}
+								optional
+									String io_k8s_api_core_v1_Container_readinessProbe_tcpSocket_host {doc 'Optional: Host name to connect to, defaults to the pod IP'}
+							Integer io_k8s_api_core_v1_Container_readinessProbe_terminationGracePeriodSeconds {doc 'Optional duration in seconds the pod needs to terminate gracefully upon probe failure The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal Set this value longer than the expected cleanup time for your process If this value is nil, the pod_s terminationGracePeriodSeconds will be used Otherwise, this value overrides the value provided by the pod spec Value must be non-negative integer The value zero indicates stop immediately via the kill signal (no opportunity to shut down) This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate Minimum value is 1 specterminationGracePeriodSeconds is used if unset'}
+							Integer io_k8s_api_core_v1_Container_readinessProbe_timeoutSeconds {default 1, doc 'Number of seconds after which the probe times out Defaults to 1 second Minimum value is 1 More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+					io_k8s_api_core_v1_Container_resizePolicy cardinality [0..1] {doc 'Resources resize policy for the container'}
+						mandatory
+							io_k8s_api_core_v1_Container_resizePolicy_resourceName {doc 'Name of the resource to which this resource resize policy applies Supported values: cpu, memory'}
+								alternative
+									io_k8s_api_core_v1_Container_resizePolicy_resourceName_memory {doc 'Specific value: memory'}
+									io_k8s_api_core_v1_Container_resizePolicy_resourceName_cpu {doc 'Specific value: cpu'}
+							String io_k8s_api_core_v1_Container_resizePolicy_restartPolicy {doc 'Restart policy to apply when specified resource is resized If not specified, it defaults to NotRequired'}
+					io_k8s_api_core_v1_Container_resources {doc 'Compute Resources required by this container Cannot be updated More info: https:_kubernetesio/docs/concepts/configuration/manage-resources-containers/'}
+						optional
+							io_k8s_api_core_v1_Container_resources_claims cardinality [0..1] {doc 'Claims lists the names of resources, defined in specresourceClaims, that are used by this containerThis is an alpha field and requires enabling the DynamicResourceAllocation feature gateThis field is immutable It can only be set for containers'}
+								mandatory
+									String io_k8s_api_core_v1_Container_resources_claims_name {doc 'Name must match the name of one entry in podspecresourceClaims of the Pod where this field is used It makes that resource available inside a container'}
+							io_k8s_api_core_v1_Container_resources_limits cardinality [0..1] {doc 'Limits describes the maximum amount of compute resources allowed More info: https:_kubernetesio/docs/concepts/configuration/manage-resources-containers/'}
+								alternative
+									String io_k8s_api_core_v1_Container_resources_limits_asString {doc 'Sub-feature added of type String'}
+									Integer io_k8s_api_core_v1_Container_resources_limits_asNumber {doc 'Sub-feature added of type Number'}
+							io_k8s_api_core_v1_Container_resources_requests cardinality [0..1] {doc 'Requests describes the minimum amount of compute resources required If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value Requests cannot exceed Limits More info: https:_kubernetesio/docs/concepts/configuration/manage-resources-containers/'}
+								alternative
+									String io_k8s_api_core_v1_Container_resources_requests_asString {doc 'Sub-feature added of type String'}
+									Integer io_k8s_api_core_v1_Container_resources_requests_asNumber {doc 'Sub-feature added of type Number'}
+					String io_k8s_api_core_v1_Container_restartPolicy {doc 'RestartPolicy defines the restart behavior of individual containers in a pod This field may only be set for init containers, and the only allowed value is Always For non-init containers or when this field is not specified, the restart behavior is defined by the Pod_s restart policy and the container type Setting the RestartPolicy as Always for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated Once all regular containers have completed, all init containers with restartPolicy Always will be shut down This lifecycle differs from normal init containers and is often referred to as a sidecar container Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed'}
+					io_k8s_api_core_v1_Container_securityContext {doc 'SecurityContext defines the security options the container should be run with If set, the fields of SecurityContext override the equivalent fields of PodSecurityContext More info: https:_kubernetesio/docs/tasks/configure-pod-container/security-context/'}
+						optional
+							io_k8s_api_core_v1_Container_securityContext_allowPrivilegeEscalation {doc 'AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process This bool directly controls if the no_new_privs flag will be set on the container process AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when specosname is windows'}
+							io_k8s_api_core_v1_Container_securityContext_appArmorProfile {doc 'appArmorProfile is the AppArmor options to use by this container If set, this profile overrides the pod_s appArmorProfile Note that this field cannot be set when specosname is windows'}
+								mandatory
+									io_k8s_api_core_v1_Container_securityContext_appArmorProfile_type {doc 'type indicates which kind of AppArmor profile will be applied Valid options are:  Localhost - a profile pre-loaded on the node  RuntimeDefault - the container runtime_s default profile  Unconfined - no AppArmor enforcement'}
+										alternative
+											io_k8s_api_core_v1_Container_securityContext_appArmorProfile_type_Unconfined {doc 'Specific value: Unconfined'}
+											io_k8s_api_core_v1_Container_securityContext_appArmorProfile_type_RuntimeDefault {doc 'Specific value: RuntimeDefault'}
+											io_k8s_api_core_v1_Container_securityContext_appArmorProfile_type_Localhost {doc 'Specific value: Localhost'}
+								optional
+									io_k8s_api_core_v1_Container_securityContext_appArmorProfile_localhostProfile {abstract, doc 'localhostProfile indicates a profile loaded on the node that should be used The profile must be preconfigured on the node to work Must match the loaded name of the profile Must be set if and only if type is Localhost'}
+										mandatory
+											io_k8s_api_core_v1_Container_securityContext_appArmorProfile_localhostProfile_nameStr {doc 'Added String mandatory for changing booleans of boolean_keywords: string *_name'}
+							io_k8s_api_core_v1_Container_securityContext_capabilities {doc 'The capabilities to add/drop when running containers Defaults to the default set of capabilities granted by the container runtime Note that this field cannot be set when specosname is windows'}
+								optional
+									io_k8s_api_core_v1_Container_securityContext_capabilities_add cardinality [0..1] {doc 'Added capabilities'}
+										mandatory
+											String io_k8s_api_core_v1_Container_securityContext_capabilities_add_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+									io_k8s_api_core_v1_Container_securityContext_capabilities_drop cardinality [0..1] {doc 'Removed capabilities'}
+										mandatory
+											String io_k8s_api_core_v1_Container_securityContext_capabilities_drop_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+							io_k8s_api_core_v1_Container_securityContext_privileged {default false, doc 'Run container in privileged mode Processes in privileged containers are essentially equivalent to root on the host Defaults to false Note that this field cannot be set when specosname is windows'}
+							io_k8s_api_core_v1_Container_securityContext_procMount {abstract, doc 'procMount denotes the type of proc mount to use for the containers The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths This requires the ProcMountType feature flag to be enabled Note that this field cannot be set when specosname is windows'}
+								mandatory
+									String io_k8s_api_core_v1_Container_securityContext_procMount_nameStr {doc 'Added String mandatory for changing booleans of boolean_keywords: string *_name'}
+							io_k8s_api_core_v1_Container_securityContext_readOnlyRootFilesystem {doc 'Whether this container has a read-only root filesystem Default is false Note that this field cannot be set when specosname is windows'}
+							io_k8s_api_core_v1_Container_securityContext_runAsGroup {abstract, doc 'The GID to run the entrypoint of the container process Uses runtime default if unset May also be set in PodSecurityContext  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence Note that this field cannot be set when specosname is windows'}
+								mandatory
+									Integer io_k8s_api_core_v1_Container_securityContext_runAsGroup_valueInt {doc 'Added String mandatory for changing booleans of boolean_keywords: integer *_name'}
+							io_k8s_api_core_v1_Container_securityContext_runAsNonRoot {doc 'Indicates that the container must run as a non-root user If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does If unset or false, no such validation will be performed May also be set in PodSecurityContext  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence'}
+							io_k8s_api_core_v1_Container_securityContext_runAsUser {abstract, doc 'The UID to run the entrypoint of the container process Defaults to user specified in image metadata if unspecified May also be set in PodSecurityContext  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence Note that this field cannot be set when specosname is windows'}
+								mandatory
+									Integer io_k8s_api_core_v1_Container_securityContext_runAsUser_valueInt {doc 'Added String mandatory for changing booleans of boolean_keywords: integer *_name'}
+							io_k8s_api_core_v1_Container_securityContext_seLinuxOptions {doc 'The SELinux context to be applied to the container If unspecified, the container runtime will allocate a random SELinux context for each container  May also be set in PodSecurityContext  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence Note that this field cannot be set when specosname is windows'}
+								optional
+									String io_k8s_api_core_v1_Container_securityContext_seLinuxOptions_level {doc 'Level is SELinux level label that applies to the container'}
+									String io_k8s_api_core_v1_Container_securityContext_seLinuxOptions_role {doc 'Role is a SELinux role label that applies to the container'}
+									String io_k8s_api_core_v1_Container_securityContext_seLinuxOptions_type {doc 'Type is a SELinux type label that applies to the container'}
+									String io_k8s_api_core_v1_Container_securityContext_seLinuxOptions_user {doc 'User is a SELinux user label that applies to the container'}
+							io_k8s_api_core_v1_Container_securityContext_seccompProfile {doc 'The seccomp options to use by this container If seccomp options are provided at both the pod & container level, the container options override the pod options Note that this field cannot be set when specosname is windows'}
+								mandatory
+									io_k8s_api_core_v1_Container_securityContext_seccompProfile_type {doc 'type indicates which kind of seccomp profile will be applied Valid options are:Localhost - a profile defined in a file on the node should be used RuntimeDefault - the container runtime default profile should be used Unconfined - no profile should be applied'}
+										alternative
+											io_k8s_api_core_v1_Container_securityContext_seccompProfile_type_Unconfined {doc 'Specific value: Unconfined'}
+											io_k8s_api_core_v1_Container_securityContext_seccompProfile_type_RuntimeDefault {doc 'Specific value: RuntimeDefault'}
+											io_k8s_api_core_v1_Container_securityContext_seccompProfile_type_Localhost {doc 'Specific value: Localhost'}
+								optional
+									io_k8s_api_core_v1_Container_securityContext_seccompProfile_localhostProfile {abstract, doc 'localhostProfile indicates a profile defined in a file on the node should be used The profile must be preconfigured on the node to work Must be a descending path, relative to the kubelet_s configured seccomp profile location Must be set if type is Localhost Must NOT be set for any other type'}
+										mandatory
+											io_k8s_api_core_v1_Container_securityContext_seccompProfile_localhostProfile_nameStr {doc 'Added String mandatory for changing booleans of boolean_keywords: string *_name'}
+							io_k8s_api_core_v1_Container_securityContext_windowsOptions {doc 'The Windows specific settings applied to all containers If unspecified, the options from the PodSecurityContext will be used If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence Note that this field cannot be set when specosname is linux'}
+								optional
+									String io_k8s_api_core_v1_Container_securityContext_windowsOptions_gmsaCredentialSpec {doc 'GMSACredentialSpec is where the GMSA admission webhook (https:_githubcom/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field'}
+									String io_k8s_api_core_v1_Container_securityContext_windowsOptions_gmsaCredentialSpecName {doc 'GMSACredentialSpecName is the name of the GMSA credential spec to use'}
+									io_k8s_api_core_v1_Container_securityContext_windowsOptions_hostProcess {doc 'HostProcess determines if a container should be run as a _Host Process_ container All of a Pod_s containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers) In addition, if HostProcess is true then HostNetwork must also be set to true'}
+									String io_k8s_api_core_v1_Container_securityContext_windowsOptions_runAsUserName {doc 'The UserName in Windows to run the entrypoint of the container process Defaults to the user specified in image metadata if unspecified May also be set in PodSecurityContext If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence'}
+					io_k8s_api_core_v1_Container_startupProbe {doc 'StartupProbe indicates that the Pod has successfully initialized If specified, no other probes are executed until this completes successfully If this probe fails, the Pod will be restarted, just as if the livenessProbe failed This can be used to provide different probe parameters at the beginning of a Pod_s lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation This cannot be updated More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+						optional
+							io_k8s_api_core_v1_Container_startupProbe_exec {doc 'Exec specifies the action to take'}
+								optional
+									io_k8s_api_core_v1_Container_startupProbe_exec_command cardinality [0..1] {doc 'Command is the command line to execute inside the container, the working directory for the command  is root (_/_) in the container_s filesystem The command is simply exec_d, it is not run inside a shell, so traditional shell instructions (_|_, etc) won_t work To use a shell, you need to explicitly call out to that shell Exit status of 0 is treated as live/healthy and non-zero is unhealthy'}
+										mandatory
+											String io_k8s_api_core_v1_Container_startupProbe_exec_command_StringValue {doc 'Added String mandatory for complete structure Array in the model The modified is not in json but provide represents, Array of Strings: StringValue'}
+							Integer io_k8s_api_core_v1_Container_startupProbe_failureThreshold {default 3, doc 'Minimum consecutive failures for the probe to be considered failed after having succeeded Defaults to 3 Minimum value is 1'}
+							io_k8s_api_core_v1_Container_startupProbe_grpc {doc 'GRPC specifies an action involving a GRPC port'}
+								mandatory
+									Integer io_k8s_api_core_v1_Container_startupProbe_grpc_port {doc 'Port number of the gRPC service Number must be in the range 1 to 65535'}
+								optional
+									String io_k8s_api_core_v1_Container_startupProbe_grpc_service {doc 'Service is the name of the service to place in the gRPC HealthCheckRequest (see https:_githubcom/grpc/grpc/blob/master/doc/health-checkingmd)If this is not specified, the default behavior is defined by gRPC'}
+							io_k8s_api_core_v1_Container_startupProbe_httpGet {doc 'HTTPGet specifies the http request to perform'}
+								mandatory
+									io_k8s_api_core_v1_Container_startupProbe_httpGet_port {doc 'Name or number of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+										alternative
+											String io_k8s_api_core_v1_Container_startupProbe_httpGet_port_asString {doc 'Sub-feature added of type String'}
+											Integer io_k8s_api_core_v1_Container_startupProbe_httpGet_port_asInteger {doc 'Sub-feature added of type Integer'}
+								optional
+									String io_k8s_api_core_v1_Container_startupProbe_httpGet_host {doc 'Host name to connect to, defaults to the pod IP You probably want to set Host in httpHeaders instead'}
+									io_k8s_api_core_v1_Container_startupProbe_httpGet_httpHeaders cardinality [0..1] {doc 'Custom headers to set in the request HTTP allows repeated headers'}
+										mandatory
+											String io_k8s_api_core_v1_Container_startupProbe_httpGet_httpHeaders_name {doc 'The header field name This will be canonicalized upon output, so case-variant names will be understood as the same header'}
+											String io_k8s_api_core_v1_Container_startupProbe_httpGet_httpHeaders_value {doc 'The header field value'}
+									String io_k8s_api_core_v1_Container_startupProbe_httpGet_path {doc 'Path to access on the HTTP server'}
+									String io_k8s_api_core_v1_Container_startupProbe_httpGet_scheme {doc 'Scheme to use for connecting to the host Defaults to HTTP'}
+							Integer io_k8s_api_core_v1_Container_startupProbe_initialDelaySeconds {doc 'Number of seconds after the container has started before liveness probes are initiated More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+							Integer io_k8s_api_core_v1_Container_startupProbe_periodSeconds {default 10, doc 'How often (in seconds) to perform the probe Default to 10 seconds Minimum value is 1'}
+							Integer io_k8s_api_core_v1_Container_startupProbe_successThreshold {default 1, doc 'Minimum consecutive successes for the probe to be considered successful after having failed Defaults to 1 Must be 1 for liveness and startup Minimum value is 1'}
+							io_k8s_api_core_v1_Container_startupProbe_tcpSocket {doc 'TCPSocket specifies an action involving a TCP port'}
+								mandatory
+									io_k8s_api_core_v1_Container_startupProbe_tcpSocket_port {doc 'Number or name of the port to access on the container Number must be in the range 1 to 65535 Name must be an IANA_SVC_NAME'}
+										alternative
+											String io_k8s_api_core_v1_Container_startupProbe_tcpSocket_port_asString {doc 'Sub-feature added of type String'}
+											Integer io_k8s_api_core_v1_Container_startupProbe_tcpSocket_port_asInteger {doc 'Sub-feature added of type Integer'}
+								optional
+									String io_k8s_api_core_v1_Container_startupProbe_tcpSocket_host {doc 'Optional: Host name to connect to, defaults to the pod IP'}
+							Integer io_k8s_api_core_v1_Container_startupProbe_terminationGracePeriodSeconds {doc 'Optional duration in seconds the pod needs to terminate gracefully upon probe failure The grace period is the duration in seconds after the processes running in the pod are sent a termination signal and the time when the processes are forcibly halted with a kill signal Set this value longer than the expected cleanup time for your process If this value is nil, the pod_s terminationGracePeriodSeconds will be used Otherwise, this value overrides the value provided by the pod spec Value must be non-negative integer The value zero indicates stop immediately via the kill signal (no opportunity to shut down) This is a beta field and requires enabling ProbeTerminationGracePeriod feature gate Minimum value is 1 specterminationGracePeriodSeconds is used if unset'}
+							Integer io_k8s_api_core_v1_Container_startupProbe_timeoutSeconds {default 1, doc 'Number of seconds after which the probe times out Defaults to 1 second Minimum value is 1 More info: https:_kubernetesio/docs/concepts/workloads/pods/pod-lifecycle#container-probes'}
+					io_k8s_api_core_v1_Container_stdin {doc 'Whether this container should allocate a buffer for stdin in the container runtime If this is not set, reads from stdin in the container will always result in EOF Default is false'}
+					io_k8s_api_core_v1_Container_stdinOnce {doc 'Whether the container runtime should close the stdin channel after it has been opened by a single attach When stdin is true the stdin stream will remain open across multiple attach sessions If stdinOnce is set to true, stdin is opened on container start, is empty until the first client attaches to stdin, and then remains open and accepts data until the client disconnects, at which time stdin is closed and remains closed until the container is restarted If this flag is false, a container processes that reads from stdin will never receive an EOF Default is false'}
+					String io_k8s_api_core_v1_Container_terminationMessagePath {doc 'Optional: Path at which the file to which the container_s termination message will be written is mounted into the container_s filesystem Message written is intended to be brief final status, such as an assertion failure message Will be truncated by the node if greater than 4096 bytes The total message length across all containers will be limited to 12kb Defaults to /dev/termination-log Cannot be updated'}
+					String io_k8s_api_core_v1_Container_terminationMessagePolicy {doc 'Indicate how the termination message should be populated File will use the contents of terminationMessagePath to populate the container status message on both success and failure FallbackToLogsOnError will use the last chunk of container log output if the termination message file is empty and the container exited with an error The log output is limited to 2048 bytes or 80 lines, whichever is smaller Defaults to File Cannot be updated'}
+					io_k8s_api_core_v1_Container_tty {doc 'Whether this container should allocate a TTY for itself, also requires _stdin_ to be true Default is false'}
+					io_k8s_api_core_v1_Container_volumeDevices cardinality [0..1] {doc 'volumeDevices is the list of block devices to be used by the container'}
+						mandatory
+							String io_k8s_api_core_v1_Container_volumeDevices_devicePath {doc 'devicePath is the path inside of the container that the device will be mapped to'}
+							String io_k8s_api_core_v1_Container_volumeDevices_name {doc 'name must match the name of a persistentVolumeClaim in the pod'}
+					io_k8s_api_core_v1_Container_volumeMounts cardinality [0..1] {doc 'Pod volumes to mount into the container_s filesystem Cannot be updated'}
+						mandatory
+							String io_k8s_api_core_v1_Container_volumeMounts_mountPath {doc 'Path within the container at which the volume should be mounted  Must not contain _:_'}
+							String io_k8s_api_core_v1_Container_volumeMounts_name {doc 'This must match the Name of a Volume'}
+						optional
+							String io_k8s_api_core_v1_Container_volumeMounts_mountPropagation {doc 'mountPropagation determines how mounts are propagated from the host to container and the other way around When not set, MountPropagationNone is used This field is beta in 110 When RecursiveReadOnly is set to IfPossible or to Enabled, MountPropagation must be None or unspecified (which defaults to None)'}
+							io_k8s_api_core_v1_Container_volumeMounts_readOnly {default false, doc 'Mounted read-only if true, read-write otherwise (false or unspecified) Defaults to false'}
+							String io_k8s_api_core_v1_Container_volumeMounts_recursiveReadOnly {doc 'RecursiveReadOnly specifies whether read-only mounts should be handled recursivelyIf ReadOnly is false, this field has no meaning and must be unspecifiedIf ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reasonIf this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None)If this field is not specified, it is treated as an equivalent of Disabled'}
+							String io_k8s_api_core_v1_Container_volumeMounts_subPath {doc 'Path within the volume from which the container_s volume should be mounted Defaults to  (volume_s root)'}
+							String io_k8s_api_core_v1_Container_volumeMounts_subPathExpr {doc 'Expanded path within the volume from which the container_s volume should be mounted Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container_s environment Defaults to  (volume_s root) SubPathExpr and SubPath are mutually exclusive'}
+					String io_k8s_api_core_v1_Container_workingDir {doc 'Container_s working directory If not specified, the container runtime_s default will be used, which might be configured in the container image Cannot be updated'}

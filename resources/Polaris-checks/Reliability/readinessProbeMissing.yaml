@@ -1,0 +1,26 @@
+successMessage: Readiness probe is configured
+failureMessage: Readiness probe should be configured
+category: Reliability
+controllers:
+  exclude:
+  - Job
+  - CronJob
+containers:
+  exclude:
+  - initContainer
+target: Container
+schema:
+  '$schema': https://json-schema.org/draft/2019-09/schema
+  type: object
+  required:
+  - readinessProbe
+  properties:
+    readinessProbe:
+      type: object
+      not:
+        const: null
+mutations:
+  - op: add
+    path: /readinessProbe
+    value: {"exec": { "command": [ "cat", "/tmp/healthy" ] }, "initialDelaySeconds": 5, "periodSeconds": 5 }
+    comment: "TODO: Change the readinessProbe setting to reflect your application's readiness to serve traffic"

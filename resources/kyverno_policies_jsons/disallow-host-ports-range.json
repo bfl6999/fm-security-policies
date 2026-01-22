@@ -1,0 +1,40 @@
+{
+    "filename": "disallow-host-ports-range.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "kyverno_io_v1_ClusterPolicy_apiVersion": "kyverno.io/v1",
+        "kyverno_io_v1_ClusterPolicy_kind": "ClusterPolicy",
+        "kyverno_io_v1_ClusterPolicy_metadata": true,
+        "kyverno_io_v1_ClusterPolicy_spec": {
+            "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction": {
+                "kyverno_io_v1_ClusterPolicy_spec_validationFailureAction_Audit": true
+            },
+            "kyverno_io_v1_ClusterPolicy_spec_background": true,
+            "kyverno_io_v1_ClusterPolicy_spec_rules": [
+                {
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_name": "host-port-range",
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_match": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_match_any": [
+                            {
+                                "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources": {
+                                    "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds": [
+                                        {
+                                            "kyverno_io_v1_ClusterPolicy_spec_rules_match_any_resources_kinds_StringValue": "Pod"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_preconditions": true,
+                    "kyverno_io_v1_ClusterPolicy_spec_rules_validate": {
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_message": "The only permitted hostPorts are in the range 5000-6000 or 0.",
+                        "kyverno_io_v1_ClusterPolicy_spec_rules_validate_deny": {
+                            "kyverno_io_v1_ClusterPolicy_spec_rules_preconditions": true
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

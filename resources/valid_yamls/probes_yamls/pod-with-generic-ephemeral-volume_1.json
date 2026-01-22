@@ -1,0 +1,65 @@
+{
+    "filename": "pod-with-generic-ephemeral-volume_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "the-pod"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "the-container",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "g1g1/py-kube:0.3",
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/data",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "the-volume"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sleep"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "1000000"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "the-volume",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate": {
+                            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata": {
+                                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels": [
+                                    {
+                                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels_KeyMap": "type",
+                                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_metadata_labels_ValueMap": "generic-ephemeral-volume"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec": {
+                                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_accessModes": [
+                                    {
+                                        "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_accessModes_StringValue": "ReadWriteOnce"
+                                    }
+                                ],
+                                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_storageClassName": "generic-storage",
+                                "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources": {
+                                    "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests": [
+                                        {
+                                            "io_k8s_api_core_v1_Pod_spec_volumes_ephemeral_volumeClaimTemplate_spec_resources_requests_asString": "storage:1Gi"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

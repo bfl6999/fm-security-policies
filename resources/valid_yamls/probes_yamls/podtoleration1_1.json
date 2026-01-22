@@ -1,0 +1,36 @@
+{
+    "filename": "podtoleration1_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "toleratedpod2",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "env",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "test"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "toleratedcontainer2",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "nginx"
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_tolerations": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_tolerations_key": "platform",
+                    "io_k8s_api_core_v1_Pod_spec_tolerations_operator": {
+                        "io_k8s_api_core_v1_Pod_spec_tolerations_operator_Exists": true
+                    },
+                    "io_k8s_api_core_v1_Pod_spec_tolerations_effect": {
+                        "io_k8s_api_core_v1_Pod_spec_tolerations_effect_NoSchedule": true
+                    }
+                }
+            ]
+        }
+    }
+}

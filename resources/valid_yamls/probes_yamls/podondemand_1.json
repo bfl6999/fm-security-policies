@@ -1,0 +1,33 @@
+{
+    "filename": "podondemand_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_ConfigMap_apiVersion": "v1",
+        "io_k8s_api_core_v1_ConfigMap_kind": "ConfigMap",
+        "io_k8s_api_core_v1_ConfigMap_metadata": {
+            "io_k8s_api_core_v1_ConfigMap_metadata_name": "podondemand-config",
+            "io_k8s_api_core_v1_ConfigMap_metadata_namespace": "consolepod"
+        },
+        "io_k8s_api_core_v1_ConfigMap_data": [
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "serviceName:podondemand-ssh"
+            },
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "inactivityTimeoutSecs:3600"
+            },
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "inactivityPollFreq:5"
+            },
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "podChoices:cpu: # These names must match the labels in \"podManifests\". These are the names you will specify in --type\n  displayName: \"CPU Pod\"\n  description: \"Example cpu-configured pod\"\ncuda:\n  displayName: \"GPU Pod\"\n  description: \"Example gpu-configured pod\"\n"
+            },
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "storageChoices:yourstoragepv1: # These must be existing persistentvolumes, in which it will create subpaths. These are the names you will specify in --storage\n  description: \"An existing persistentvolume name\"\nyourstoragepv2:\n  description: \"Another existing persistentvolume name\"\n"
+            },
+            {
+                "io_k8s_api_core_v1_ConfigMap_data_StringValueAdditional": "podManifests:cpu: # Example\n  kind: Pod\n  metadata:\n    name: cpu # This name is arbitrary, and can be anything\n    namespace: consolepod\n    labels:\n      app: cpu\n      is_user_container: \"true\" # TODO: In the future, implementing a NetworkPolicy could find user pods by this label. This is not used otherwise.\n  spec:\n    automountServiceAccountToken: false\n    containers:\n      - name: cpu\n        image: <YOUR IMAGE HERE> # Note: this image must run an sshd daemon. You will likely need to build a custom image for this.\n        imagePullPolicy: Always\n        args: [] # Note: An empty arg list is required. PodOnDemand will pass the username as the first argument and a base64-encoded authorized_keys entry as the second. The pod must be able to set up an environment based on this information.\n        ports:\n          - containerPort: 22\n        volumeMounts:\n          - mountPath: /home/DUMMY_USERNAME\n            name: podondemand-user-storage\n            subPath: DUMMY_VOLUME_PATH\n    volumes:\n      - name: podondemand-user-storage # This is the default storage. The volume and volume claim name will be overwritten at runtime if --storage is specified.\n        persistentVolumeClaim:\n          claimName: podondemand-user-storage\n    imagePullSecrets: # Note: this parameter is optional\n      - name: <your image pull secret>\ncuda: # GPU Pod example\n  kind: Pod\n  metadata:\n    name: gpu\n    namespace: consolepod\n    labels:\n      app: gpu\n      is_user_container: \"true\"\n  spec:\n    automountServiceAccountToken: false\n    runtimeClassName: nvidia \n    nodeSelector:\n      nvidia.com/gpu.product: <YOUR GPU>\n    containers:\n      - name: gpupod\n        image: <YOUR IMAGE HERE>\n        imagePullPolicy: Always\n        args: []\n        ports:\n          - containerPort: 22\n        volumeMounts:\n          - mountPath: /home/DUMMY_USERNAME\n            name: podondemand-user-storage\n            subPath: DUMMY_VOLUME_PATH\n        resources:\n          limits:\n            nvidia.com/gpu: 1\n    tolerations:\n    - key: nvidia.com/gpu\n      operator: Exists\n      effect: NoSchedule\n    volumes:\n      - name: podondemand-user-storage\n        persistentVolumeClaim:\n          claimName: podondemand-user-storage\n    imagePullSecrets: # Optional; if necessary\n      - name: <your registry secret>\n"
+            }
+        ],
+        "io_k8s_api_core_v1_ConfigMap_immutable": true
+    }
+}

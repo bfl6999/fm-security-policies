@@ -1,0 +1,66 @@
+{
+    "filename": "three-pods-1a.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "three-containers",
+            "io_k8s_api_core_v1_Pod_metadata_labels": [
+                {
+                    "io_k8s_api_core_v1_Pod_metadata_labels_KeyMap": "purpose",
+                    "io_k8s_api_core_v1_Pod_metadata_labels_ValueMap": "demonstrate-multi-container"
+                }
+            ]
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "nginx-container-1",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "bitnami/nginx",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "NGINX_HTTP_PORT_NUMBER",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "8080"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 8080
+                        }
+                    ]
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "nginx-container-2",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "bitnami/nginx",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "NGINX_HTTP_PORT_NUMBER",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "8081"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 8081
+                        }
+                    ]
+                },
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "nginx-container-3",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "bitnami/nginx",
+                    "io_k8s_api_core_v1_Pod_spec_containers_env": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_name": "NGINX_HTTP_PORT_NUMBER",
+                            "io_k8s_api_core_v1_Pod_spec_containers_env_value": "8082"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 8082
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

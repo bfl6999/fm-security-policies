@@ -1,0 +1,49 @@
+{
+    "filename": "pod-securitycontext3_1.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "security-context-demo"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_securityContext": {
+                "io_k8s_api_core_v1_Pod_spec_securityContext_runAsUser": "root",
+                "io_k8s_api_core_v1_Pod_spec_securityContext_runAsGroup": 3000,
+                "io_k8s_api_core_v1_Pod_spec_securityContext_fsGroup": 2000
+            },
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "sec-ctx-vol",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_emptyDir_isEmpty": true
+                    }
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "sec-ctx-demo",
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "busybox",
+                    "io_k8s_api_core_v1_Pod_spec_containers_command": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sh"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "-c"
+                        },
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_command_StringValue": "sleep 1h"
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "sec-ctx-vol",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/data/demo"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

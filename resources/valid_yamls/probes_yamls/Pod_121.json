@@ -1,0 +1,36 @@
+{
+    "filename": "Pod_121.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "test-pd"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "registry.k8s.io/test-webserver",
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "test-container",
+                    "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_mountPath": "/test-pd",
+                            "io_k8s_api_core_v1_Pod_spec_containers_volumeMounts_name": "test-volume"
+                        }
+                    ]
+                }
+            ],
+            "io_k8s_api_core_v1_Pod_spec_volumes": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_volumes_name": "test-volume",
+                    "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk": {
+                        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_pdName": "my-data-disk",
+                        "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType": {
+                            "io_k8s_api_core_v1_Pod_spec_volumes_gcePersistentDisk_fsType_ext4": true
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

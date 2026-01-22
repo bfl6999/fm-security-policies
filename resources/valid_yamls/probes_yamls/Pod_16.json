@@ -1,0 +1,36 @@
+{
+    "filename": "Pod_16.yaml",
+    "apiVersion": "v1",
+    "config": {
+        "io_k8s_api_core_v1_Pod_apiVersion": "v1",
+        "io_k8s_api_core_v1_Pod_kind": "Pod",
+        "io_k8s_api_core_v1_Pod_metadata": {
+            "io_k8s_api_core_v1_Pod_metadata_name": "node500"
+        },
+        "io_k8s_api_core_v1_Pod_spec": {
+            "io_k8s_api_core_v1_Pod_spec_containers": [
+                {
+                    "io_k8s_api_core_v1_Pod_spec_containers_image": "magalix/node500",
+                    "io_k8s_api_core_v1_Pod_spec_containers_name": "node500",
+                    "io_k8s_api_core_v1_Pod_spec_containers_ports": [
+                        {
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_containerPort": 3000,
+                            "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_ports_protocol_TCP": true
+                            }
+                        }
+                    ],
+                    "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe": {
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet": {
+                            "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_path": "/",
+                            "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port": {
+                                "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_httpGet_port_asInteger": 3000
+                            }
+                        },
+                        "io_k8s_api_core_v1_Pod_spec_containers_livenessProbe_initialDelaySeconds": 5
+                    }
+                }
+            ]
+        }
+    }
+}

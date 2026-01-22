@@ -1,0 +1,217 @@
+{
+    "filename": "01-config-node-local-dns_3.yaml",
+    "apiVersion": "apps_v1",
+    "config": {
+        "io_k8s_api_apps_v1_DaemonSet_apiVersion": "apps/v1",
+        "io_k8s_api_apps_v1_DaemonSet_kind": "DaemonSet",
+        "io_k8s_api_apps_v1_DaemonSet_metadata": {
+            "io_k8s_api_apps_v1_DaemonSet_metadata_name": "node-local-dns",
+            "io_k8s_api_apps_v1_DaemonSet_metadata_namespace": "kube-system",
+            "io_k8s_api_apps_v1_DaemonSet_metadata_labels": [
+                {
+                    "io_k8s_api_apps_v1_DaemonSet_metadata_labels_KeyMap": "k8s-app",
+                    "io_k8s_api_apps_v1_DaemonSet_metadata_labels_ValueMap": "node-local-dns"
+                },
+                {
+                    "io_k8s_api_apps_v1_DaemonSet_metadata_labels_KeyMap": "kubernetes.io/cluster-service",
+                    "io_k8s_api_apps_v1_DaemonSet_metadata_labels_ValueMap": "true"
+                },
+                {
+                    "io_k8s_api_apps_v1_DaemonSet_metadata_labels_KeyMap": "addonmanager.kubernetes.io/mode",
+                    "io_k8s_api_apps_v1_DaemonSet_metadata_labels_ValueMap": "Reconcile"
+                }
+            ]
+        },
+        "io_k8s_api_apps_v1_DaemonSet_spec": {
+            "io_k8s_api_apps_v1_DaemonSet_spec_updateStrategy": {
+                "io_k8s_api_apps_v1_DaemonSet_spec_updateStrategy_rollingUpdate": {
+                    "io_k8s_api_apps_v1_DaemonSet_spec_updateStrategy_rollingUpdate_maxUnavailable": {
+                        "io_k8s_api_apps_v1_DaemonSet_spec_updateStrategy_rollingUpdate_maxUnavailable_asString": "10%"
+                    }
+                }
+            },
+            "io_k8s_api_apps_v1_DaemonSet_spec_selector": {
+                "io_k8s_api_apps_v1_DaemonSet_spec_selector_matchLabels": [
+                    {
+                        "io_k8s_api_apps_v1_DaemonSet_spec_selector_matchLabels_KeyMap": "k8s-app",
+                        "io_k8s_api_apps_v1_DaemonSet_spec_selector_matchLabels_ValueMap": "node-local-dns"
+                    }
+                ]
+            },
+            "io_k8s_api_apps_v1_DaemonSet_spec_template": {
+                "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata": {
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_labels": [
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_labels_KeyMap": "k8s-app",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_labels_ValueMap": "node-local-dns"
+                        }
+                    ],
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_annotations": [
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_annotations_KeyMap": "prometheus.io/port",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_annotations_ValueMap": "9253"
+                        },
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_annotations_KeyMap": "prometheus.io/scrape",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_metadata_annotations_ValueMap": "true"
+                        }
+                    ]
+                },
+                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec": {
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_priorityClassName": "system-node-critical",
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_serviceAccountName": "node-local-dns",
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_hostNetwork": true,
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_dnsPolicy": {
+                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_dnsPolicy_Default": true
+                    },
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations": [
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_key": "CriticalAddonsOnly",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_operator": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_operator_Exists": true
+                            }
+                        },
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_effect": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_effect_NoExecute": true
+                            },
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_operator": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_operator_Exists": true
+                            }
+                        },
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_effect": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_effect_NoSchedule": true
+                            },
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_operator": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_tolerations_operator_Exists": true
+                            }
+                        }
+                    ],
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers": [
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_name": "node-cache",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_image": "registry.k8s.io/dns/k8s-dns-node-cache:1.22.28",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_resources": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_resources_requests": [
+                                    {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_resources_requests_asString": "cpu:25m"
+                                    },
+                                    {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_resources_requests_asString": "memory:5Mi"
+                                    }
+                                ]
+                            },
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args": [
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args_StringValue": "-localip"
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args_StringValue": "169.254.20.10"
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args_StringValue": "-conf"
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args_StringValue": "/etc/Corefile"
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args_StringValue": "-upstreamsvc"
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_args_StringValue": "kube-dns-upstream"
+                                }
+                            ],
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_securityContext": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_securityContext_capabilities": {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_securityContext_capabilities_add": [
+                                        {
+                                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_securityContext_capabilities_add_StringValue": "NET_ADMIN"
+                                        }
+                                    ]
+                                }
+                            },
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports": [
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_containerPort": 53,
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_name": "dns",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_protocol": {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_protocol_UDP": true
+                                    }
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_containerPort": 53,
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_name": "dns-tcp",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_protocol": {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_protocol_TCP": true
+                                    }
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_containerPort": 9253,
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_name": "metrics",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_protocol": {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_ports_protocol_TCP": true
+                                    }
+                                }
+                            ],
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_httpGet": {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_httpGet_host": "169.254.20.10",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_httpGet_path": "/health",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_httpGet_port": {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_httpGet_port_asInteger": 9254
+                                    }
+                                },
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_initialDelaySeconds": 60,
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_livenessProbe_timeoutSeconds": 5
+                            },
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts": [
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_mountPath": "/run/xtables.lock",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_name": "xtables-lock",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_readOnly": false
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_name": "config-volume",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_mountPath": "/etc/coredns"
+                                },
+                                {
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_name": "kube-dns-config",
+                                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_containers_volumeMounts_mountPath": "/etc/kube-dns"
+                                }
+                            ]
+                        }
+                    ],
+                    "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes": [
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_name": "xtables-lock",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_hostPath": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_hostPath_path": "/run/xtables.lock",
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_hostPath_type": "FileOrCreate"
+                            }
+                        },
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_name": "kube-dns-config",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap_name": "kube-dns",
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap_optional": true
+                            }
+                        },
+                        {
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_name": "config-volume",
+                            "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap": {
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap_name": "node-local-dns",
+                                "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap_items": [
+                                    {
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap_items_key": "Corefile",
+                                        "io_k8s_api_apps_v1_DaemonSet_spec_template_spec_volumes_configMap_items_path": "Corefile.base"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
