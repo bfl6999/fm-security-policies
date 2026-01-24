@@ -17,7 +17,7 @@ ROOT_PARENT = ROOT.parent # carpeta anterior a la raiz/
 FM_PATH = ROOT / "variability_model" / "policies_template" / "policy_structure04.uvl"
 VALID_JSONS_DIR = ROOT_PARENT / "valid_jsons" ## valid_jsons jsons_testing
 
-OUTPUT_CSV = ROOT / "evaluation" / "validation_results_valid_jsons04.csv" ## Output csv
+OUTPUT_CSV = ROOT / "evaluation" / "validation_results_valid_jsons04_01.csv" ## Output csv
 VALIDATE_ONLY_FIRST_CONFIG = True
 
 
@@ -141,19 +141,28 @@ def validate_all_configs(flat_model, sat_model, sat_features, processed_files):
     constraint_kinds_map = extract_policy_kinds_from_constraints(FM_PATH)
     #suffix_map = build_suffix_index(sat_features) ## Dict para las coincidencias con los features del flatten
 
-    with open(OUTPUT_CSV, mode='w', newline='') as f:
+    file_exists = os.path.exists(OUTPUT_CSV) and os.path.getsize(OUTPUT_CSV) > 0
+    
+    with open(OUTPUT_CSV, mode='a', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(["Filename", "Secure", "TimeVal", "TimeConf","PoliciesApplied", "ToolPolicy", "Severity", "Features", "Configurations", "Description"])
+        if not file_exists:
+            writer.writerow(["Filename", "Secure", "TimeVal", "TimeConf","PoliciesApplied", "ToolPolicy", "Severity", "Features", "Configurations", "Description"])
 
         valid_count = invalid_count = error_count = 0
 
         for filename in os.listdir(VALID_JSONS_DIR):
             if not filename.endswith(".json"):
                 continue
+            
+            if filename in processed_files:
+                print(f"Saltando (ya procesado): {filename}")
+                continue
+            
             json_path = os.path.join(VALID_JSONS_DIR, filename)
             result = validate_single_json(json_path, flat_model, sat_model, sat_features, constraint_kinds_map)
             writer.writerow(result)
-
+            processed_files.add(filename)
+            
             state = str(result[1]).lower()
             if state == "true":
                 valid_count += 1
@@ -161,11 +170,12 @@ def validate_all_configs(flat_model, sat_model, sat_features, processed_files):
                 invalid_count += 1
             else:
                 error_count += 1
-        writer.writerow([])  # línea en blanco
+                
+        """writer.writerow([])  # línea en blanco
         writer.writerow(["Resumen", "", "", "", "", "", "", "", "", ""])
         writer.writerow(["Configuraciones sin errores", valid_count])
         writer.writerow(["Configuraciones con errores de Seguridad", invalid_count])
-        writer.writerow(["Archivos sin políticas aplicables", error_count])
+        writer.writerow(["Archivos sin políticas aplicables", error_count])"""
     print("\n=== RESUMEN FINAL ===")
     print(f"Archivos válidos:   {valid_count}")
     print(f"Archivos inválidos: {invalid_count}")
