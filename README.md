@@ -27,7 +27,7 @@ YAML configurations can then be mapped and validated against the model.
 2. Clone this repository and enter the project folder:
   ```bash
   git clone https://github.com/CAOSD-group/fm-security-policies.git
-  cd fm-json-kubernetes
+  cd fm-security-policies
   ```
 3. Create a virtual environment:
 
